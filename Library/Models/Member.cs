@@ -6,15 +6,18 @@ using System.Web;
 
 namespace Library.Models
 {
-    public class Author
+    class Member
     {
         [Key]
         public int Id { get; set; }
 
         [Required]
+        public string PersonalNumber { get; set; }
+
+        [Required]
         public string Name { get; set; }
 
-        public virtual ICollection<Book> Books { get; set; }
+        public virtual ICollection<Loan> Loans { get; set; }
 
         public override string ToString()
         {

@@ -6,19 +6,16 @@ using System.Web;
 
 namespace Library.Models
 {
-    public class Author
+    public class BookCopy
     {
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        public string Name { get; set; }
-
-        public virtual ICollection<Book> Books { get; set; }
+        public virtual Book Book { get; set; }
 
         public override string ToString()
         {
-            return this.Name;
+            return String.Format("Copy of {0}", this.Book == null ? "null" : this.Book.Title);
         }
     }
 }

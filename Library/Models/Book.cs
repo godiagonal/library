@@ -10,13 +10,19 @@ namespace Library.Models
     {
         [Key]
         public int Id { get; set; }
+
         [Required]
         public string Title { get; set; }
-        public virtual ICollection<Author> Author { get; set; }
+
+        public string Description { get; set; }
+
+        public string ISBN { get; set; }
+
+        public virtual Author Author { get; set; }
 
         public override string ToString()
         {
-            return String.Format("[{0}] -- {1}", this.Id, this.Title);
+            return this.Title;
         }
     }
 }
