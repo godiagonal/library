@@ -11,14 +11,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Library {
-    public partial class LibraryForm : Form {
+namespace Library
+{
+    public partial class LibraryForm : Form
+    {
 
         BookService _bookService;
 
-        public LibraryForm() {
+        public LibraryForm()
+        {
             InitializeComponent();
-            
+
             RepositoryFactory repoFactory = new RepositoryFactory();
 
             _bookService = new BookService(repoFactory);
@@ -26,8 +29,10 @@ namespace Library {
             ListAllBooks();
         }
 
-        private void ListAllBooks() {
-            foreach (Book book in _bookService.All()) {
+        private void ListAllBooks()
+        {
+            foreach (Book book in _bookService.All())
+            {
                 lbBooks.Items.Add(book);
             }
         }

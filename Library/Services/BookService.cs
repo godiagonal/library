@@ -6,7 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Library.Services {
+namespace Library.Services
+{
     class BookService
     {
         BookRepository _bookRepository;
@@ -19,6 +20,6 @@ namespace Library.Services {
         public IEnumerable<Book> All()
         {
             return _bookRepository.All();
-        } 
+        }
     }
 }
