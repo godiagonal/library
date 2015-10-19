@@ -64,8 +64,10 @@
       <DependentUpon>LibraryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Author.cs" />
+    <Compile Include="Models\BookCopy.cs" />
     <Compile Include="Models\ContextSingleton.cs" />
     <Compile Include="Models\LibraryDbInit.cs" />
+    <Compile Include="Models\Member.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
