@@ -10,10 +10,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework;
 
 namespace Library
 {
-    public partial class LibraryForm : Form
+    public partial class LibraryForm : MetroFramework.Forms.MetroForm
     {
 
         BookService _bookService;
@@ -33,7 +34,7 @@ namespace Library
         {
             foreach (Book book in _bookService.All())
             {
-                lbBooks.Items.Add(book);
+                lb_BookResults.Items.Add(book);
             }
         }
     }

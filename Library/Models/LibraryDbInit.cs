@@ -15,10 +15,12 @@ namespace Library.Models
         protected override void Seed(LibraryContext context)
         {
             base.Seed(context);
+
             Author alexDumas = new Author()
             {
                 Name = "Alexandre Dumas"
             };
+
             Book monteCristo = new Book()
             {
                 Title = "The Count of Monte Cristo",
@@ -26,15 +28,18 @@ namespace Library.Models
                 ISBN = "12134324325",
                 Description = "Lorem ipsum"
             };
+
             BookCopy monteCristo1 = new BookCopy()
             {
                 Book = monteCristo
             };
+
             Member samuelJ = new Member()
             {
                 Name = "Samuel Johansson",
                 PersonalNumber = "5465421"
             };
+
             Loan loan1 = new Loan()
             {
                 Member = samuelJ,
@@ -42,7 +47,9 @@ namespace Library.Models
                 BookCopy = monteCristo1,
                 DueDate = DateTime.Now.AddDays(15)
             };
+
             samuelJ.Loans = new List<Loan>() { loan1 };
+            
             // Add the book to the DbSet of books.
             context.Books.Add(monteCristo);
             context.BookCopies.Add(monteCristo1);

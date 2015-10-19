@@ -31,7 +31,9 @@ namespace Library.Services
                 ISBN = isbn,
                 Author = author
             };
+
             _bookRepository.Add(book);
+
             OnUpdated(new EventArgs());
         }
 
