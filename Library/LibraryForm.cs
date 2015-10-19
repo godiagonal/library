@@ -10,13 +10,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MetroFramework;
 
 namespace Library
 {
     public partial class LibraryForm : MetroFramework.Forms.MetroForm
     {
-
         BookService _bookService;
 
         public LibraryForm()
@@ -32,10 +30,7 @@ namespace Library
 
         private void ListAllBooks()
         {
-            foreach (Book book in _bookService.All())
-            {
-                lb_BookResults.Items.Add(book);
-            }
+            grd_BookResults.DataSource = _bookService.All().Select(x => new { Value = x }).ToList();
         }
     }
 }

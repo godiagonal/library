@@ -28,163 +28,209 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lb_BookResults = new System.Windows.Forms.ListBox();
-            this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
-            this.tab_Books = new MetroFramework.Controls.MetroTabPage();
-            this.btn_BookAdd = new MetroFramework.Controls.MetroButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.tab_Members = new MetroFramework.Controls.MetroTabPage();
-            this.tab_Loans = new MetroFramework.Controls.MetroTabPage();
-            this.txt_BookSearch = new MetroFramework.Controls.MetroTextBox();
-            this.btn_AuthorAdd = new MetroFramework.Controls.MetroButton();
-            this.button1 = new System.Windows.Forms.Button();
-            this.metroTabControl1.SuspendLayout();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.pnl_Members = new MetroFramework.Controls.MetroTabControl();
+            this.tab_Books = new System.Windows.Forms.TabPage();
+            this.tab_Members = new System.Windows.Forms.TabPage();
+            this.tab_Loans = new System.Windows.Forms.TabPage();
+            this.htmlToolTip1 = new MetroFramework.Drawing.Html.HtmlToolTip();
+            this.pnl_Books = new MetroFramework.Controls.MetroPanel();
+            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.pnl_Loans = new MetroFramework.Controls.MetroPanel();
+            this.grd_BookResults = new MetroFramework.Controls.MetroGrid();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.pnl_Members.SuspendLayout();
             this.tab_Books.SuspendLayout();
+            this.tab_Members.SuspendLayout();
+            this.tab_Loans.SuspendLayout();
+            this.pnl_Books.SuspendLayout();
+            this.metroPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grd_BookResults)).BeginInit();
             this.SuspendLayout();
             // 
-            // lb_BookResults
+            // pnl_Members
             // 
-            this.lb_BookResults.FormattingEnabled = true;
-            this.lb_BookResults.Location = new System.Drawing.Point(3, 69);
-            this.lb_BookResults.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
-            this.lb_BookResults.Name = "lb_BookResults";
-            this.lb_BookResults.Size = new System.Drawing.Size(310, 199);
-            this.lb_BookResults.TabIndex = 0;
-            // 
-            // metroTabControl1
-            // 
-            this.metroTabControl1.Controls.Add(this.tab_Books);
-            this.metroTabControl1.Controls.Add(this.tab_Members);
-            this.metroTabControl1.Controls.Add(this.tab_Loans);
-            this.metroTabControl1.ItemSize = new System.Drawing.Size(100, 40);
-            this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
-            this.metroTabControl1.Multiline = true;
-            this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(740, 490);
-            this.metroTabControl1.TabIndex = 2;
+            this.pnl_Members.Controls.Add(this.tab_Books);
+            this.pnl_Members.Controls.Add(this.tab_Members);
+            this.pnl_Members.Controls.Add(this.tab_Loans);
+            this.pnl_Members.Location = new System.Drawing.Point(23, 63);
+            this.pnl_Members.Name = "pnl_Members";
+            this.pnl_Members.SelectedIndex = 1;
+            this.pnl_Members.Size = new System.Drawing.Size(740, 490);
+            this.pnl_Members.TabIndex = 2;
+            this.pnl_Members.UseSelectable = true;
             // 
             // tab_Books
             // 
-            this.tab_Books.Controls.Add(this.button1);
-            this.tab_Books.Controls.Add(this.btn_AuthorAdd);
-            this.tab_Books.Controls.Add(this.txt_BookSearch);
-            this.tab_Books.Controls.Add(this.btn_BookAdd);
-            this.tab_Books.Controls.Add(this.comboBox1);
-            this.tab_Books.Controls.Add(this.lb_BookResults);
-            this.tab_Books.HorizontalScrollbarBarColor = true;
-            this.tab_Books.Location = new System.Drawing.Point(4, 44);
+            this.tab_Books.BackColor = System.Drawing.Color.Transparent;
+            this.tab_Books.Controls.Add(this.pnl_Books);
+            this.tab_Books.Location = new System.Drawing.Point(4, 38);
             this.tab_Books.Name = "tab_Books";
-            this.tab_Books.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.tab_Books.Size = new System.Drawing.Size(732, 442);
-            this.tab_Books.TabIndex = 1;
+            this.tab_Books.Size = new System.Drawing.Size(732, 448);
+            this.tab_Books.TabIndex = 0;
             this.tab_Books.Text = "Books";
-            this.tab_Books.VerticalScrollbarBarColor = true;
-            // 
-            // btn_BookAdd
-            // 
-            this.btn_BookAdd.Location = new System.Drawing.Point(3, 281);
-            this.btn_BookAdd.Name = "btn_BookAdd";
-            this.btn_BookAdd.Size = new System.Drawing.Size(121, 30);
-            this.btn_BookAdd.TabIndex = 4;
-            this.btn_BookAdd.Text = "Add new book";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "asdf",
-            "fdsa",
-            "fasdfasdf",
-            "asdf"});
-            this.comboBox1.Location = new System.Drawing.Point(471, 135);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 3;
             // 
             // tab_Members
             // 
-            this.tab_Members.HorizontalScrollbarBarColor = true;
-            this.tab_Members.Location = new System.Drawing.Point(4, 44);
+            this.tab_Members.BackColor = System.Drawing.Color.Transparent;
+            this.tab_Members.Controls.Add(this.metroPanel1);
+            this.tab_Members.Location = new System.Drawing.Point(4, 38);
             this.tab_Members.Name = "tab_Members";
-            this.tab_Members.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.tab_Members.Size = new System.Drawing.Size(732, 442);
-            this.tab_Members.TabIndex = 0;
+            this.tab_Members.Size = new System.Drawing.Size(732, 448);
+            this.tab_Members.TabIndex = 1;
             this.tab_Members.Text = "Members";
-            this.tab_Members.VerticalScrollbarBarColor = true;
             // 
             // tab_Loans
             // 
-            this.tab_Loans.HorizontalScrollbarBarColor = true;
-            this.tab_Loans.Location = new System.Drawing.Point(4, 44);
+            this.tab_Loans.BackColor = System.Drawing.Color.Transparent;
+            this.tab_Loans.Controls.Add(this.pnl_Loans);
+            this.tab_Loans.Location = new System.Drawing.Point(4, 38);
             this.tab_Loans.Name = "tab_Loans";
-            this.tab_Loans.Padding = new System.Windows.Forms.Padding(0, 30, 0, 0);
-            this.tab_Loans.Size = new System.Drawing.Size(732, 442);
-            this.tab_Loans.TabIndex = 3;
+            this.tab_Loans.Size = new System.Drawing.Size(732, 448);
+            this.tab_Loans.TabIndex = 2;
             this.tab_Loans.Text = "Loans";
-            this.tab_Loans.VerticalScrollbarBarColor = true;
             // 
-            // txt_BookSearch
+            // htmlToolTip1
             // 
-            this.txt_BookSearch.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.txt_BookSearch.Location = new System.Drawing.Point(3, 33);
-            this.txt_BookSearch.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
-            this.txt_BookSearch.Name = "txt_BookSearch";
-            this.txt_BookSearch.PromptText = "Type to search for books and authors";
-            this.txt_BookSearch.Size = new System.Drawing.Size(310, 30);
-            this.txt_BookSearch.TabIndex = 5;
+            this.htmlToolTip1.OwnerDraw = true;
             // 
-            // btn_AuthorAdd
+            // pnl_Books
             // 
-            this.btn_AuthorAdd.Location = new System.Drawing.Point(173, 281);
-            this.btn_AuthorAdd.Name = "btn_AuthorAdd";
-            this.btn_AuthorAdd.Size = new System.Drawing.Size(119, 23);
-            this.btn_AuthorAdd.TabIndex = 6;
-            this.btn_AuthorAdd.Text = "Add new author";
+            this.pnl_Books.Controls.Add(this.grd_BookResults);
+            this.pnl_Books.Controls.Add(this.metroComboBox1);
+            this.pnl_Books.HorizontalScrollbarBarColor = true;
+            this.pnl_Books.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnl_Books.HorizontalScrollbarSize = 10;
+            this.pnl_Books.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Books.Name = "pnl_Books";
+            this.pnl_Books.Size = new System.Drawing.Size(732, 448);
+            this.pnl_Books.TabIndex = 0;
+            this.pnl_Books.VerticalScrollbarBarColor = true;
+            this.pnl_Books.VerticalScrollbarHighlightOnWheel = false;
+            this.pnl_Books.VerticalScrollbarSize = 10;
             // 
-            // button1
+            // metroComboBox1
             // 
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Location = new System.Drawing.Point(3, 317);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 30);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "New book";
-            this.button1.UseVisualStyleBackColor = true;
+            this.metroComboBox1.FormattingEnabled = true;
+            this.metroComboBox1.ItemHeight = 23;
+            this.metroComboBox1.Location = new System.Drawing.Point(143, 140);
+            this.metroComboBox1.Name = "metroComboBox1";
+            this.metroComboBox1.Size = new System.Drawing.Size(121, 29);
+            this.metroComboBox1.TabIndex = 2;
+            this.metroComboBox1.UseSelectable = true;
+            // 
+            // metroPanel1
+            // 
+            this.metroPanel1.Controls.Add(this.metroButton1);
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(0, 0);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(732, 448);
+            this.metroPanel1.TabIndex = 0;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // pnl_Loans
+            // 
+            this.pnl_Loans.HorizontalScrollbarBarColor = true;
+            this.pnl_Loans.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnl_Loans.HorizontalScrollbarSize = 10;
+            this.pnl_Loans.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Loans.Name = "pnl_Loans";
+            this.pnl_Loans.Size = new System.Drawing.Size(732, 448);
+            this.pnl_Loans.TabIndex = 0;
+            this.pnl_Loans.VerticalScrollbarBarColor = true;
+            this.pnl_Loans.VerticalScrollbarHighlightOnWheel = false;
+            this.pnl_Loans.VerticalScrollbarSize = 10;
+            // 
+            // grd_BookResults
+            // 
+            this.grd_BookResults.AllowUserToResizeRows = false;
+            this.grd_BookResults.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.grd_BookResults.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.grd_BookResults.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_BookResults.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.grd_BookResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grd_BookResults.DefaultCellStyle = dataGridViewCellStyle2;
+            this.grd_BookResults.EnableHeadersVisualStyles = false;
+            this.grd_BookResults.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.grd_BookResults.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.grd_BookResults.Location = new System.Drawing.Point(72, 173);
+            this.grd_BookResults.Name = "grd_BookResults";
+            this.grd_BookResults.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_BookResults.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.grd_BookResults.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.grd_BookResults.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grd_BookResults.Size = new System.Drawing.Size(240, 150);
+            this.grd_BookResults.TabIndex = 3;
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(323, 170);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(75, 23);
+            this.metroButton1.TabIndex = 2;
+            this.metroButton1.Text = "metroButton1";
+            this.metroButton1.UseSelectable = true;
             // 
             // LibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(786, 576);
-            this.Controls.Add(this.metroTabControl1);
+            this.Controls.Add(this.pnl_Members);
             this.Name = "LibraryForm";
             this.Text = "The library";
-            this.metroTabControl1.ResumeLayout(false);
+            this.pnl_Members.ResumeLayout(false);
             this.tab_Books.ResumeLayout(false);
+            this.tab_Members.ResumeLayout(false);
+            this.tab_Loans.ResumeLayout(false);
+            this.pnl_Books.ResumeLayout(false);
+            this.metroPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grd_BookResults)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox lb_BookResults;
-        private MetroFramework.Controls.MetroTabControl metroTabControl1;
-        private MetroFramework.Controls.MetroTabPage tab_Members;
-        private MetroFramework.Controls.MetroTabPage tab_Books;
-        private MetroFramework.Controls.MetroTabPage tab_Loans;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private MetroFramework.Controls.MetroButton btn_BookAdd;
-        private MetroFramework.Controls.MetroTextBox txt_BookSearch;
-        private MetroFramework.Controls.MetroButton btn_AuthorAdd;
-        private System.Windows.Forms.Button button1;
+        private MetroFramework.Controls.MetroTabControl pnl_Members;
+        private System.Windows.Forms.TabPage tab_Books;
+        private System.Windows.Forms.TabPage tab_Members;
+        private System.Windows.Forms.TabPage tab_Loans;
+        private MetroFramework.Drawing.Html.HtmlToolTip htmlToolTip1;
+        private MetroFramework.Controls.MetroPanel pnl_Books;
+        private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroPanel pnl_Loans;
+        private MetroFramework.Controls.MetroGrid grd_BookResults;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }
 
