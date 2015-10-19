@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Library.Models
 {
-    class Loan
+    public class Loan
     {
         [Key]
         public int Id { get; set; }
