@@ -68,7 +68,7 @@ namespace Library
             {
                 Bitmap availableIcon;
 
-                if (book.BookCopies.Count > 0)
+                if (book.Available)
                     availableIcon = new Bitmap(global::Library.Properties.Resources.icon_check, 20, 20);
                 else
                     availableIcon = new Bitmap(global::Library.Properties.Resources.icon_cross, 18, 18);
@@ -99,13 +99,12 @@ namespace Library
 
             foreach (BookCopy bookCopy in bookCopies)
             {
-                /*Bitmap availableIcon;
+                Bitmap availableIcon;
 
-                if (bookCopy.Loans..BookCopies.Count > 0)
+                if (bookCopy.CurrentLoan == null)
                     availableIcon = new Bitmap(global::Library.Properties.Resources.icon_check, 20, 20);
                 else
                     availableIcon = new Bitmap(global::Library.Properties.Resources.icon_cross, 18, 18);
-                    */
 
                 DataGridViewRow row = new DataGridViewRow();
 
@@ -113,15 +112,15 @@ namespace Library
                 id.Value = bookCopy.Id;
 
                 DataGridViewImageCell available = new DataGridViewImageCell();
-                available.Value = new Bitmap(global::Library.Properties.Resources.icon_check, 20, 20);
+                available.Value = availableIcon;
 
-                /*DataGridViewTextBoxCell member = new DataGridViewTextBoxCell();
-                member.Value = bookCopy.L;
+                DataGridViewTextBoxCell member = new DataGridViewTextBoxCell();
+                member.Value = bookCopy.CurrentLoan == null ? "" : bookCopy.CurrentLoan.Member.Name;
 
-                DataGridViewTextBoxCell author = new DataGridViewTextBoxCell();
-                author.Value = book.Author == null ? "" : book.Author.Name;*/
+                DataGridViewTextBoxCell dueDate = new DataGridViewTextBoxCell();
+                dueDate.Value = bookCopy.CurrentLoan == null ? "" : bookCopy.CurrentLoan.DueDate.ToShortDateString();
 
-                row.Cells.AddRange(new DataGridViewCell[] { id, available });
+                row.Cells.AddRange(new DataGridViewCell[] { id, available, member, dueDate });
 
                 grd_BookCopies.Rows.Add(row);
             }

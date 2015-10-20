@@ -24,7 +24,11 @@ namespace Library.Models
                 var loan = Loans.FirstOrDefault(l => l.TimeOfReturn == null);
                 return loan;
             }
-            private set;
+
+            private set
+            {
+                
+            }
         }
 
         public override string ToString()

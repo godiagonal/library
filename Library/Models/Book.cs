@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -22,6 +23,7 @@ namespace Library.Models
 
         public virtual ICollection<BookCopy> BookCopies { get; set; }
 
+        [NotMapped]
         public bool Available
         {
             get

@@ -16,6 +16,13 @@ namespace Library.Models
         {
             base.Seed(context);
 
+
+            Member samuelJ = new Member()
+            {
+                Name = "Samuel Johansson",
+                PersonalNumber = "5465421"
+            };
+
             Author alexDumas = new Author()
             {
                 Name = "Alexandre Dumas"
@@ -26,7 +33,7 @@ namespace Library.Models
                 Title = "The Count of Monte Cristo",
                 Author = alexDumas,
                 ISBN = "12134324325",
-                Description = "Lorem ipsum"
+                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta nunc at nulla rutrum cursus. Aliquam ac tempus odio. Proin in ante orci. Vestibulum gravida risus sed justo dignissim, vel venenatis velit tempor. Morbi venenatis, lectus in tempus accumsan, nunc ex pretium neque, ut fringilla dolor libero et nibh. Nunc nec eros leo. Quisque arcu sapien, suscipit dictum urna sed, commodo vehicula diam."
             };
 
             Book book2 = new Book()
@@ -42,10 +49,9 @@ namespace Library.Models
                 Book = monteCristo
             };
 
-            Member samuelJ = new Member()
+            BookCopy monteCristo2 = new BookCopy()
             {
-                Name = "Samuel Johansson",
-                PersonalNumber = "5465421"
+                Book = monteCristo
             };
 
             Loan loan1 = new Loan()
@@ -56,14 +62,34 @@ namespace Library.Models
                 DueDate = DateTime.Now.AddDays(15)
             };
 
-            samuelJ.Loans = new List<Loan>() { loan1 };
+            Loan loan2 = new Loan()
+            {
+                Member = samuelJ,
+                TimeOfLoan = DateTime.Now,
+                BookCopy = monteCristo1,
+                DueDate = DateTime.Now,
+                TimeOfReturn = DateTime.Now
+            };
+
+            Loan loan3 = new Loan()
+            {
+                Member = samuelJ,
+                TimeOfLoan = DateTime.Now,
+                BookCopy = monteCristo2,
+                DueDate = DateTime.Now
+            };
+
+            samuelJ.Loans = new List<Loan>() { loan1, loan2, loan3 };
             
             // Add the book to the DbSet of books.
             context.Books.Add(monteCristo);
             context.Books.Add(book2);
             context.BookCopies.Add(monteCristo1);
+            context.BookCopies.Add(monteCristo2);
             context.Members.Add(samuelJ);
             context.Loans.Add(loan1);
+            context.Loans.Add(loan2);
+            context.Loans.Add(loan3);
             context.Authors.Add(alexDumas);
 
             // Persist changes to the database
