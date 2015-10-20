@@ -37,6 +37,11 @@ namespace Library.Services
             OnUpdated(new EventArgs());
         }
 
+        public Book Find(int id)
+        {
+            return _bookRepository.Find(id);
+        }
+
         public event EventHandler Updated;
 
         protected virtual void OnUpdated(EventArgs e)

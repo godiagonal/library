@@ -20,6 +20,8 @@ namespace Library.Models
 
         public virtual Author Author { get; set; }
 
+        public virtual ICollection<BookCopy> BookCopies { get; set; }
+
         public override string ToString()
         {
             return this.Title;

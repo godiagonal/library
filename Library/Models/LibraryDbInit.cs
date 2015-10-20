@@ -29,6 +29,14 @@ namespace Library.Models
                 Description = "Lorem ipsum"
             };
 
+            Book book2 = new Book()
+            {
+                Title = "Testboken hallåa gallåasdfpg43 34t ddfa",
+                Author = alexDumas,
+                ISBN = "543252345453",
+                Description = "Lorem ipsum"
+            };
+
             BookCopy monteCristo1 = new BookCopy()
             {
                 Book = monteCristo
@@ -52,6 +60,7 @@ namespace Library.Models
             
             // Add the book to the DbSet of books.
             context.Books.Add(monteCristo);
+            context.Books.Add(book2);
             context.BookCopies.Add(monteCristo1);
             context.Members.Add(samuelJ);
             context.Loans.Add(loan1);
