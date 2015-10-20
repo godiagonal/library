@@ -22,6 +22,19 @@ namespace Library.Models
 
         public virtual ICollection<BookCopy> BookCopies { get; set; }
 
+        public bool Available
+        {
+            get
+            {
+                var a = BookCopies.FirstOrDefault(b => b.CurrentLoan == null );
+                return a == null ? false : true;
+            }
+            private set
+            {
+
+            }
+        }
+
         public override string ToString()
         {
             return this.Title;
