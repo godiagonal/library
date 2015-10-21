@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -22,6 +23,19 @@ namespace Library.Models
         public override string ToString()
         {
             return this.Name;
+        }
+        [NotMapped]
+        public bool ActiveLoans
+        {
+            get
+            {
+                var a = Loans.FirstOrDefault(l => l.TimeOfReturn == null);
+                return a == null ? true : false;
+            }
+            private set
+            {
+
+            }
         }
     }
 }
