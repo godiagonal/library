@@ -152,17 +152,13 @@
             this.cbx_BookAuthor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbx_BookAuthor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbx_BookAuthor.FormattingEnabled = true;
-            this.cbx_BookAuthor.Items.AddRange(new object[] {
-            "test",
-            "lol",
-            "asdf",
-            "rara"});
             this.cbx_BookAuthor.Location = new System.Drawing.Point(1, 1);
             this.cbx_BookAuthor.Margin = new System.Windows.Forms.Padding(0);
             this.cbx_BookAuthor.Name = "cbx_BookAuthor";
             this.cbx_BookAuthor.Size = new System.Drawing.Size(248, 25);
             this.cbx_BookAuthor.TabIndex = 15;
             this.cbx_BookAuthor.TextChanged += new System.EventHandler(this.cbx_BookAuthor_TextChanged);
+            this.cbx_BookAuthor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbx_BookAuthor_KeyUp);
             // 
             // metroPanel1
             // 
