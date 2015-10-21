@@ -141,5 +141,11 @@ namespace Library
             IEnumerable<Book> books = _bookService.Search(txt_BookSearch.Text, cbx_AvailableOnly.Checked);
             UpdateBooks(books);
         }
+
+        private void btn_NewBook_Click(object sender, EventArgs e)
+        {
+            var form = new NewBookForm(_bookService);
+            form.ShowDialog(this);
+        }
     }
 }
