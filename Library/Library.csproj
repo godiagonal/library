@@ -69,6 +69,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\DialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DialogForm.Designer.cs">
+      <DependentUpon>DialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewBookForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewBookForm.Designer.cs">
+      <DependentUpon>NewBookForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="LibraryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +110,12 @@
     <Compile Include="Services\AuthorService.cs" />
     <Compile Include="Services\BookService.cs" />
     <Compile Include="Services\IService.cs" />
+    <EmbeddedResource Include="Forms\DialogForm.resx">
+      <DependentUpon>DialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewBookForm.resx">
+      <DependentUpon>NewBookForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LibraryForm.resx">
       <DependentUpon>LibraryForm.cs</DependentUpon>
     </EmbeddedResource>
