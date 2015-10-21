@@ -15,22 +15,25 @@ namespace Library
     public partial class NewBookForm : MetroFramework.Forms.MetroForm
     {
         BookService _bookService;
+        AuthorService _authorService;
 
-        public NewBookForm(BookService bookService)
+        public NewBookForm(BookService bookService, AuthorService authorService)
         {
             InitializeComponent();
-
+            _authorService = authorService;
             _bookService = bookService;
         }
 
         private void btn_NewAuthor_Click(object sender, EventArgs e)
         {
             DialogForm form = new DialogForm("New author", "What's the name of the author?");
-
+            
             if (form.ShowDialog(this) == DialogResult.OK)
             {
+                cbx_BookAuthor.Text = form.Answer;
+                _authorService.Add(form.Answer);
                 // Spara författare här
-                MessageBox.Show("ok " + form.Answer);
+                //MessageBox.Show("ok " + form.Answer);
             }
             else
             {
@@ -44,6 +47,11 @@ namespace Library
             // Spara bok här
 
             this.Close();
+        }
+
+        private void cbx_BookAuthor_TextChanged(object sender, EventArgs e)
+        {
+            _authorService.Search(cbx_BookAuthor.Text);
         }
     }
 }

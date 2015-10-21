@@ -46,5 +46,12 @@ namespace Library.Services
             if (Updated != null)
                 Updated(this, e);
         }
+        public IEnumerable<Author> Search(string keyword)
+        {
+            var authors = _authorRepository.All();
+            if (keyword.Length != 0)
+                authors = authors.Where(a => a.Name.ToLower().Contains(keyword.ToLower()));
+            return authors;
+        }
     }
 }

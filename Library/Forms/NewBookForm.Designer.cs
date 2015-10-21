@@ -162,6 +162,7 @@
             this.cbx_BookAuthor.Name = "cbx_BookAuthor";
             this.cbx_BookAuthor.Size = new System.Drawing.Size(248, 25);
             this.cbx_BookAuthor.TabIndex = 15;
+            this.cbx_BookAuthor.TextChanged += new System.EventHandler(this.cbx_BookAuthor_TextChanged);
             // 
             // metroPanel1
             // 

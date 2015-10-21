@@ -17,6 +17,7 @@ namespace Library
     public partial class LibraryForm : MetroFramework.Forms.MetroForm
     {
         BookService _bookService;
+        AuthorService _authorService;
 
         public LibraryForm()
         {
@@ -25,6 +26,7 @@ namespace Library
             RepositoryFactory repoFactory = new RepositoryFactory();
 
             _bookService = new BookService(repoFactory);
+            _authorService = new AuthorService(repoFactory);
 
             ListAllBooks();
         }
@@ -144,7 +146,7 @@ namespace Library
 
         private void btn_NewBook_Click(object sender, EventArgs e)
         {
-            var form = new NewBookForm(_bookService);
+            var form = new NewBookForm(_bookService, _authorService);
             form.ShowDialog(this);
         }
     }
