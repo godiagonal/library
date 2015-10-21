@@ -24,7 +24,10 @@ namespace Library
             _bookService = bookService;
             cbx_BookAuthor_UpdateCollection();
         }
+        private void author_OnChange()
+        {
 
+        }
         //Snyggare att uppdatera med events?
         private void cbx_BookAuthor_UpdateCollection()
         {
@@ -41,6 +44,7 @@ namespace Library
                 _authorService.Add(form.Answer);
                 cbx_BookAuthor_UpdateCollection();
                 cbx_BookAuthor.Text = form.Answer;
+                MetroMessageBox.Show(this, form.Answer + " was successfully added to the list of authors");
             }
             else
             {
