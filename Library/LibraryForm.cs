@@ -35,29 +35,33 @@ namespace Library
 
             return;
 
-            foreach (Book book in _bookService.All())
-            {
-                grd_Books.Rows.Add(
-                    book.Id,
-                    book.Title,
-                    book.Author == null ? "" : book.Author.Name
-                );
-            }
+            //foreach (Book book in _bookService.All())
+            //{
+            //    grd_Books.Rows.Add(
+            //        book.Id,
+            //        book.Title,
+            //        book.Author == null ? "" : book.Author.Name
+            //    );
+            //}
         }
 
         private void grd_Books_SelectionChanged(object sender, EventArgs e)
         {
-            DataGridViewRow row = ((DataGridView)sender).SelectedRows[0];
-            Book book = _bookService.Find((int)row.Cells[0].Value);
+            if (grd_Books.SelectedRows.Count > 0)
+            {
+                 
+                DataGridViewRow row = grd_Books.SelectedRows[0];
+                Book book = _bookService.Find((int)row.Cells[0].Value);
 
-            lbl_BookTitle.Text = book.Title;
-            lbl_BookId.Text = book.Id.ToString();
-            lbl_BookISBN.Text = book.ISBN;
-            txt_BookDescription.Text = book.Description;
+                lbl_BookTitle.Text = book.Title;
+                lbl_BookId.Text = book.Id.ToString();
+                lbl_BookISBN.Text = book.ISBN;
+                txt_BookDescription.Text = book.Description;
             
-            UpdateBookCopies(book.BookCopies);
+                UpdateBookCopies(book.BookCopies);
 
-            pnl_SelectedBook.Visible = true;
+                pnl_SelectedBook.Visible = true;
+            }
         }
 
         private void UpdateBooks(IEnumerable<Book> books)
@@ -124,6 +128,18 @@ namespace Library
 
                 grd_BookCopies.Rows.Add(row);
             }
+        }
+
+        private void cbx_AvailableOnly_CheckedChanged(object sender, EventArgs e)
+        {
+            IEnumerable<Book> books = _bookService.Search(txt_BookSearch.Text, cbx_AvailableOnly.Checked);
+            UpdateBooks(books);
+        }
+
+        private void txt_BookSearch_TextChanged(object sender, EventArgs e)
+        {
+            IEnumerable<Book> books = _bookService.Search(txt_BookSearch.Text, cbx_AvailableOnly.Checked);
+            UpdateBooks(books);
         }
     }
 }

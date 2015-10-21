@@ -30,40 +30,18 @@ namespace Library
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbc_Main = new MetroFramework.Controls.MetroTabControl();
             this.tab_Books = new System.Windows.Forms.TabPage();
             this.pnl_Books = new MetroFramework.Controls.MetroPanel();
-            this.btn_NewAuthor = new MetroFramework.Controls.MetroButton();
-            this.btn_NewBook = new MetroFramework.Controls.MetroButton();
-            this.pnl_SelectedBook = new MetroFramework.Controls.MetroPanel();
-            this.txt_BookDescription = new System.Windows.Forms.TextBox();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.lbl_BookISBN = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.lbl_BookId = new MetroFramework.Controls.MetroLabel();
-            this.lbl_BookTitle = new MetroFramework.Controls.MetroLabel();
-            this.txt_BookSearch = new MetroFramework.Controls.MetroTextBox();
-            this.grd_Books = new MetroFramework.Controls.MetroGrid();
-            this.tab_Members = new System.Windows.Forms.TabPage();
-            this.pnl_Members = new MetroFramework.Controls.MetroPanel();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.tab_Loans = new System.Windows.Forms.TabPage();
-            this.pnl_Loans = new MetroFramework.Controls.MetroPanel();
-            this.grd_BookCopies = new MetroFramework.Controls.MetroGrid();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.btn_MakeLoan = new MetroFramework.Controls.MetroButton();
-            this.btn_AddCopy = new MetroFramework.Controls.MetroButton();
-            this.btn_ReturnLoan = new MetroFramework.Controls.MetroButton();
-            this.cbx_AvailableOnly = new MetroFramework.Controls.MetroCheckBox();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
@@ -81,27 +59,49 @@ namespace Library
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
+            this.cbx_AvailableOnly = new MetroFramework.Controls.MetroCheckBox();
+            this.btn_NewAuthor = new MetroFramework.Controls.MetroButton();
+            this.btn_NewBook = new MetroFramework.Controls.MetroButton();
+            this.pnl_SelectedBook = new MetroFramework.Controls.MetroPanel();
+            this.btn_ReturnLoan = new MetroFramework.Controls.MetroButton();
+            this.btn_AddCopy = new MetroFramework.Controls.MetroButton();
+            this.btn_MakeLoan = new MetroFramework.Controls.MetroButton();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.grd_BookCopies = new MetroFramework.Controls.MetroGrid();
             this.bookCopies_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookCopies_Available = new System.Windows.Forms.DataGridViewImageColumn();
             this.bookCopies_Member = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookCopies_DueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bookCopies_Blank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_BookDescription = new System.Windows.Forms.TextBox();
+            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
+            this.lbl_BookISBN = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.lbl_BookId = new MetroFramework.Controls.MetroLabel();
+            this.lbl_BookTitle = new MetroFramework.Controls.MetroLabel();
+            this.txt_BookSearch = new MetroFramework.Controls.MetroTextBox();
+            this.grd_Books = new MetroFramework.Controls.MetroGrid();
             this.books_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.books_Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.books_Author = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.books_Available = new System.Windows.Forms.DataGridViewImageColumn();
             this.books_Blank = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tab_Members = new System.Windows.Forms.TabPage();
+            this.pnl_Members = new MetroFramework.Controls.MetroPanel();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.tab_Loans = new System.Windows.Forms.TabPage();
+            this.pnl_Loans = new MetroFramework.Controls.MetroPanel();
             this.tbc_Main.SuspendLayout();
             this.tab_Books.SuspendLayout();
             this.pnl_Books.SuspendLayout();
+            this.metroPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.pnl_SelectedBook.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grd_BookCopies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd_Books)).BeginInit();
             this.tab_Members.SuspendLayout();
             this.pnl_Members.SuspendLayout();
             this.tab_Loans.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grd_BookCopies)).BeginInit();
-            this.metroPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbc_Main
@@ -148,417 +148,6 @@ namespace Library
             this.pnl_Books.VerticalScrollbarBarColor = true;
             this.pnl_Books.VerticalScrollbarHighlightOnWheel = false;
             this.pnl_Books.VerticalScrollbarSize = 10;
-            // 
-            // btn_NewAuthor
-            // 
-            this.btn_NewAuthor.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btn_NewAuthor.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btn_NewAuthor.Location = new System.Drawing.Point(110, 485);
-            this.btn_NewAuthor.Margin = new System.Windows.Forms.Padding(0, 20, 10, 0);
-            this.btn_NewAuthor.Name = "btn_NewAuthor";
-            this.btn_NewAuthor.Size = new System.Drawing.Size(100, 30);
-            this.btn_NewAuthor.TabIndex = 8;
-            this.btn_NewAuthor.Text = "New author";
-            this.btn_NewAuthor.UseSelectable = true;
-            // 
-            // btn_NewBook
-            // 
-            this.btn_NewBook.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btn_NewBook.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btn_NewBook.Location = new System.Drawing.Point(0, 485);
-            this.btn_NewBook.Margin = new System.Windows.Forms.Padding(0, 20, 10, 0);
-            this.btn_NewBook.Name = "btn_NewBook";
-            this.btn_NewBook.Size = new System.Drawing.Size(100, 30);
-            this.btn_NewBook.TabIndex = 6;
-            this.btn_NewBook.Text = "New book";
-            this.btn_NewBook.UseSelectable = true;
-            // 
-            // pnl_SelectedBook
-            // 
-            this.pnl_SelectedBook.BackColor = System.Drawing.Color.Transparent;
-            this.pnl_SelectedBook.Controls.Add(this.btn_ReturnLoan);
-            this.pnl_SelectedBook.Controls.Add(this.btn_AddCopy);
-            this.pnl_SelectedBook.Controls.Add(this.btn_MakeLoan);
-            this.pnl_SelectedBook.Controls.Add(this.metroLabel5);
-            this.pnl_SelectedBook.Controls.Add(this.grd_BookCopies);
-            this.pnl_SelectedBook.Controls.Add(this.txt_BookDescription);
-            this.pnl_SelectedBook.Controls.Add(this.metroLabel6);
-            this.pnl_SelectedBook.Controls.Add(this.lbl_BookISBN);
-            this.pnl_SelectedBook.Controls.Add(this.metroLabel3);
-            this.pnl_SelectedBook.Controls.Add(this.lbl_BookId);
-            this.pnl_SelectedBook.Controls.Add(this.lbl_BookTitle);
-            this.pnl_SelectedBook.HorizontalScrollbarBarColor = true;
-            this.pnl_SelectedBook.HorizontalScrollbarHighlightOnWheel = false;
-            this.pnl_SelectedBook.HorizontalScrollbarSize = 10;
-            this.pnl_SelectedBook.Location = new System.Drawing.Point(411, 0);
-            this.pnl_SelectedBook.Name = "pnl_SelectedBook";
-            this.pnl_SelectedBook.Size = new System.Drawing.Size(410, 515);
-            this.pnl_SelectedBook.TabIndex = 5;
-            this.pnl_SelectedBook.UseCustomBackColor = true;
-            this.pnl_SelectedBook.VerticalScrollbarBarColor = true;
-            this.pnl_SelectedBook.VerticalScrollbarHighlightOnWheel = false;
-            this.pnl_SelectedBook.VerticalScrollbarSize = 10;
-            this.pnl_SelectedBook.Visible = false;
-            // 
-            // txt_BookDescription
-            // 
-            this.txt_BookDescription.BackColor = System.Drawing.Color.White;
-            this.txt_BookDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_BookDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_BookDescription.Location = new System.Drawing.Point(27, 177);
-            this.txt_BookDescription.Margin = new System.Windows.Forms.Padding(20, 5, 20, 0);
-            this.txt_BookDescription.Multiline = true;
-            this.txt_BookDescription.Name = "txt_BookDescription";
-            this.txt_BookDescription.ReadOnly = true;
-            this.txt_BookDescription.Size = new System.Drawing.Size(383, 88);
-            this.txt_BookDescription.TabIndex = 7;
-            this.txt_BookDescription.Text = "#description";
-            // 
-            // metroLabel6
-            // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel6.Location = new System.Drawing.Point(27, 153);
-            this.metroLabel6.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(94, 19);
-            this.metroLabel6.TabIndex = 6;
-            this.metroLabel6.Text = "DESCRIPTION";
-            this.metroLabel6.UseCustomBackColor = true;
-            // 
-            // lbl_BookISBN
-            // 
-            this.lbl_BookISBN.AutoSize = true;
-            this.lbl_BookISBN.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_BookISBN.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lbl_BookISBN.Location = new System.Drawing.Point(27, 114);
-            this.lbl_BookISBN.Margin = new System.Windows.Forms.Padding(20, 5, 20, 0);
-            this.lbl_BookISBN.Name = "lbl_BookISBN";
-            this.lbl_BookISBN.Size = new System.Drawing.Size(42, 19);
-            this.lbl_BookISBN.TabIndex = 5;
-            this.lbl_BookISBN.Text = "#isbn";
-            this.lbl_BookISBN.UseCustomBackColor = true;
-            // 
-            // metroLabel3
-            // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel3.Location = new System.Drawing.Point(27, 90);
-            this.metroLabel3.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(38, 19);
-            this.metroLabel3.TabIndex = 4;
-            this.metroLabel3.Text = "ISBN";
-            this.metroLabel3.UseCustomBackColor = true;
-            // 
-            // lbl_BookId
-            // 
-            this.lbl_BookId.AutoSize = true;
-            this.lbl_BookId.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_BookId.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lbl_BookId.Location = new System.Drawing.Point(27, 55);
-            this.lbl_BookId.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.lbl_BookId.Name = "lbl_BookId";
-            this.lbl_BookId.Size = new System.Drawing.Size(23, 15);
-            this.lbl_BookId.TabIndex = 3;
-            this.lbl_BookId.Text = "#id";
-            this.lbl_BookId.UseCustomBackColor = true;
-            // 
-            // lbl_BookTitle
-            // 
-            this.lbl_BookTitle.AutoSize = true;
-            this.lbl_BookTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_BookTitle.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lbl_BookTitle.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lbl_BookTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            this.lbl_BookTitle.Location = new System.Drawing.Point(27, 30);
-            this.lbl_BookTitle.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.lbl_BookTitle.Name = "lbl_BookTitle";
-            this.lbl_BookTitle.Size = new System.Drawing.Size(52, 25);
-            this.lbl_BookTitle.TabIndex = 2;
-            this.lbl_BookTitle.Text = "#title";
-            this.lbl_BookTitle.UseCustomBackColor = true;
-            this.lbl_BookTitle.UseCustomForeColor = true;
-            // 
-            // txt_BookSearch
-            // 
-            this.txt_BookSearch.BackColor = System.Drawing.Color.WhiteSmoke;
-            // 
-            // 
-            // 
-            this.txt_BookSearch.CustomButton.Image = null;
-            this.txt_BookSearch.CustomButton.Location = new System.Drawing.Point(364, 2);
-            this.txt_BookSearch.CustomButton.Name = "";
-            this.txt_BookSearch.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txt_BookSearch.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txt_BookSearch.CustomButton.TabIndex = 1;
-            this.txt_BookSearch.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txt_BookSearch.CustomButton.UseSelectable = true;
-            this.txt_BookSearch.CustomButton.Visible = false;
-            this.txt_BookSearch.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.txt_BookSearch.Lines = new string[0];
-            this.txt_BookSearch.Location = new System.Drawing.Point(0, 30);
-            this.txt_BookSearch.Margin = new System.Windows.Forms.Padding(0, 30, 20, 0);
-            this.txt_BookSearch.MaxLength = 32767;
-            this.txt_BookSearch.Name = "txt_BookSearch";
-            this.txt_BookSearch.PasswordChar = '\0';
-            this.txt_BookSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txt_BookSearch.SelectedText = "";
-            this.txt_BookSearch.SelectionLength = 0;
-            this.txt_BookSearch.SelectionStart = 0;
-            this.txt_BookSearch.Size = new System.Drawing.Size(388, 26);
-            this.txt_BookSearch.TabIndex = 4;
-            this.txt_BookSearch.UseSelectable = true;
-            this.txt_BookSearch.WaterMark = "Search for a book or author";
-            this.txt_BookSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txt_BookSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            // 
-            // grd_Books
-            // 
-            this.grd_Books.AllowUserToAddRows = false;
-            this.grd_Books.AllowUserToDeleteRows = false;
-            this.grd_Books.AllowUserToResizeColumns = false;
-            this.grd_Books.AllowUserToResizeRows = false;
-            this.grd_Books.BackgroundColor = System.Drawing.Color.AliceBlue;
-            this.grd_Books.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.grd_Books.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.grd_Books.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grd_Books.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.grd_Books.ColumnHeadersHeight = 26;
-            this.grd_Books.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.grd_Books.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.books_Id,
-            this.books_Title,
-            this.books_Author,
-            this.books_Available,
-            this.books_Blank});
-            this.grd_Books.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grd_Books.DefaultCellStyle = dataGridViewCellStyle8;
-            this.grd_Books.EnableHeadersVisualStyles = false;
-            this.grd_Books.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.grd_Books.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.grd_Books.Location = new System.Drawing.Point(0, 91);
-            this.grd_Books.Margin = new System.Windows.Forms.Padding(0, 10, 20, 0);
-            this.grd_Books.MultiSelect = false;
-            this.grd_Books.Name = "grd_Books";
-            this.grd_Books.ReadOnly = true;
-            this.grd_Books.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grd_Books.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.grd_Books.RowHeadersVisible = false;
-            this.grd_Books.RowHeadersWidth = 10;
-            this.grd_Books.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.grd_Books.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.grd_Books.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grd_Books.Size = new System.Drawing.Size(388, 374);
-            this.grd_Books.TabIndex = 3;
-            this.grd_Books.UseCustomBackColor = true;
-            this.grd_Books.UseCustomForeColor = true;
-            this.grd_Books.UseStyleColors = true;
-            this.grd_Books.SelectionChanged += new System.EventHandler(this.grd_Books_SelectionChanged);
-            // 
-            // tab_Members
-            // 
-            this.tab_Members.BackColor = System.Drawing.Color.Transparent;
-            this.tab_Members.Controls.Add(this.pnl_Members);
-            this.tab_Members.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tab_Members.Location = new System.Drawing.Point(4, 38);
-            this.tab_Members.Name = "tab_Members";
-            this.tab_Members.Size = new System.Drawing.Size(821, 448);
-            this.tab_Members.TabIndex = 1;
-            this.tab_Members.Text = "Members";
-            // 
-            // pnl_Members
-            // 
-            this.pnl_Members.Controls.Add(this.metroButton1);
-            this.pnl_Members.HorizontalScrollbarBarColor = true;
-            this.pnl_Members.HorizontalScrollbarHighlightOnWheel = false;
-            this.pnl_Members.HorizontalScrollbarSize = 10;
-            this.pnl_Members.Location = new System.Drawing.Point(0, 0);
-            this.pnl_Members.Name = "pnl_Members";
-            this.pnl_Members.Size = new System.Drawing.Size(821, 448);
-            this.pnl_Members.TabIndex = 0;
-            this.pnl_Members.VerticalScrollbarBarColor = true;
-            this.pnl_Members.VerticalScrollbarHighlightOnWheel = false;
-            this.pnl_Members.VerticalScrollbarSize = 10;
-            // 
-            // metroButton1
-            // 
-            this.metroButton1.Location = new System.Drawing.Point(323, 170);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(75, 23);
-            this.metroButton1.TabIndex = 2;
-            this.metroButton1.Text = "metroButton1";
-            this.metroButton1.UseSelectable = true;
-            // 
-            // tab_Loans
-            // 
-            this.tab_Loans.BackColor = System.Drawing.Color.Transparent;
-            this.tab_Loans.Controls.Add(this.pnl_Loans);
-            this.tab_Loans.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tab_Loans.Location = new System.Drawing.Point(4, 38);
-            this.tab_Loans.Name = "tab_Loans";
-            this.tab_Loans.Size = new System.Drawing.Size(821, 448);
-            this.tab_Loans.TabIndex = 2;
-            this.tab_Loans.Text = "Loans";
-            // 
-            // pnl_Loans
-            // 
-            this.pnl_Loans.HorizontalScrollbarBarColor = true;
-            this.pnl_Loans.HorizontalScrollbarHighlightOnWheel = false;
-            this.pnl_Loans.HorizontalScrollbarSize = 10;
-            this.pnl_Loans.Location = new System.Drawing.Point(0, 0);
-            this.pnl_Loans.Name = "pnl_Loans";
-            this.pnl_Loans.Size = new System.Drawing.Size(821, 448);
-            this.pnl_Loans.TabIndex = 0;
-            this.pnl_Loans.VerticalScrollbarBarColor = true;
-            this.pnl_Loans.VerticalScrollbarHighlightOnWheel = false;
-            this.pnl_Loans.VerticalScrollbarSize = 10;
-            // 
-            // grd_BookCopies
-            // 
-            this.grd_BookCopies.AllowUserToAddRows = false;
-            this.grd_BookCopies.AllowUserToDeleteRows = false;
-            this.grd_BookCopies.AllowUserToResizeColumns = false;
-            this.grd_BookCopies.AllowUserToResizeRows = false;
-            this.grd_BookCopies.BackgroundColor = System.Drawing.Color.AliceBlue;
-            this.grd_BookCopies.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.grd_BookCopies.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.grd_BookCopies.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grd_BookCopies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.grd_BookCopies.ColumnHeadersHeight = 26;
-            this.grd_BookCopies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.grd_BookCopies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.bookCopies_Id,
-            this.bookCopies_Available,
-            this.bookCopies_Member,
-            this.bookCopies_DueDate,
-            this.bookCopies_Blank});
-            this.grd_BookCopies.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grd_BookCopies.DefaultCellStyle = dataGridViewCellStyle5;
-            this.grd_BookCopies.EnableHeadersVisualStyles = false;
-            this.grd_BookCopies.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.grd_BookCopies.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.grd_BookCopies.Location = new System.Drawing.Point(29, 325);
-            this.grd_BookCopies.Margin = new System.Windows.Forms.Padding(0, 5, 20, 0);
-            this.grd_BookCopies.MultiSelect = false;
-            this.grd_BookCopies.Name = "grd_BookCopies";
-            this.grd_BookCopies.ReadOnly = true;
-            this.grd_BookCopies.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grd_BookCopies.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.grd_BookCopies.RowHeadersVisible = false;
-            this.grd_BookCopies.RowHeadersWidth = 10;
-            this.grd_BookCopies.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.grd_BookCopies.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.grd_BookCopies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grd_BookCopies.Size = new System.Drawing.Size(381, 139);
-            this.grd_BookCopies.TabIndex = 9;
-            this.grd_BookCopies.UseCustomBackColor = true;
-            this.grd_BookCopies.UseCustomForeColor = true;
-            this.grd_BookCopies.UseStyleColors = true;
-            // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel5.Location = new System.Drawing.Point(27, 291);
-            this.metroLabel5.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(55, 19);
-            this.metroLabel5.TabIndex = 10;
-            this.metroLabel5.Text = "COPIES";
-            this.metroLabel5.UseCustomBackColor = true;
-            // 
-            // btn_MakeLoan
-            // 
-            this.btn_MakeLoan.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btn_MakeLoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btn_MakeLoan.Location = new System.Drawing.Point(29, 484);
-            this.btn_MakeLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
-            this.btn_MakeLoan.Name = "btn_MakeLoan";
-            this.btn_MakeLoan.Size = new System.Drawing.Size(100, 30);
-            this.btn_MakeLoan.TabIndex = 9;
-            this.btn_MakeLoan.Text = "Make loan";
-            this.btn_MakeLoan.UseSelectable = true;
-            // 
-            // btn_AddCopy
-            // 
-            this.btn_AddCopy.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btn_AddCopy.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btn_AddCopy.Location = new System.Drawing.Point(310, 285);
-            this.btn_AddCopy.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
-            this.btn_AddCopy.Name = "btn_AddCopy";
-            this.btn_AddCopy.Size = new System.Drawing.Size(100, 30);
-            this.btn_AddCopy.TabIndex = 11;
-            this.btn_AddCopy.Text = "Add copy";
-            this.btn_AddCopy.UseSelectable = true;
-            // 
-            // btn_ReturnLoan
-            // 
-            this.btn_ReturnLoan.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btn_ReturnLoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btn_ReturnLoan.Location = new System.Drawing.Point(139, 484);
-            this.btn_ReturnLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
-            this.btn_ReturnLoan.Name = "btn_ReturnLoan";
-            this.btn_ReturnLoan.Size = new System.Drawing.Size(100, 30);
-            this.btn_ReturnLoan.TabIndex = 12;
-            this.btn_ReturnLoan.Text = "Return loan";
-            this.btn_ReturnLoan.UseSelectable = true;
-            // 
-            // cbx_AvailableOnly
-            // 
-            this.cbx_AvailableOnly.AutoSize = true;
-            this.cbx_AvailableOnly.Location = new System.Drawing.Point(0, 66);
-            this.cbx_AvailableOnly.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.cbx_AvailableOnly.Name = "cbx_AvailableOnly";
-            this.cbx_AvailableOnly.Size = new System.Drawing.Size(162, 15);
-            this.cbx_AvailableOnly.TabIndex = 9;
-            this.cbx_AvailableOnly.Text = "Show available books only";
-            this.cbx_AvailableOnly.UseSelectable = true;
             // 
             // metroPanel1
             // 
@@ -825,6 +414,181 @@ namespace Library
             this.metroLabel9.Text = "#title";
             this.metroLabel9.UseCustomBackColor = true;
             // 
+            // cbx_AvailableOnly
+            // 
+            this.cbx_AvailableOnly.AutoSize = true;
+            this.cbx_AvailableOnly.Location = new System.Drawing.Point(0, 66);
+            this.cbx_AvailableOnly.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.cbx_AvailableOnly.Name = "cbx_AvailableOnly";
+            this.cbx_AvailableOnly.Size = new System.Drawing.Size(162, 15);
+            this.cbx_AvailableOnly.TabIndex = 9;
+            this.cbx_AvailableOnly.Text = "Show available books only";
+            this.cbx_AvailableOnly.UseSelectable = true;
+            this.cbx_AvailableOnly.CheckedChanged += new System.EventHandler(this.cbx_AvailableOnly_CheckedChanged);
+            // 
+            // btn_NewAuthor
+            // 
+            this.btn_NewAuthor.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btn_NewAuthor.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btn_NewAuthor.Location = new System.Drawing.Point(110, 485);
+            this.btn_NewAuthor.Margin = new System.Windows.Forms.Padding(0, 20, 10, 0);
+            this.btn_NewAuthor.Name = "btn_NewAuthor";
+            this.btn_NewAuthor.Size = new System.Drawing.Size(100, 30);
+            this.btn_NewAuthor.TabIndex = 8;
+            this.btn_NewAuthor.Text = "New author";
+            this.btn_NewAuthor.UseSelectable = true;
+            // 
+            // btn_NewBook
+            // 
+            this.btn_NewBook.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btn_NewBook.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btn_NewBook.Location = new System.Drawing.Point(0, 485);
+            this.btn_NewBook.Margin = new System.Windows.Forms.Padding(0, 20, 10, 0);
+            this.btn_NewBook.Name = "btn_NewBook";
+            this.btn_NewBook.Size = new System.Drawing.Size(100, 30);
+            this.btn_NewBook.TabIndex = 6;
+            this.btn_NewBook.Text = "New book";
+            this.btn_NewBook.UseSelectable = true;
+            // 
+            // pnl_SelectedBook
+            // 
+            this.pnl_SelectedBook.BackColor = System.Drawing.Color.Transparent;
+            this.pnl_SelectedBook.Controls.Add(this.btn_ReturnLoan);
+            this.pnl_SelectedBook.Controls.Add(this.btn_AddCopy);
+            this.pnl_SelectedBook.Controls.Add(this.btn_MakeLoan);
+            this.pnl_SelectedBook.Controls.Add(this.metroLabel5);
+            this.pnl_SelectedBook.Controls.Add(this.grd_BookCopies);
+            this.pnl_SelectedBook.Controls.Add(this.txt_BookDescription);
+            this.pnl_SelectedBook.Controls.Add(this.metroLabel6);
+            this.pnl_SelectedBook.Controls.Add(this.lbl_BookISBN);
+            this.pnl_SelectedBook.Controls.Add(this.metroLabel3);
+            this.pnl_SelectedBook.Controls.Add(this.lbl_BookId);
+            this.pnl_SelectedBook.Controls.Add(this.lbl_BookTitle);
+            this.pnl_SelectedBook.HorizontalScrollbarBarColor = true;
+            this.pnl_SelectedBook.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnl_SelectedBook.HorizontalScrollbarSize = 10;
+            this.pnl_SelectedBook.Location = new System.Drawing.Point(411, 0);
+            this.pnl_SelectedBook.Name = "pnl_SelectedBook";
+            this.pnl_SelectedBook.Size = new System.Drawing.Size(410, 515);
+            this.pnl_SelectedBook.TabIndex = 5;
+            this.pnl_SelectedBook.UseCustomBackColor = true;
+            this.pnl_SelectedBook.VerticalScrollbarBarColor = true;
+            this.pnl_SelectedBook.VerticalScrollbarHighlightOnWheel = false;
+            this.pnl_SelectedBook.VerticalScrollbarSize = 10;
+            this.pnl_SelectedBook.Visible = false;
+            // 
+            // btn_ReturnLoan
+            // 
+            this.btn_ReturnLoan.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btn_ReturnLoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btn_ReturnLoan.Location = new System.Drawing.Point(139, 484);
+            this.btn_ReturnLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
+            this.btn_ReturnLoan.Name = "btn_ReturnLoan";
+            this.btn_ReturnLoan.Size = new System.Drawing.Size(100, 30);
+            this.btn_ReturnLoan.TabIndex = 12;
+            this.btn_ReturnLoan.Text = "Return loan";
+            this.btn_ReturnLoan.UseSelectable = true;
+            // 
+            // btn_AddCopy
+            // 
+            this.btn_AddCopy.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btn_AddCopy.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btn_AddCopy.Location = new System.Drawing.Point(310, 285);
+            this.btn_AddCopy.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
+            this.btn_AddCopy.Name = "btn_AddCopy";
+            this.btn_AddCopy.Size = new System.Drawing.Size(100, 30);
+            this.btn_AddCopy.TabIndex = 11;
+            this.btn_AddCopy.Text = "Add copy";
+            this.btn_AddCopy.UseSelectable = true;
+            // 
+            // btn_MakeLoan
+            // 
+            this.btn_MakeLoan.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btn_MakeLoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btn_MakeLoan.Location = new System.Drawing.Point(29, 484);
+            this.btn_MakeLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
+            this.btn_MakeLoan.Name = "btn_MakeLoan";
+            this.btn_MakeLoan.Size = new System.Drawing.Size(100, 30);
+            this.btn_MakeLoan.TabIndex = 9;
+            this.btn_MakeLoan.Text = "Make loan";
+            this.btn_MakeLoan.UseSelectable = true;
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel5.Location = new System.Drawing.Point(27, 291);
+            this.metroLabel5.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(55, 19);
+            this.metroLabel5.TabIndex = 10;
+            this.metroLabel5.Text = "COPIES";
+            this.metroLabel5.UseCustomBackColor = true;
+            // 
+            // grd_BookCopies
+            // 
+            this.grd_BookCopies.AllowUserToAddRows = false;
+            this.grd_BookCopies.AllowUserToDeleteRows = false;
+            this.grd_BookCopies.AllowUserToResizeColumns = false;
+            this.grd_BookCopies.AllowUserToResizeRows = false;
+            this.grd_BookCopies.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.grd_BookCopies.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grd_BookCopies.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.grd_BookCopies.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_BookCopies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.grd_BookCopies.ColumnHeadersHeight = 26;
+            this.grd_BookCopies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grd_BookCopies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.bookCopies_Id,
+            this.bookCopies_Available,
+            this.bookCopies_Member,
+            this.bookCopies_DueDate,
+            this.bookCopies_Blank});
+            this.grd_BookCopies.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grd_BookCopies.DefaultCellStyle = dataGridViewCellStyle5;
+            this.grd_BookCopies.EnableHeadersVisualStyles = false;
+            this.grd_BookCopies.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.grd_BookCopies.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.grd_BookCopies.Location = new System.Drawing.Point(29, 325);
+            this.grd_BookCopies.Margin = new System.Windows.Forms.Padding(0, 5, 20, 0);
+            this.grd_BookCopies.MultiSelect = false;
+            this.grd_BookCopies.Name = "grd_BookCopies";
+            this.grd_BookCopies.ReadOnly = true;
+            this.grd_BookCopies.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_BookCopies.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.grd_BookCopies.RowHeadersVisible = false;
+            this.grd_BookCopies.RowHeadersWidth = 10;
+            this.grd_BookCopies.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.grd_BookCopies.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grd_BookCopies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grd_BookCopies.Size = new System.Drawing.Size(381, 139);
+            this.grd_BookCopies.TabIndex = 9;
+            this.grd_BookCopies.UseCustomBackColor = true;
+            this.grd_BookCopies.UseCustomForeColor = true;
+            this.grd_BookCopies.UseStyleColors = true;
+            // 
             // bookCopies_Id
             // 
             this.bookCopies_Id.HeaderText = "Id";
@@ -862,6 +626,186 @@ namespace Library
             this.bookCopies_Blank.Name = "bookCopies_Blank";
             this.bookCopies_Blank.ReadOnly = true;
             this.bookCopies_Blank.Width = 25;
+            // 
+            // txt_BookDescription
+            // 
+            this.txt_BookDescription.BackColor = System.Drawing.Color.White;
+            this.txt_BookDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_BookDescription.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_BookDescription.Location = new System.Drawing.Point(27, 177);
+            this.txt_BookDescription.Margin = new System.Windows.Forms.Padding(20, 5, 20, 0);
+            this.txt_BookDescription.Multiline = true;
+            this.txt_BookDescription.Name = "txt_BookDescription";
+            this.txt_BookDescription.ReadOnly = true;
+            this.txt_BookDescription.Size = new System.Drawing.Size(383, 88);
+            this.txt_BookDescription.TabIndex = 7;
+            this.txt_BookDescription.Text = "#description";
+            // 
+            // metroLabel6
+            // 
+            this.metroLabel6.AutoSize = true;
+            this.metroLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel6.Location = new System.Drawing.Point(27, 153);
+            this.metroLabel6.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
+            this.metroLabel6.Name = "metroLabel6";
+            this.metroLabel6.Size = new System.Drawing.Size(94, 19);
+            this.metroLabel6.TabIndex = 6;
+            this.metroLabel6.Text = "DESCRIPTION";
+            this.metroLabel6.UseCustomBackColor = true;
+            // 
+            // lbl_BookISBN
+            // 
+            this.lbl_BookISBN.AutoSize = true;
+            this.lbl_BookISBN.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_BookISBN.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbl_BookISBN.Location = new System.Drawing.Point(27, 114);
+            this.lbl_BookISBN.Margin = new System.Windows.Forms.Padding(20, 5, 20, 0);
+            this.lbl_BookISBN.Name = "lbl_BookISBN";
+            this.lbl_BookISBN.Size = new System.Drawing.Size(42, 19);
+            this.lbl_BookISBN.TabIndex = 5;
+            this.lbl_BookISBN.Text = "#isbn";
+            this.lbl_BookISBN.UseCustomBackColor = true;
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel3.Location = new System.Drawing.Point(27, 90);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(38, 19);
+            this.metroLabel3.TabIndex = 4;
+            this.metroLabel3.Text = "ISBN";
+            this.metroLabel3.UseCustomBackColor = true;
+            // 
+            // lbl_BookId
+            // 
+            this.lbl_BookId.AutoSize = true;
+            this.lbl_BookId.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_BookId.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lbl_BookId.Location = new System.Drawing.Point(27, 55);
+            this.lbl_BookId.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.lbl_BookId.Name = "lbl_BookId";
+            this.lbl_BookId.Size = new System.Drawing.Size(23, 15);
+            this.lbl_BookId.TabIndex = 3;
+            this.lbl_BookId.Text = "#id";
+            this.lbl_BookId.UseCustomBackColor = true;
+            // 
+            // lbl_BookTitle
+            // 
+            this.lbl_BookTitle.AutoSize = true;
+            this.lbl_BookTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_BookTitle.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lbl_BookTitle.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbl_BookTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.lbl_BookTitle.Location = new System.Drawing.Point(27, 30);
+            this.lbl_BookTitle.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.lbl_BookTitle.Name = "lbl_BookTitle";
+            this.lbl_BookTitle.Size = new System.Drawing.Size(52, 25);
+            this.lbl_BookTitle.TabIndex = 2;
+            this.lbl_BookTitle.Text = "#title";
+            this.lbl_BookTitle.UseCustomBackColor = true;
+            this.lbl_BookTitle.UseCustomForeColor = true;
+            // 
+            // txt_BookSearch
+            // 
+            this.txt_BookSearch.BackColor = System.Drawing.Color.WhiteSmoke;
+            // 
+            // 
+            // 
+            this.txt_BookSearch.CustomButton.Image = null;
+            this.txt_BookSearch.CustomButton.Location = new System.Drawing.Point(364, 2);
+            this.txt_BookSearch.CustomButton.Name = "";
+            this.txt_BookSearch.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txt_BookSearch.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txt_BookSearch.CustomButton.TabIndex = 1;
+            this.txt_BookSearch.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txt_BookSearch.CustomButton.UseSelectable = true;
+            this.txt_BookSearch.CustomButton.Visible = false;
+            this.txt_BookSearch.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.txt_BookSearch.Lines = new string[0];
+            this.txt_BookSearch.Location = new System.Drawing.Point(0, 30);
+            this.txt_BookSearch.Margin = new System.Windows.Forms.Padding(0, 30, 20, 0);
+            this.txt_BookSearch.MaxLength = 32767;
+            this.txt_BookSearch.Name = "txt_BookSearch";
+            this.txt_BookSearch.PasswordChar = '\0';
+            this.txt_BookSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txt_BookSearch.SelectedText = "";
+            this.txt_BookSearch.SelectionLength = 0;
+            this.txt_BookSearch.SelectionStart = 0;
+            this.txt_BookSearch.Size = new System.Drawing.Size(388, 26);
+            this.txt_BookSearch.TabIndex = 4;
+            this.txt_BookSearch.UseSelectable = true;
+            this.txt_BookSearch.WaterMark = "Search for a book or author";
+            this.txt_BookSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txt_BookSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_BookSearch.TextChanged += new System.EventHandler(this.txt_BookSearch_TextChanged);
+            // 
+            // grd_Books
+            // 
+            this.grd_Books.AllowUserToAddRows = false;
+            this.grd_Books.AllowUserToDeleteRows = false;
+            this.grd_Books.AllowUserToResizeColumns = false;
+            this.grd_Books.AllowUserToResizeRows = false;
+            this.grd_Books.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.grd_Books.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grd_Books.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.grd_Books.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_Books.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.grd_Books.ColumnHeadersHeight = 26;
+            this.grd_Books.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grd_Books.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.books_Id,
+            this.books_Title,
+            this.books_Author,
+            this.books_Available,
+            this.books_Blank});
+            this.grd_Books.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grd_Books.DefaultCellStyle = dataGridViewCellStyle8;
+            this.grd_Books.EnableHeadersVisualStyles = false;
+            this.grd_Books.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.grd_Books.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.grd_Books.Location = new System.Drawing.Point(0, 91);
+            this.grd_Books.Margin = new System.Windows.Forms.Padding(0, 10, 20, 0);
+            this.grd_Books.MultiSelect = false;
+            this.grd_Books.Name = "grd_Books";
+            this.grd_Books.ReadOnly = true;
+            this.grd_Books.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_Books.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.grd_Books.RowHeadersVisible = false;
+            this.grd_Books.RowHeadersWidth = 10;
+            this.grd_Books.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.grd_Books.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grd_Books.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grd_Books.Size = new System.Drawing.Size(388, 374);
+            this.grd_Books.TabIndex = 3;
+            this.grd_Books.UseCustomBackColor = true;
+            this.grd_Books.UseCustomForeColor = true;
+            this.grd_Books.UseStyleColors = true;
+            this.grd_Books.SelectionChanged += new System.EventHandler(this.grd_Books_SelectionChanged);
             // 
             // books_Id
             // 
@@ -901,6 +845,64 @@ namespace Library
             this.books_Blank.ReadOnly = true;
             this.books_Blank.Width = 20;
             // 
+            // tab_Members
+            // 
+            this.tab_Members.BackColor = System.Drawing.Color.Transparent;
+            this.tab_Members.Controls.Add(this.pnl_Members);
+            this.tab_Members.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tab_Members.Location = new System.Drawing.Point(4, 38);
+            this.tab_Members.Name = "tab_Members";
+            this.tab_Members.Size = new System.Drawing.Size(821, 515);
+            this.tab_Members.TabIndex = 1;
+            this.tab_Members.Text = "Members";
+            // 
+            // pnl_Members
+            // 
+            this.pnl_Members.Controls.Add(this.metroButton1);
+            this.pnl_Members.HorizontalScrollbarBarColor = true;
+            this.pnl_Members.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnl_Members.HorizontalScrollbarSize = 10;
+            this.pnl_Members.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Members.Name = "pnl_Members";
+            this.pnl_Members.Size = new System.Drawing.Size(821, 448);
+            this.pnl_Members.TabIndex = 0;
+            this.pnl_Members.VerticalScrollbarBarColor = true;
+            this.pnl_Members.VerticalScrollbarHighlightOnWheel = false;
+            this.pnl_Members.VerticalScrollbarSize = 10;
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(323, 170);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(75, 23);
+            this.metroButton1.TabIndex = 2;
+            this.metroButton1.Text = "metroButton1";
+            this.metroButton1.UseSelectable = true;
+            // 
+            // tab_Loans
+            // 
+            this.tab_Loans.BackColor = System.Drawing.Color.Transparent;
+            this.tab_Loans.Controls.Add(this.pnl_Loans);
+            this.tab_Loans.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tab_Loans.Location = new System.Drawing.Point(4, 38);
+            this.tab_Loans.Name = "tab_Loans";
+            this.tab_Loans.Size = new System.Drawing.Size(821, 515);
+            this.tab_Loans.TabIndex = 2;
+            this.tab_Loans.Text = "Loans";
+            // 
+            // pnl_Loans
+            // 
+            this.pnl_Loans.HorizontalScrollbarBarColor = true;
+            this.pnl_Loans.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnl_Loans.HorizontalScrollbarSize = 10;
+            this.pnl_Loans.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Loans.Name = "pnl_Loans";
+            this.pnl_Loans.Size = new System.Drawing.Size(821, 448);
+            this.pnl_Loans.TabIndex = 0;
+            this.pnl_Loans.VerticalScrollbarBarColor = true;
+            this.pnl_Loans.VerticalScrollbarHighlightOnWheel = false;
+            this.pnl_Loans.VerticalScrollbarSize = 10;
+            // 
             // LibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -915,16 +917,16 @@ namespace Library
             this.tab_Books.ResumeLayout(false);
             this.pnl_Books.ResumeLayout(false);
             this.pnl_Books.PerformLayout();
+            this.metroPanel1.ResumeLayout(false);
+            this.metroPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             this.pnl_SelectedBook.ResumeLayout(false);
             this.pnl_SelectedBook.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grd_BookCopies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd_Books)).EndInit();
             this.tab_Members.ResumeLayout(false);
             this.pnl_Members.ResumeLayout(false);
             this.tab_Loans.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grd_BookCopies)).EndInit();
-            this.metroPanel1.ResumeLayout(false);
-            this.metroPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             this.ResumeLayout(false);
 
         }

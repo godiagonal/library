@@ -22,6 +22,16 @@ namespace Library.Services
             return _bookRepository.All();
         }
 
+        public IEnumerable<Book> Search(string keyword, bool available)
+        {
+            var books = _bookRepository.All();
+            if (keyword.Length != 0)
+                books = books.Where(b => b.Title.ToLower().Contains(keyword.ToLower()) || b.Author.Name.ToLower().Contains(keyword.ToLower()));
+            if (available == true)
+                books = books.Where(b => b.Available);
+            return books;
+        }
+
         public void Add(string title, string description, string isbn, Author author)
         {
             Book book = new Book()
