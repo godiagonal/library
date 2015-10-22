@@ -27,8 +27,8 @@ namespace Library.Services
             var members = _memberRepository.All();
             if (keyword.Length != 0)
                 members = members.Where(m => m.Name.ToLower().Contains(keyword.ToLower()));
-            if (cbx_activeLoans == true)
-                members = members.Where(m => m.ActiveLoans == true);
+            if (cbx_activeLoans)
+                members = members.Where(m => m.HasActiveLoans);
             return members;
         }
 

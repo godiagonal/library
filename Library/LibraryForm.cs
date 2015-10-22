@@ -28,23 +28,9 @@ namespace Library
             _bookService = new BookService(repoFactory);
             _authorService = new AuthorService(repoFactory);
 
-            ListAllBooks();
-        }
+            _bookService.Updated += _bookService_Updated;
 
-        private void ListAllBooks()
-        {
             UpdateBooks(_bookService.All());
-
-            return;
-
-            //foreach (Book book in _bookService.All())
-            //{
-            //    grd_Books.Rows.Add(
-            //        book.Id,
-            //        book.Title,
-            //        book.Author == null ? "" : book.Author.Name
-            //    );
-            //}
         }
 
         private void grd_Books_SelectionChanged(object sender, EventArgs e)
@@ -144,10 +130,20 @@ namespace Library
             UpdateBooks(books);
         }
 
+        private void _bookService_Updated(object sender, EventArgs e)
+        {
+            IEnumerable<Book> books = _bookService.Search(txt_BookSearch.Text, cbx_AvailableOnly.Checked);
+            UpdateBooks(books);
+        }
+
         private void btn_NewBook_Click(object sender, EventArgs e)
         {
             var form = new NewBookForm(_bookService, _authorService);
-            form.ShowDialog(this);
+
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                MetroMessageBox.Show(this, string.Format("{0} was successfully added to the list of books", form.NewBookTitle), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
         }
     }
 }

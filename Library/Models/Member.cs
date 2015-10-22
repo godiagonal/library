@@ -25,12 +25,20 @@ namespace Library.Models
             return this.Name;
         }
         [NotMapped]
-        public bool ActiveLoans
+        public bool HasActiveLoans
         {
             get
             {
-                var a = Loans.FirstOrDefault(l => l.TimeOfReturn == null);
-                return a == null ? true : false;
+                if (Loans != null)
+                {
+                    var activeLoans = Loans.FirstOrDefault(l => l.TimeOfReturn == null);
+                    return activeLoans == null ? true : false;
+                }
+                else
+                {
+                    return false;
+                }
+                
             }
             private set
             {

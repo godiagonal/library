@@ -21,8 +21,15 @@ namespace Library.Models
         {
             get 
             {
-                var loan = Loans.FirstOrDefault(l => l.TimeOfReturn == null);
-                return loan;
+                if (Loans != null)
+                {
+                    var loan = Loans.FirstOrDefault(l => l.TimeOfReturn == null);
+                    return loan;
+                }
+                else
+                {
+                    return null;
+                }
             }
 
             private set

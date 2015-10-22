@@ -11,7 +11,8 @@ namespace Library.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Author name is required")]
+        [StringLength(50, ErrorMessage = "Author name can't be more than 50 characters")]
         public string Name { get; set; }
 
         public virtual ICollection<Book> Books { get; set; }

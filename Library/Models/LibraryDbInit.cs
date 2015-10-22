@@ -33,7 +33,7 @@ namespace Library.Models
                 Title = "The Count of Monte Cristo",
                 Author = alexDumas,
                 ISBN = "12134324325",
-                Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta nunc at nulla rutrum cursus. Aliquam ac tempus odio. Proin in ante orci. Vestibulum gravida risus sed justo dignissim, vel venenatis velit tempor. Morbi venenatis, lectus in tempus accumsan, nunc ex pretium neque, ut fringilla dolor libero et nibh. Nunc nec eros leo. Quisque arcu sapien, suscipit dictum urna sed, commodo vehicula diam."
+                Description = "Lorem ipsum dolor sit amet, co"
             };
 
             Book book2 = new Book()

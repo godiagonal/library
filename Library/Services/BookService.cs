@@ -1,7 +1,9 @@
-﻿using Library.Models;
+﻿using Library.Helpers;
+using Library.Models;
 using Library.Repositories;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,8 +34,16 @@ namespace Library.Services
             return books;
         }
 
-        public void Add(string title, string description, string isbn, Author author)
+        public void Add(string title, string description, string isbn, Author author, int noOfCopies)
         {
+            if(ContainsTitle(title))
+            {
+                throw new ValidationException("The title you are trying to add already exists");
+            }
+            else if(ContainsISBN(isbn))
+            {
+                throw new ValidationException("The ISBN you are trying to add already exists");
+            }
             Book book = new Book()
             {
                 Title = title,
@@ -42,9 +52,25 @@ namespace Library.Services
                 Author = author
             };
 
-            _bookRepository.Add(book);
+            List<BookCopy> bookCopies = new List<BookCopy>();
+            for (int i = 0; i < noOfCopies; i++)
+            {
+                bookCopies.Add(new BookCopy() {Book = book});
+            }
 
-            OnUpdated(new EventArgs());
+            book.BookCopies = bookCopies;
+
+            ValidationResult error = ObjectValidator.Validate(book);
+
+            if (error != null)
+            {
+                throw new ValidationException(error.ErrorMessage);
+            }
+            else
+            {
+                _bookRepository.Add(book);
+                OnUpdated(new EventArgs());
+            } 
         }
 
         public Book Find(int id)
@@ -58,6 +84,16 @@ namespace Library.Services
         {
             if (Updated != null)
                 Updated(this, e);
+        }
+        private bool ContainsTitle(string title)
+        {
+            var book = _bookRepository.All().FirstOrDefault(b => b.Title.ToLower() == title.ToLower());
+            return book == null ? false : true;
+        }
+        private bool ContainsISBN(string isbn)
+        {
+            var book = _bookRepository.All().FirstOrDefault(b => b.ISBN.ToLower() == isbn.ToLower());
+            return book == null ? false : true;
         }
     }
 }

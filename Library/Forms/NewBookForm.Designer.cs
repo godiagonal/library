@@ -39,7 +39,11 @@
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.txt_BookDescription = new MetroFramework.Controls.MetroTextBox();
             this.btn_SaveBook = new MetroFramework.Controls.MetroButton();
+            this.lbl_NoOfCopies = new MetroFramework.Controls.MetroLabel();
+            this.cbx_NoOfCopies = new System.Windows.Forms.ComboBox();
+            this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
             this.metroPanel1.SuspendLayout();
+            this.metroPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_BookTitle
@@ -155,10 +159,8 @@
             this.cbx_BookAuthor.Location = new System.Drawing.Point(1, 1);
             this.cbx_BookAuthor.Margin = new System.Windows.Forms.Padding(0);
             this.cbx_BookAuthor.Name = "cbx_BookAuthor";
-            this.cbx_BookAuthor.Size = new System.Drawing.Size(248, 25);
+            this.cbx_BookAuthor.Size = new System.Drawing.Size(247, 25);
             this.cbx_BookAuthor.TabIndex = 15;
-            this.cbx_BookAuthor.TextChanged += new System.EventHandler(this.cbx_BookAuthor_TextChanged);
-            this.cbx_BookAuthor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.cbx_BookAuthor_KeyUp);
             // 
             // metroPanel1
             // 
@@ -170,7 +172,7 @@
             this.metroPanel1.Location = new System.Drawing.Point(25, 221);
             this.metroPanel1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 15);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(250, 27);
+            this.metroPanel1.Size = new System.Drawing.Size(249, 27);
             this.metroPanel1.TabIndex = 16;
             this.metroPanel1.UseCustomBackColor = true;
             this.metroPanel1.VerticalScrollbarBarColor = true;
@@ -221,7 +223,7 @@
             this.txt_BookDescription.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txt_BookDescription.Lines = new string[0];
             this.txt_BookDescription.Location = new System.Drawing.Point(25, 332);
-            this.txt_BookDescription.Margin = new System.Windows.Forms.Padding(0, 5, 0, 15);
+            this.txt_BookDescription.Margin = new System.Windows.Forms.Padding(0, 5, 0, 20);
             this.txt_BookDescription.MaxLength = 300;
             this.txt_BookDescription.Multiline = true;
             this.txt_BookDescription.Name = "txt_BookDescription";
@@ -240,7 +242,7 @@
             // 
             this.btn_SaveBook.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.btn_SaveBook.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btn_SaveBook.Location = new System.Drawing.Point(25, 465);
+            this.btn_SaveBook.Location = new System.Drawing.Point(26, 510);
             this.btn_SaveBook.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.btn_SaveBook.Name = "btn_SaveBook";
             this.btn_SaveBook.Size = new System.Drawing.Size(249, 30);
@@ -249,11 +251,55 @@
             this.btn_SaveBook.UseSelectable = true;
             this.btn_SaveBook.Click += new System.EventHandler(this.btn_SaveBook_Click);
             // 
+            // lbl_NoOfCopies
+            // 
+            this.lbl_NoOfCopies.AutoSize = true;
+            this.lbl_NoOfCopies.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_NoOfCopies.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbl_NoOfCopies.Location = new System.Drawing.Point(26, 470);
+            this.lbl_NoOfCopies.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_NoOfCopies.Name = "lbl_NoOfCopies";
+            this.lbl_NoOfCopies.Size = new System.Drawing.Size(117, 19);
+            this.lbl_NoOfCopies.TabIndex = 23;
+            this.lbl_NoOfCopies.Text = "Number of copies";
+            this.lbl_NoOfCopies.UseCustomBackColor = true;
+            // 
+            // cbx_NoOfCopies
+            // 
+            this.cbx_NoOfCopies.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbx_NoOfCopies.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbx_NoOfCopies.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_NoOfCopies.FormattingEnabled = true;
+            this.cbx_NoOfCopies.Location = new System.Drawing.Point(1, 1);
+            this.cbx_NoOfCopies.Margin = new System.Windows.Forms.Padding(0);
+            this.cbx_NoOfCopies.Name = "cbx_NoOfCopies";
+            this.cbx_NoOfCopies.Size = new System.Drawing.Size(125, 25);
+            this.cbx_NoOfCopies.TabIndex = 15;
+            // 
+            // metroPanel2
+            // 
+            this.metroPanel2.BackColor = System.Drawing.Color.DarkGray;
+            this.metroPanel2.Controls.Add(this.cbx_NoOfCopies);
+            this.metroPanel2.HorizontalScrollbarBarColor = true;
+            this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.HorizontalScrollbarSize = 10;
+            this.metroPanel2.Location = new System.Drawing.Point(148, 468);
+            this.metroPanel2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 15);
+            this.metroPanel2.Name = "metroPanel2";
+            this.metroPanel2.Size = new System.Drawing.Size(127, 27);
+            this.metroPanel2.TabIndex = 24;
+            this.metroPanel2.UseCustomBackColor = true;
+            this.metroPanel2.VerticalScrollbarBarColor = true;
+            this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.VerticalScrollbarSize = 10;
+            // 
             // NewBookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 524);
+            this.ClientSize = new System.Drawing.Size(300, 566);
+            this.Controls.Add(this.metroPanel2);
+            this.Controls.Add(this.lbl_NoOfCopies);
             this.Controls.Add(this.btn_SaveBook);
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.txt_BookDescription);
@@ -271,6 +317,7 @@
             this.Resizable = false;
             this.Text = "New Book";
             this.metroPanel1.ResumeLayout(false);
+            this.metroPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,5 +336,8 @@
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroTextBox txt_BookDescription;
         private MetroFramework.Controls.MetroButton btn_SaveBook;
+        private MetroFramework.Controls.MetroLabel lbl_NoOfCopies;
+        private System.Windows.Forms.ComboBox cbx_NoOfCopies;
+        private MetroFramework.Controls.MetroPanel metroPanel2;
     }
 }

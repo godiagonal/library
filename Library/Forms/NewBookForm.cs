@@ -1,8 +1,11 @@
-﻿using Library.Services;
+﻿using Library.Helpers;
+using Library.Models;
+using Library.Services;
 using MetroFramework;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -16,100 +19,115 @@ namespace Library
     {
         BookService _bookService;
         AuthorService _authorService;
+        public string NewBookTitle { get; private set; }
 
         public NewBookForm(BookService bookService, AuthorService authorService)
         {
             InitializeComponent();
             _authorService = authorService;
             _bookService = bookService;
-            cbx_BookAuthor_UpdateCollection();
-        }
-        private void author_OnChange()
-        {
+            _authorService_Updated(this, new EventArgs());
+            _authorService.Updated += _authorService_Updated;
 
+            for (int i = 1; i < 11; i++)
+            {
+                cbx_NoOfCopies.Items.Add(i);
+            }
+            cbx_NoOfCopies.SelectedIndex = 0;
         }
-        //Snyggare att uppdatera med events?
-        private void cbx_BookAuthor_UpdateCollection()
+
+        void _authorService_Updated(object sender, EventArgs e)
         {
             cbx_BookAuthor.Items.Clear();
-            cbx_BookAuthor.Items.AddRange(_authorService.All().ToArray());
+            foreach (Author a in _authorService.All())
+            {
+                cbx_BookAuthor.Items.Add(a);
+            }
         }
 
         private void btn_NewAuthor_Click(object sender, EventArgs e)
         {
             DialogForm form = new DialogForm("New author", "What's the name of the author?");
-            
+        
             if (form.ShowDialog(this) == DialogResult.OK)
             {
-                _authorService.Add(form.Answer);
-                cbx_BookAuthor_UpdateCollection();
-                cbx_BookAuthor.Text = form.Answer;
-                MetroMessageBox.Show(this, form.Answer + " was successfully added to the list of authors");
-            }
-            else
-            {
-                MessageBox.Show("not ok");
+                string formattedAnswer = Formatting.UppercaseWords(form.Answer).Trim();
+
+                try 
+                {
+                    _authorService.Add(formattedAnswer);
+                    MetroMessageBox.Show(this, string.Format("{0} was successfully added to the list of authors", formattedAnswer), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    cbx_BookAuthor.Text = formattedAnswer;
+                }
+                catch(ValidationException error)
+                {
+                    MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
         private void btn_SaveBook_Click(object sender, EventArgs e)
         {
-            // Spara bok här
-            //Selected items 
-            var authorInList = cbx_BookAuthor.SelectedItem.ToString();
-            var author = _authorService.All().Where(a => a.Name == authorInList);
-            if (author.Count() > 0) 
-            { 
-                var ab = author.First();
-                _bookService.Add(txt_BookTitle.Text, txt_BookDescription.Text, txt_BookDescription.Text, ab);
+            Author author = (Author)cbx_BookAuthor.SelectedItem;
+
+            try
+            {
+                _bookService.Add(txt_BookTitle.Text.Trim(), txt_BookDescription.Text.Trim(), txt_BookISBN.Text.Trim(), author, (int)cbx_NoOfCopies.SelectedItem);
+                this.NewBookTitle = txt_BookTitle.Text;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
-            this.Close();
+            catch (ValidationException error)
+            {
+                MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
-        private void cbx_BookAuthor_TextChanged(object sender, EventArgs e)
-        {
-           //var a = _authorService.Search(cbx_BookAuthor.Text).ToArray();
-           //cbx_BookAuthor.Items.Clear();
-           //cbx_BookAuthor.Items.AddRange(a);
-           //
-           if (cbx_BookAuthor.Text.Length == 0) overrideSuggestAndAppend();
-        }
+        //private void cbx_BookAuthor_TextChanged(object sender, EventArgs e)
+        //{
+        //    var a = _authorService.Search(cbx_BookAuthor.Text).ToArray();
+        //    cbx_BookAuthor.Items.Clear();
+        //    cbx_BookAuthor.Items.AddRange(a);
+
+        //    if (cbx_BookAuthor.Text.Length == 0) overrideSuggestAndAppend();
+        //}
         //
-        private void cbx_BookAuthor_KeyUp(object sender, KeyEventArgs e)
-        {
-            overrideSuggestAndAppend();
-        }
+        //private void cbx_BookAuthor_KeyUp(object sender, KeyEventArgs e)
+        //{
+
+        //}
         //Override suggest append so it's searching, using contains instead och startsWith
-        private void overrideSuggestAndAppend()
-        {
-            cbx_BookAuthor.DroppedDown = true;
+        //private void overridesuggestandappend()
+        //{
+        //    cbx_bookauthor.droppeddown = true;
 
-            object[] originalList = (object[])cbx_BookAuthor.Tag;
-            if (originalList == null)
-            {
-                // backup original list
-                originalList = new object[cbx_BookAuthor.Items.Count];
-                cbx_BookAuthor.Items.CopyTo(originalList, 0);
-                cbx_BookAuthor.Tag = originalList;
-            }
+        //    object[] originallist = (object[])cbx_bookauthor.tag;
+        //    if (originallist == null)
+        //    {
+        //        // backup original list
+        //        originallist = new object[cbx_bookauthor.items.count];
+        //        cbx_bookauthor.items.copyto(originallist, 0);
+        //        cbx_bookauthor.tag = originallist;
+        //    }
 
-            // prepare list of matching items
-            string s = cbx_BookAuthor.Text.ToLower();
-            IEnumerable<object> newList = originalList;
-            if (s.Length > 0)
-            {
-                newList = originalList.Where(item => item.ToString().ToLower().Contains(s));
-            }
+        //    // prepare list of matching items
+        //    string s = cbx_bookauthor.text.tolower();
+        //    ienumerable<object> newlist = originallist;
+        //    if (s.length > 0)
+        //    {
+        //        newlist = originallist.where(item => item.tostring().tolower().contains(s));
+        //    }
 
-            // clear list (loop through it, otherwise the cursor would move to the beginning of the textbox...)
-            while (cbx_BookAuthor.Items.Count > 0)
-            {
-                cbx_BookAuthor.Items.RemoveAt(0);
-            }
+        //    // clear list (loop through it, otherwise the cursor would move to the beginning of the textbox...)
+        //    while (cbx_bookauthor.items.count > 0)
+        //    {
+        //        cbx_bookauthor.items.removeat(0);
+        //    }
 
-            // re-set list
-            cbx_BookAuthor.Items.AddRange(newList.ToArray());
-        }
+        //    // re-set list
+        //    cbx_bookauthor.items.addrange(newlist.toarray());
+        //}
 
 
     }

@@ -1,7 +1,9 @@
-﻿using Library.Models;
+﻿using Library.Helpers;
+using Library.Models;
 using Library.Repositories;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,14 +26,28 @@ namespace Library.Services
 
         public void Add(string name)
         {
+            if(ContainsName(name))
+            {
+                throw new ValidationException("The author you are trying to add already exists");
+            }
+
             Author author = new Author()
             {
                 Name = name
             };
 
-            _authorRepository.Add(author);
 
-            OnUpdated(new EventArgs());
+            ValidationResult error = ObjectValidator.Validate(author);
+
+            if (error != null)
+            {
+                throw new ValidationException(error.ErrorMessage);
+            }
+            else
+            {
+                _authorRepository.Add(author);
+                OnUpdated(new EventArgs());
+            }
         }
 
         public Author Find(int id)
@@ -46,12 +62,11 @@ namespace Library.Services
             if (Updated != null)
                 Updated(this, e);
         }
-        public IEnumerable<Author> Search(string keyword)
+
+        private bool ContainsName(string name)
         {
-            var authors = _authorRepository.All();
-            if (keyword.Length != 0)
-                authors = authors.Where(a => a.Name.ToLower().Contains(keyword.ToLower()));
-            return authors;
+            var author = _authorRepository.All().FirstOrDefault(a => a.Name.ToLower() == name.ToLower());
+            return author == null ? false : true;
         }
     }
 }
