@@ -18,6 +18,8 @@ namespace Library
     {
         BookService _bookService;
         AuthorService _authorService;
+        BookCopyService _bookCopyService;
+        Book _selectedBook;
 
         public LibraryForm()
         {
@@ -25,9 +27,9 @@ namespace Library
 
             RepositoryFactory repoFactory = new RepositoryFactory();
 
-            _bookService = new BookService(repoFactory);
+            _bookCopyService = new BookCopyService(repoFactory);
+            _bookService = new BookService(repoFactory, _bookCopyService);
             _authorService = new AuthorService(repoFactory);
-
             _bookService.Updated += _bookService_Updated;
 
             UpdateBooks(_bookService.All());
@@ -37,23 +39,40 @@ namespace Library
         {
             if (grd_Books.SelectedRows.Count > 0)
             {
-                 
                 DataGridViewRow row = grd_Books.SelectedRows[0];
                 Book book = _bookService.Find((int)row.Cells[0].Value);
+                _selectedBook = book;
 
                 lbl_BookTitle.Text = book.Title;
                 lbl_BookId.Text = book.Id.ToString();
                 lbl_BookISBN.Text = book.ISBN;
                 txt_BookDescription.Text = book.Description;
-            
+
                 UpdateBookCopies(book.BookCopies);
 
                 pnl_SelectedBook.Visible = true;
             }
+            else
+            {
+                _selectedBook = null;
+                pnl_SelectedBook.Visible = false;
+            }
+
+            txt_BookSearch.Focus();
         }
 
         private void UpdateBooks(IEnumerable<Book> books)
         {
+            Book prevSelectedBook = null;
+
+            // Save selected book before clearing the list
+            if (grd_Books.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = grd_Books.SelectedRows[0];
+                Book book = _bookService.Find((int)row.Cells[0].Value);
+                prevSelectedBook = book;
+            }
+
             grd_Books.Rows.Clear();
 
             foreach (Book book in books)
@@ -82,6 +101,22 @@ namespace Library
                 row.Cells.AddRange(new DataGridViewCell[] { id, title, author, available });
 
                 grd_Books.Rows.Add(row);
+            }
+
+            // Set selected index to previously selected book
+            if (prevSelectedBook != null)
+            {
+                SetSelectedBook(prevSelectedBook);
+            }
+        }
+        private void SetSelectedBook(Book book) 
+        {
+            foreach(DataGridViewRow row in grd_Books.Rows)
+            {
+                if ((int)row.Cells[0].Value == book.Id)
+                {
+                    row.Selected = true;
+                }
             }
         }
 
@@ -143,6 +178,14 @@ namespace Library
             if (form.ShowDialog(this) == DialogResult.OK)
             {
                 MetroMessageBox.Show(this, string.Format("{0} was successfully added to the list of books", form.NewBookTitle), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+        }
+
+        private void btn_AddCopy_Click(object sender, EventArgs e)
+        {
+            if(_selectedBook != null)
+            {
+                _bookCopyService.Add(_selectedBook);  
             }
         }
     }
