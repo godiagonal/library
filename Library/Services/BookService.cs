@@ -13,18 +13,10 @@ namespace Library.Services
     public class BookService : IService
     {
         BookRepository _bookRepository;
-        BookCopyService _bookCopyService;
 
         public BookService(RepositoryFactory repoFactory)
         {
             _bookRepository = repoFactory.GetBookRepository();
-        }
-
-        public BookService(RepositoryFactory repoFactory, BookCopyService bookCopyService)
-            : this(repoFactory)
-        {
-            _bookCopyService = bookCopyService;
-            _bookCopyService.Updated += _bookCopyService_Updated;
         }
 
         public IEnumerable<Book> All()
@@ -92,11 +84,6 @@ namespace Library.Services
         {
             if (Updated != null)
                 Updated(this, e);
-        }
-
-        private void _bookCopyService_Updated(object sender, EventArgs e)
-        {
-            OnUpdated(e);
         }
 
         private bool ContainsTitle(string title)

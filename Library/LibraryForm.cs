@@ -28,9 +28,11 @@ namespace Library
             RepositoryFactory repoFactory = new RepositoryFactory();
 
             _bookCopyService = new BookCopyService(repoFactory);
-            _bookService = new BookService(repoFactory, _bookCopyService);
+            _bookService = new BookService(repoFactory);
             _authorService = new AuthorService(repoFactory);
+
             _bookService.Updated += _bookService_Updated;
+            _bookCopyService.Updated += _bookService_Updated;
 
             UpdateBooks(_bookService.All());
         }
