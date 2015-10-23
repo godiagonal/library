@@ -20,6 +20,7 @@ namespace Library
         AuthorService _authorService;
         BookCopyService _bookCopyService;
         Book _selectedBook;
+        BookCopy _selectedBookCopy;
 
         public LibraryForm()
         {
@@ -41,16 +42,14 @@ namespace Library
         {
             if (grd_Books.SelectedRows.Count > 0)
             {
-                DataGridViewRow row = grd_Books.SelectedRows[0];
-                Book book = _bookService.Find((int)row.Cells[0].Value);
-                _selectedBook = book;
+                _selectedBook = GetSelectedBook();
 
-                lbl_BookTitle.Text = book.Title;
-                lbl_BookId.Text = book.Id.ToString();
-                lbl_BookISBN.Text = book.ISBN;
-                txt_BookDescription.Text = book.Description;
+                lbl_BookTitle.Text = _selectedBook.Title;
+                lbl_BookId.Text = _selectedBook.Id.ToString();
+                lbl_BookISBN.Text = _selectedBook.ISBN;
+                txt_BookDescription.Text = _selectedBook.Description;
 
-                UpdateBookCopies(book.BookCopies);
+                UpdateBookCopies(_selectedBook.BookCopies);
 
                 pnl_SelectedBook.Visible = true;
             }
@@ -61,6 +60,24 @@ namespace Library
             }
 
             txt_BookSearch.Focus();
+        }
+
+        private Book GetSelectedBook()
+        {
+            DataGridViewRow row = grd_Books.SelectedRows[0];
+            return _bookService.Find((int)row.Cells[0].Value);
+        }
+
+        private void SetSelectedBook(Book book)
+        {
+            foreach (DataGridViewRow row in grd_Books.Rows)
+            {
+                if ((int)row.Cells[0].Value == book.Id)
+                {
+                    row.Selected = true;
+                    break;
+                }
+            }
         }
 
         private void UpdateBooks(IEnumerable<Book> books)
@@ -109,16 +126,6 @@ namespace Library
             if (prevSelectedBook != null)
             {
                 SetSelectedBook(prevSelectedBook);
-            }
-        }
-        private void SetSelectedBook(Book book) 
-        {
-            foreach(DataGridViewRow row in grd_Books.Rows)
-            {
-                if ((int)row.Cells[0].Value == book.Id)
-                {
-                    row.Selected = true;
-                }
             }
         }
 
@@ -188,6 +195,64 @@ namespace Library
             if(_selectedBook != null)
             {
                 _bookCopyService.Add(_selectedBook);  
+            }
+        }
+
+        private void grd_BookCopies_SelectionChanged(object sender, EventArgs e)
+        {
+            if (grd_BookCopies.SelectedRows.Count > 0)
+            {
+                _selectedBookCopy = GetSelectedBookCopy();
+
+                // Book on loan
+                if (_selectedBookCopy != null && _selectedBookCopy.CurrentLoan != null)
+                {
+                    btn_MakeLoan.Enabled = false;
+                    btn_ReturnLoan.Enabled = true;
+                }
+
+                // Book available
+                else if (_selectedBookCopy != null)
+                {
+                    btn_MakeLoan.Enabled = true;
+                    btn_ReturnLoan.Enabled = false;
+                }
+
+                // No book
+                else
+                {
+                    btn_MakeLoan.Enabled = false;
+                    btn_ReturnLoan.Enabled = false;
+                }
+            }
+            else
+            {
+                _selectedBookCopy = null;
+
+                btn_MakeLoan.Enabled = false;
+                btn_ReturnLoan.Enabled = false;
+            }
+        }
+
+        private BookCopy GetSelectedBookCopy()
+        {
+            DataGridViewRow row = grd_BookCopies.SelectedRows[0];
+            return _bookCopyService.Find((int)row.Cells[0].Value);
+        }
+
+        private void btn_ReturnLoan_Click(object sender, EventArgs e)
+        {
+            if (_selectedBookCopy != null)
+            {
+
+            }
+        }
+
+        private void btn_MakeLoan_Click(object sender, EventArgs e)
+        {
+            if (_selectedBookCopy != null)
+            {
+                
             }
         }
     }

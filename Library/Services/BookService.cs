@@ -91,6 +91,7 @@ namespace Library.Services
             var book = _bookRepository.All().FirstOrDefault(b => b.Title.ToLower() == title.ToLower());
             return book == null ? false : true;
         }
+
         private bool ContainsISBN(string isbn)
         {
             var book = _bookRepository.All().FirstOrDefault(b => b.ISBN.ToLower() == isbn.ToLower());
