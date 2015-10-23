@@ -14,12 +14,15 @@ namespace Library.Models
         [Required]
         public DateTime TimeOfLoan { get; set; }
 
+        [Required(ErrorMessage = "Due date is required")]
         public DateTime DueDate { get; set; }
 
         public DateTime? TimeOfReturn { get; set; }
 
+        [Required(ErrorMessage = "Book copy is required")]
         public virtual BookCopy BookCopy { get; set; }
 
+        [Required(ErrorMessage = "Member is required")]
         public virtual Member Member { get; set; }
     }
 }

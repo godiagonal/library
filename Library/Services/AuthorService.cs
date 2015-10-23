@@ -26,7 +26,7 @@ namespace Library.Services
 
         public void Add(string name)
         {
-            if(ContainsName(name))
+            if (ContainsName(name))
             {
                 throw new ValidationException("The author you are trying to add already exists");
             }
@@ -35,7 +35,6 @@ namespace Library.Services
             {
                 Name = name
             };
-
 
             ValidationResult error = ObjectValidator.Validate(author);
 

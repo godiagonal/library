@@ -24,24 +24,28 @@ namespace Library
         public NewBookForm(BookService bookService, AuthorService authorService)
         {
             InitializeComponent();
+
             _authorService = authorService;
             _bookService = bookService;
-            _authorService_Updated(this, new EventArgs());
+
             _authorService.Updated += _authorService_Updated;
+            _authorService_Updated(this, new EventArgs());
 
             for (int i = 1; i < 11; i++)
             {
                 cbx_NoOfCopies.Items.Add(i);
             }
+
             cbx_NoOfCopies.SelectedIndex = 0;
         }
 
         void _authorService_Updated(object sender, EventArgs e)
         {
-            cbx_BookAuthor.Items.Clear();
+            cbx_BookAuthors.Items.Clear();
+
             foreach (Author a in _authorService.All())
             {
-                cbx_BookAuthor.Items.Add(a);
+                cbx_BookAuthors.Items.Add(a);
             }
         }
 
@@ -56,10 +60,10 @@ namespace Library
                 try 
                 {
                     _authorService.Add(formattedAnswer);
-                    MetroMessageBox.Show(this, string.Format("{0} was successfully added to the list of authors", formattedAnswer), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                    cbx_BookAuthor.Text = formattedAnswer;
+                    MetroMessageBox.Show(this, String.Format("{0} was successfully added to the list of authors", formattedAnswer), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    cbx_BookAuthors.Text = formattedAnswer;
                 }
-                catch(ValidationException error)
+                catch (ValidationException error)
                 {
                     MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -68,7 +72,7 @@ namespace Library
 
         private void btn_SaveBook_Click(object sender, EventArgs e)
         {
-            Author author = (Author)cbx_BookAuthor.SelectedItem;
+            Author author = (Author)cbx_BookAuthors.SelectedItem;
 
             try
             {
@@ -128,7 +132,5 @@ namespace Library
         //    // re-set list
         //    cbx_bookauthor.items.addrange(newlist.toarray());
         //}
-
-
     }
 }

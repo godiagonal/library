@@ -33,7 +33,7 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.txt_BookISBN = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.cbx_BookAuthor = new System.Windows.Forms.ComboBox();
+            this.cbx_BookAuthors = new System.Windows.Forms.ComboBox();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.btn_NewAuthor = new MetroFramework.Controls.MetroButton();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
@@ -149,23 +149,23 @@
             this.metroLabel2.Text = "Author";
             this.metroLabel2.UseCustomBackColor = true;
             // 
-            // cbx_BookAuthor
+            // cbx_BookAuthors
             // 
-            this.cbx_BookAuthor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbx_BookAuthor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbx_BookAuthor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbx_BookAuthor.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbx_BookAuthor.FormattingEnabled = true;
-            this.cbx_BookAuthor.Location = new System.Drawing.Point(1, 1);
-            this.cbx_BookAuthor.Margin = new System.Windows.Forms.Padding(0);
-            this.cbx_BookAuthor.Name = "cbx_BookAuthor";
-            this.cbx_BookAuthor.Size = new System.Drawing.Size(247, 25);
-            this.cbx_BookAuthor.TabIndex = 15;
+            this.cbx_BookAuthors.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbx_BookAuthors.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbx_BookAuthors.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbx_BookAuthors.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbx_BookAuthors.FormattingEnabled = true;
+            this.cbx_BookAuthors.Location = new System.Drawing.Point(1, 1);
+            this.cbx_BookAuthors.Margin = new System.Windows.Forms.Padding(0);
+            this.cbx_BookAuthors.Name = "cbx_BookAuthors";
+            this.cbx_BookAuthors.Size = new System.Drawing.Size(247, 25);
+            this.cbx_BookAuthors.TabIndex = 15;
             // 
             // metroPanel1
             // 
             this.metroPanel1.BackColor = System.Drawing.Color.DarkGray;
-            this.metroPanel1.Controls.Add(this.cbx_BookAuthor);
+            this.metroPanel1.Controls.Add(this.cbx_BookAuthors);
             this.metroPanel1.HorizontalScrollbarBarColor = true;
             this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel1.HorizontalScrollbarSize = 10;
@@ -242,7 +242,7 @@
             // 
             this.btn_SaveBook.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.btn_SaveBook.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btn_SaveBook.Location = new System.Drawing.Point(26, 510);
+            this.btn_SaveBook.Location = new System.Drawing.Point(26, 515);
             this.btn_SaveBook.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.btn_SaveBook.Name = "btn_SaveBook";
             this.btn_SaveBook.Size = new System.Drawing.Size(249, 30);
@@ -284,7 +284,7 @@
             this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel2.HorizontalScrollbarSize = 10;
             this.metroPanel2.Location = new System.Drawing.Point(148, 468);
-            this.metroPanel2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 15);
+            this.metroPanel2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 20);
             this.metroPanel2.Name = "metroPanel2";
             this.metroPanel2.Size = new System.Drawing.Size(127, 27);
             this.metroPanel2.TabIndex = 24;
@@ -297,7 +297,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 566);
+            this.ClientSize = new System.Drawing.Size(300, 571);
             this.Controls.Add(this.metroPanel2);
             this.Controls.Add(this.lbl_NoOfCopies);
             this.Controls.Add(this.btn_SaveBook);
@@ -330,7 +330,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTextBox txt_BookISBN;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private System.Windows.Forms.ComboBox cbx_BookAuthor;
+        private System.Windows.Forms.ComboBox cbx_BookAuthors;
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroButton btn_NewAuthor;
         private MetroFramework.Controls.MetroLabel metroLabel4;

@@ -59,7 +59,8 @@ namespace Library.Models
                 Member = samuelJ,
                 TimeOfLoan = DateTime.Now,
                 BookCopy = monteCristo1,
-                DueDate = DateTime.Now.AddDays(15)
+                DueDate = DateTime.Now.AddDays(15),
+                TimeOfReturn = DateTime.Now
             };
 
             Loan loan2 = new Loan()
@@ -67,8 +68,7 @@ namespace Library.Models
                 Member = samuelJ,
                 TimeOfLoan = DateTime.Now,
                 BookCopy = monteCristo1,
-                DueDate = DateTime.Now,
-                TimeOfReturn = DateTime.Now
+                DueDate = DateTime.Now
             };
 
             Loan loan3 = new Loan()
@@ -76,10 +76,11 @@ namespace Library.Models
                 Member = samuelJ,
                 TimeOfLoan = DateTime.Now,
                 BookCopy = monteCristo2,
-                DueDate = DateTime.Now
+                DueDate = DateTime.Now,
+                TimeOfReturn = DateTime.Now
             };
 
-            samuelJ.Loans = new List<Loan>() { loan1, loan2, loan3 };
+            //samuelJ.Loans = new List<Loan>() { loan1, loan2, loan3 };
             
             // Add the book to the DbSet of books.
             context.Books.Add(monteCristo);

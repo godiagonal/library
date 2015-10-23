@@ -1,7 +1,9 @@
-﻿using Library.Models;
+﻿using Library.Helpers;
+using Library.Models;
 using Library.Repositories;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,19 +24,32 @@ namespace Library.Services
             return _loanRepository.All();
         }
 
-        public void Add(Member member, BookCopy bookCopy)
+        public void Add(Member member, BookCopy bookCopy, bool AlreadyExpiredLoan)
         {
+            if (bookCopy != null && bookCopy.CurrentLoan != null)
+            {
+                throw new ValidationException("This book copy is already on loan");
+            }
+
             Loan loan = new Loan()
             {
-                TimeOfLoan = new DateTime(),
+                TimeOfLoan = DateTime.Now,
+                DueDate = AlreadyExpiredLoan ? DateTime.Now.AddDays(-15) : DateTime.Now.AddDays(15),
                 Member = member,
-                BookCopy = bookCopy,
-                DueDate = new DateTime().AddDays(15)
+                BookCopy = bookCopy
             };
 
-            _loanRepository.Add(loan);
+            ValidationResult error = ObjectValidator.Validate(loan);
 
-            OnUpdated(new EventArgs());
+            if (error != null)
+            {
+                throw new ValidationException(error.ErrorMessage);
+            }
+            else
+            {
+                _loanRepository.Add(loan);
+                OnUpdated(new EventArgs());
+            }
         }
 
         public Loan Find(int id)
