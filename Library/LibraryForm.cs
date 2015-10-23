@@ -332,7 +332,7 @@ namespace Library
                 lbl_MemberID.Text = _selectedMember.Id.ToString();
                 lbl_pNr.Text = _selectedMember.PersonalNumber;
 
-                UpdateMemberLoans(_selectedMember.Loans);
+                UpdateMemberLoans(_loanService.ListMemberLoans(_selectedMember, cbx_Members_ShowReturnedLoans.Checked));
 
                 pnl_SelectedMember.Visible = true;
             }
@@ -360,7 +360,7 @@ namespace Library
                 loan.Id,
                 loan.BookCopy.Book.Title,
                 loan.BookCopy.Book.Author,
-                loan.DueDate,
+                loan.DueDate.ToShortDateString(),
                 loan.TimeOfReturn);
             }
         }
@@ -373,14 +373,8 @@ namespace Library
 
         private void cbx_Members_ShowReturnedLoans_CheckedChanged(object sender, EventArgs e)
         {
-            IEnumerable<Loan> loans;
             Member member = _memberService.Find(Convert.ToInt32(lbl_MemberID.Text));
-            if (cbx_Members_ShowReturnedLoans.Checked)
-                loans = member.Loans.Where(l => l.TimeOfReturn != null);
-            else
-                loans = member.Loans;
-
-            UpdateMemberLoans(loans);
+            UpdateMemberLoans(_loanService.ListMemberLoans(member, cbx_Members_ShowReturnedLoans.Checked));
         }
     }
 }

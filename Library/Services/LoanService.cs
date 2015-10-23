@@ -64,5 +64,15 @@ namespace Library.Services
             if (Updated != null)
                 Updated(this, e);
         }
+
+        public IEnumerable<Loan> ListMemberLoans (Member member, bool returnedLoans)
+        {
+            var loans = _loanRepository.All();
+            if(member != null)
+                loans = loans.Where(l => l.Member.Id == member.Id);
+            if(returnedLoans == false)
+                loans = loans.Where(l => l.TimeOfReturn == null);
+            return loans;
+        }
     }
 }
