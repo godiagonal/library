@@ -26,5 +26,23 @@ namespace Library
 
             _memberService = memberService;
         }
+
+        private void btn_SaveMember_Click(object sender, EventArgs e)
+        {
+            string name = Formatting.UppercaseWords(txt_MemberName.Text).Trim();
+            string personalNumber = txt_MemberPersonalNumber.Text.Trim();
+
+            try
+            {
+                _memberService.Add(name, personalNumber);
+                this.NewMemberName = name;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (ValidationException error)
+            {
+                MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

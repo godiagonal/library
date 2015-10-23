@@ -36,6 +36,7 @@ namespace Library
 
             _bookService.Updated += _bookService_Updated;
             _bookCopyService.Updated += _bookService_Updated;
+            _loanService.Updated += _bookService_Updated;
             _memberService.Updated += _memberService_Updated;
 
             _bookService_Updated(this, new EventArgs());

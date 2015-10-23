@@ -12,10 +12,12 @@ namespace Library.Models
         [Key]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Personal number is required")]
+        [StringLength(25, ErrorMessage = "Personal number can't be more than 25 characters")]
         public string PersonalNumber { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Name is required")]
+        [StringLength(50, ErrorMessage = "Name can't be more than 50 characters")]
         public string Name { get; set; }
 
         public virtual ICollection<Loan> Loans { get; set; }
@@ -24,6 +26,7 @@ namespace Library.Models
         {
             return this.Name;
         }
+
         [NotMapped]
         public bool HasActiveLoans
         {

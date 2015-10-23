@@ -136,6 +136,7 @@
             this.btn_SaveMember.TabIndex = 21;
             this.btn_SaveMember.Text = "Save member";
             this.btn_SaveMember.UseSelectable = true;
+            this.btn_SaveMember.Click += new System.EventHandler(this.btn_SaveMember_Click);
             // 
             // NewMemberForm
             // 
