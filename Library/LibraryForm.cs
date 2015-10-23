@@ -207,30 +207,30 @@ namespace Library
                 // Book on loan
                 if (_selectedBookCopy != null && _selectedBookCopy.CurrentLoan != null)
                 {
-                    btn_MakeLoan.Enabled = false;
-                    btn_ReturnLoan.Enabled = true;
+                    btn_BooksMakeLoan.Enabled = false;
+                    btn_BooksReturnLoan.Enabled = true;
                 }
 
                 // Book available
                 else if (_selectedBookCopy != null)
                 {
-                    btn_MakeLoan.Enabled = true;
-                    btn_ReturnLoan.Enabled = false;
+                    btn_BooksMakeLoan.Enabled = true;
+                    btn_BooksReturnLoan.Enabled = false;
                 }
 
                 // No book
                 else
                 {
-                    btn_MakeLoan.Enabled = false;
-                    btn_ReturnLoan.Enabled = false;
+                    btn_BooksMakeLoan.Enabled = false;
+                    btn_BooksReturnLoan.Enabled = false;
                 }
             }
             else
             {
                 _selectedBookCopy = null;
 
-                btn_MakeLoan.Enabled = false;
-                btn_ReturnLoan.Enabled = false;
+                btn_BooksMakeLoan.Enabled = false;
+                btn_BooksReturnLoan.Enabled = false;
             }
         }
 
@@ -240,7 +240,7 @@ namespace Library
             return _bookCopyService.Find((int)row.Cells[0].Value);
         }
 
-        private void btn_ReturnLoan_Click(object sender, EventArgs e)
+        private void btn_BooksMakeLoan_Click(object sender, EventArgs e)
         {
             if (_selectedBookCopy != null)
             {
@@ -248,11 +248,11 @@ namespace Library
             }
         }
 
-        private void btn_MakeLoan_Click(object sender, EventArgs e)
+        private void btn_BooksReturnLoan_Click(object sender, EventArgs e)
         {
             if (_selectedBookCopy != null)
             {
-                
+
             }
         }
     }

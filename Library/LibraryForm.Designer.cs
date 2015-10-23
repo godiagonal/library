@@ -30,41 +30,30 @@ namespace Library
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbc_Main = new MetroFramework.Controls.MetroTabControl();
             this.tab_Books = new System.Windows.Forms.TabPage();
             this.pnl_Books = new MetroFramework.Controls.MetroPanel();
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
-            this.metroButton3 = new MetroFramework.Controls.MetroButton();
-            this.metroButton4 = new MetroFramework.Controls.MetroButton();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.cbx_AvailableOnly = new MetroFramework.Controls.MetroCheckBox();
             this.btn_NewBook = new MetroFramework.Controls.MetroButton();
             this.pnl_SelectedBook = new MetroFramework.Controls.MetroPanel();
-            this.btn_ReturnLoan = new MetroFramework.Controls.MetroButton();
+            this.btn_BooksReturnLoan = new MetroFramework.Controls.MetroButton();
             this.btn_AddCopy = new MetroFramework.Controls.MetroButton();
-            this.btn_MakeLoan = new MetroFramework.Controls.MetroButton();
+            this.btn_BooksMakeLoan = new MetroFramework.Controls.MetroButton();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.grd_BookCopies = new MetroFramework.Controls.MetroGrid();
             this.bookCopies_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,23 +75,63 @@ namespace Library
             this.books_Available = new System.Windows.Forms.DataGridViewImageColumn();
             this.books_Blank = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tab_Members = new System.Windows.Forms.TabPage();
-            this.pnl_Members = new MetroFramework.Controls.MetroPanel();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.tab_Loans = new System.Windows.Forms.TabPage();
             this.pnl_Loans = new MetroFramework.Controls.MetroPanel();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.pnl_Members = new MetroFramework.Controls.MetroPanel();
+            this.cbx_Loans_ShowReturnedLoans = new MetroFramework.Controls.MetroCheckBox();
+            this.btn_Loans_ReturnLoan = new MetroFramework.Controls.MetroButton();
+            this.grd_Loans = new MetroFramework.Controls.MetroGrid();
+            this.btn_Loans_MakeLoan = new MetroFramework.Controls.MetroButton();
+            this.grd_Members = new MetroFramework.Controls.MetroGrid();
+            this.txt_MemberSearch = new MetroFramework.Controls.MetroTextBox();
+            this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
+            this.btn_MembersMakeLoan = new MetroFramework.Controls.MetroButton();
+            this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
+            this.lbl_MemberID = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel19 = new MetroFramework.Controls.MetroLabel();
+            this.lbl_pNr = new MetroFramework.Controls.MetroLabel();
+            this.grd_Members_Loans = new MetroFramework.Controls.MetroGrid();
+            this.lbl_MemberLoans = new MetroFramework.Controls.MetroLabel();
+            this.btn_MembersReturnLoan = new MetroFramework.Controls.MetroButton();
+            this.cbx_Members_ShowReturnedLoans = new MetroFramework.Controls.MetroCheckBox();
+            this.btn_NewMember = new MetroFramework.Controls.MetroButton();
+            this.cbx_MembersWithActiveLoans = new MetroFramework.Controls.MetroCheckBox();
+            this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.members_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.members_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.members_pNr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.members_ActiveLoans = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.members_loans_title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.members_loans_author = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.members_loans_dueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.members_loans_dateOfReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loans_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loans_memberName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loans_title = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loans_author = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loans_dueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.loans_dateOfReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbc_Main.SuspendLayout();
             this.tab_Books.SuspendLayout();
             this.pnl_Books.SuspendLayout();
-            this.metroPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.pnl_SelectedBook.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd_BookCopies)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd_Books)).BeginInit();
             this.tab_Members.SuspendLayout();
-            this.pnl_Members.SuspendLayout();
             this.tab_Loans.SuspendLayout();
+            this.pnl_Loans.SuspendLayout();
+            this.pnl_Members.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grd_Loans)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grd_Members)).BeginInit();
+            this.metroPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grd_Members_Loans)).BeginInit();
+            this.metroPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbc_Main
@@ -132,7 +161,6 @@ namespace Library
             // 
             // pnl_Books
             // 
-            this.pnl_Books.Controls.Add(this.metroPanel1);
             this.pnl_Books.Controls.Add(this.cbx_AvailableOnly);
             this.pnl_Books.Controls.Add(this.btn_NewBook);
             this.pnl_Books.Controls.Add(this.pnl_SelectedBook);
@@ -148,271 +176,6 @@ namespace Library
             this.pnl_Books.VerticalScrollbarBarColor = true;
             this.pnl_Books.VerticalScrollbarHighlightOnWheel = false;
             this.pnl_Books.VerticalScrollbarSize = 10;
-            // 
-            // metroPanel1
-            // 
-            this.metroPanel1.BackColor = System.Drawing.Color.LightGray;
-            this.metroPanel1.Controls.Add(this.metroPanel4);
-            this.metroPanel1.Controls.Add(this.metroButton2);
-            this.metroPanel1.Controls.Add(this.metroButton3);
-            this.metroPanel1.Controls.Add(this.metroButton4);
-            this.metroPanel1.Controls.Add(this.metroLabel1);
-            this.metroPanel1.Controls.Add(this.metroGrid1);
-            this.metroPanel1.Controls.Add(this.textBox1);
-            this.metroPanel1.Controls.Add(this.metroLabel2);
-            this.metroPanel1.Controls.Add(this.metroLabel4);
-            this.metroPanel1.Controls.Add(this.metroLabel7);
-            this.metroPanel1.Controls.Add(this.metroLabel8);
-            this.metroPanel1.Controls.Add(this.metroLabel9);
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(411, 30);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(4, 485);
-            this.metroPanel1.TabIndex = 13;
-            this.metroPanel1.UseCustomBackColor = true;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
-            // 
-            // metroPanel4
-            // 
-            this.metroPanel4.BackColor = System.Drawing.Color.Gainsboro;
-            this.metroPanel4.HorizontalScrollbarBarColor = true;
-            this.metroPanel4.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel4.HorizontalScrollbarSize = 10;
-            this.metroPanel4.Location = new System.Drawing.Point(22, 444);
-            this.metroPanel4.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
-            this.metroPanel4.Name = "metroPanel4";
-            this.metroPanel4.Size = new System.Drawing.Size(368, 1);
-            this.metroPanel4.TabIndex = 8;
-            this.metroPanel4.UseCustomBackColor = true;
-            this.metroPanel4.VerticalScrollbarBarColor = true;
-            this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel4.VerticalScrollbarSize = 10;
-            // 
-            // metroButton2
-            // 
-            this.metroButton2.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.metroButton2.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.metroButton2.Location = new System.Drawing.Point(132, 465);
-            this.metroButton2.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(100, 30);
-            this.metroButton2.TabIndex = 12;
-            this.metroButton2.Text = "Return loan";
-            this.metroButton2.UseSelectable = true;
-            // 
-            // metroButton3
-            // 
-            this.metroButton3.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.metroButton3.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.metroButton3.Location = new System.Drawing.Point(290, 286);
-            this.metroButton3.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
-            this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(100, 30);
-            this.metroButton3.TabIndex = 11;
-            this.metroButton3.Text = "Add copy";
-            this.metroButton3.UseSelectable = true;
-            // 
-            // metroButton4
-            // 
-            this.metroButton4.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.metroButton4.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.metroButton4.Location = new System.Drawing.Point(22, 465);
-            this.metroButton4.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
-            this.metroButton4.Name = "metroButton4";
-            this.metroButton4.Size = new System.Drawing.Size(100, 30);
-            this.metroButton4.TabIndex = 9;
-            this.metroButton4.Text = "Make loan";
-            this.metroButton4.UseSelectable = true;
-            // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(20, 292);
-            this.metroLabel1.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(55, 19);
-            this.metroLabel1.TabIndex = 10;
-            this.metroLabel1.Text = "COPIES";
-            this.metroLabel1.UseCustomBackColor = true;
-            // 
-            // metroGrid1
-            // 
-            this.metroGrid1.AllowUserToAddRows = false;
-            this.metroGrid1.AllowUserToDeleteRows = false;
-            this.metroGrid1.AllowUserToResizeColumns = false;
-            this.metroGrid1.AllowUserToResizeRows = false;
-            this.metroGrid1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.metroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.metroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.metroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
-            this.metroGrid1.ColumnHeadersHeight = 26;
-            this.metroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.metroGrid1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewImageColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.metroGrid1.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid1.DefaultCellStyle = dataGridViewCellStyle26;
-            this.metroGrid1.EnableHeadersVisualStyles = false;
-            this.metroGrid1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.metroGrid1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid1.Location = new System.Drawing.Point(22, 326);
-            this.metroGrid1.Margin = new System.Windows.Forms.Padding(0, 5, 20, 0);
-            this.metroGrid1.MultiSelect = false;
-            this.metroGrid1.Name = "metroGrid1";
-            this.metroGrid1.ReadOnly = true;
-            this.metroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
-            this.metroGrid1.RowHeadersVisible = false;
-            this.metroGrid1.RowHeadersWidth = 10;
-            this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.metroGrid1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid1.Size = new System.Drawing.Size(368, 119);
-            this.metroGrid1.TabIndex = 9;
-            this.metroGrid1.UseCustomBackColor = true;
-            this.metroGrid1.UseCustomForeColor = true;
-            this.metroGrid1.UseStyleColors = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 30;
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.HeaderText = "Available";
-            this.dataGridViewImageColumn1.Image = global::Library.Properties.Resources.icon_check;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn1.Width = 65;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Member";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 170;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Due date";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 105;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(20, 178);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(20, 5, 20, 0);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(370, 88);
-            this.textBox1.TabIndex = 7;
-            this.textBox1.Text = "#description";
-            // 
-            // metroLabel2
-            // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel2.Location = new System.Drawing.Point(20, 154);
-            this.metroLabel2.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(94, 19);
-            this.metroLabel2.TabIndex = 6;
-            this.metroLabel2.Text = "DESCRIPTION";
-            this.metroLabel2.UseCustomBackColor = true;
-            // 
-            // metroLabel4
-            // 
-            this.metroLabel4.AutoSize = true;
-            this.metroLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel4.Location = new System.Drawing.Point(20, 115);
-            this.metroLabel4.Margin = new System.Windows.Forms.Padding(20, 5, 20, 0);
-            this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(42, 19);
-            this.metroLabel4.TabIndex = 5;
-            this.metroLabel4.Text = "#isbn";
-            this.metroLabel4.UseCustomBackColor = true;
-            // 
-            // metroLabel7
-            // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel7.Location = new System.Drawing.Point(20, 91);
-            this.metroLabel7.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(38, 19);
-            this.metroLabel7.TabIndex = 4;
-            this.metroLabel7.Text = "ISBN";
-            this.metroLabel7.UseCustomBackColor = true;
-            // 
-            // metroLabel8
-            // 
-            this.metroLabel8.AutoSize = true;
-            this.metroLabel8.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel8.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.metroLabel8.Location = new System.Drawing.Point(20, 56);
-            this.metroLabel8.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(23, 15);
-            this.metroLabel8.TabIndex = 3;
-            this.metroLabel8.Text = "#id";
-            this.metroLabel8.UseCustomBackColor = true;
-            // 
-            // metroLabel9
-            // 
-            this.metroLabel9.AutoSize = true;
-            this.metroLabel9.BackColor = System.Drawing.Color.Transparent;
-            this.metroLabel9.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel9.Location = new System.Drawing.Point(20, 31);
-            this.metroLabel9.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(52, 25);
-            this.metroLabel9.TabIndex = 2;
-            this.metroLabel9.Text = "#title";
-            this.metroLabel9.UseCustomBackColor = true;
             // 
             // cbx_AvailableOnly
             // 
@@ -442,9 +205,9 @@ namespace Library
             // pnl_SelectedBook
             // 
             this.pnl_SelectedBook.BackColor = System.Drawing.Color.Transparent;
-            this.pnl_SelectedBook.Controls.Add(this.btn_ReturnLoan);
+            this.pnl_SelectedBook.Controls.Add(this.btn_BooksReturnLoan);
             this.pnl_SelectedBook.Controls.Add(this.btn_AddCopy);
-            this.pnl_SelectedBook.Controls.Add(this.btn_MakeLoan);
+            this.pnl_SelectedBook.Controls.Add(this.btn_BooksMakeLoan);
             this.pnl_SelectedBook.Controls.Add(this.metroLabel5);
             this.pnl_SelectedBook.Controls.Add(this.grd_BookCopies);
             this.pnl_SelectedBook.Controls.Add(this.txt_BookDescription);
@@ -466,19 +229,19 @@ namespace Library
             this.pnl_SelectedBook.VerticalScrollbarSize = 10;
             this.pnl_SelectedBook.Visible = false;
             // 
-            // btn_ReturnLoan
+            // btn_BooksReturnLoan
             // 
-            this.btn_ReturnLoan.Enabled = false;
-            this.btn_ReturnLoan.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btn_ReturnLoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btn_ReturnLoan.Location = new System.Drawing.Point(139, 484);
-            this.btn_ReturnLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
-            this.btn_ReturnLoan.Name = "btn_ReturnLoan";
-            this.btn_ReturnLoan.Size = new System.Drawing.Size(100, 30);
-            this.btn_ReturnLoan.TabIndex = 12;
-            this.btn_ReturnLoan.Text = "Return loan";
-            this.btn_ReturnLoan.UseSelectable = true;
-            this.btn_ReturnLoan.Click += new System.EventHandler(this.btn_ReturnLoan_Click);
+            this.btn_BooksReturnLoan.Enabled = false;
+            this.btn_BooksReturnLoan.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btn_BooksReturnLoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btn_BooksReturnLoan.Location = new System.Drawing.Point(139, 484);
+            this.btn_BooksReturnLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
+            this.btn_BooksReturnLoan.Name = "btn_BooksReturnLoan";
+            this.btn_BooksReturnLoan.Size = new System.Drawing.Size(100, 30);
+            this.btn_BooksReturnLoan.TabIndex = 12;
+            this.btn_BooksReturnLoan.Text = "Return loan";
+            this.btn_BooksReturnLoan.UseSelectable = true;
+            this.btn_BooksReturnLoan.Click += new System.EventHandler(this.btn_BooksReturnLoan_Click);
             // 
             // btn_AddCopy
             // 
@@ -493,19 +256,19 @@ namespace Library
             this.btn_AddCopy.UseSelectable = true;
             this.btn_AddCopy.Click += new System.EventHandler(this.btn_AddCopy_Click);
             // 
-            // btn_MakeLoan
+            // btn_BooksMakeLoan
             // 
-            this.btn_MakeLoan.Enabled = false;
-            this.btn_MakeLoan.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btn_MakeLoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btn_MakeLoan.Location = new System.Drawing.Point(29, 484);
-            this.btn_MakeLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
-            this.btn_MakeLoan.Name = "btn_MakeLoan";
-            this.btn_MakeLoan.Size = new System.Drawing.Size(100, 30);
-            this.btn_MakeLoan.TabIndex = 9;
-            this.btn_MakeLoan.Text = "Make loan";
-            this.btn_MakeLoan.UseSelectable = true;
-            this.btn_MakeLoan.Click += new System.EventHandler(this.btn_MakeLoan_Click);
+            this.btn_BooksMakeLoan.Enabled = false;
+            this.btn_BooksMakeLoan.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btn_BooksMakeLoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btn_BooksMakeLoan.Location = new System.Drawing.Point(29, 484);
+            this.btn_BooksMakeLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
+            this.btn_BooksMakeLoan.Name = "btn_BooksMakeLoan";
+            this.btn_BooksMakeLoan.Size = new System.Drawing.Size(100, 30);
+            this.btn_BooksMakeLoan.TabIndex = 9;
+            this.btn_BooksMakeLoan.Text = "Make loan";
+            this.btn_BooksMakeLoan.UseSelectable = true;
+            this.btn_BooksMakeLoan.Click += new System.EventHandler(this.btn_BooksMakeLoan_Click);
             // 
             // metroLabel5
             // 
@@ -530,14 +293,14 @@ namespace Library
             this.grd_BookCopies.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grd_BookCopies.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grd_BookCopies.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grd_BookCopies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_BookCopies.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grd_BookCopies.ColumnHeadersHeight = 26;
             this.grd_BookCopies.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.grd_BookCopies.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -547,14 +310,14 @@ namespace Library
             this.bookCopies_DueDate,
             this.bookCopies_Blank});
             this.grd_BookCopies.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grd_BookCopies.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grd_BookCopies.DefaultCellStyle = dataGridViewCellStyle2;
             this.grd_BookCopies.EnableHeadersVisualStyles = false;
             this.grd_BookCopies.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.grd_BookCopies.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -564,14 +327,14 @@ namespace Library
             this.grd_BookCopies.Name = "grd_BookCopies";
             this.grd_BookCopies.ReadOnly = true;
             this.grd_BookCopies.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grd_BookCopies.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_BookCopies.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grd_BookCopies.RowHeadersVisible = false;
             this.grd_BookCopies.RowHeadersWidth = 10;
             this.grd_BookCopies.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -748,14 +511,14 @@ namespace Library
             this.grd_Books.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grd_Books.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grd_Books.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grd_Books.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_Books.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.grd_Books.ColumnHeadersHeight = 26;
             this.grd_Books.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.grd_Books.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -765,14 +528,14 @@ namespace Library
             this.books_Available,
             this.books_Blank});
             this.grd_Books.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.grd_Books.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grd_Books.DefaultCellStyle = dataGridViewCellStyle5;
             this.grd_Books.EnableHeadersVisualStyles = false;
             this.grd_Books.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.grd_Books.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -782,14 +545,14 @@ namespace Library
             this.grd_Books.Name = "grd_Books";
             this.grd_Books.ReadOnly = true;
             this.grd_Books.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grd_Books.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_Books.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.grd_Books.RowHeadersVisible = false;
             this.grd_Books.RowHeadersWidth = 10;
             this.grd_Books.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -851,29 +614,6 @@ namespace Library
             this.tab_Members.TabIndex = 1;
             this.tab_Members.Text = "Members";
             // 
-            // pnl_Members
-            // 
-            this.pnl_Members.Controls.Add(this.metroButton1);
-            this.pnl_Members.HorizontalScrollbarBarColor = true;
-            this.pnl_Members.HorizontalScrollbarHighlightOnWheel = false;
-            this.pnl_Members.HorizontalScrollbarSize = 10;
-            this.pnl_Members.Location = new System.Drawing.Point(0, 0);
-            this.pnl_Members.Name = "pnl_Members";
-            this.pnl_Members.Size = new System.Drawing.Size(821, 448);
-            this.pnl_Members.TabIndex = 0;
-            this.pnl_Members.VerticalScrollbarBarColor = true;
-            this.pnl_Members.VerticalScrollbarHighlightOnWheel = false;
-            this.pnl_Members.VerticalScrollbarSize = 10;
-            // 
-            // metroButton1
-            // 
-            this.metroButton1.Location = new System.Drawing.Point(323, 170);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(75, 23);
-            this.metroButton1.TabIndex = 2;
-            this.metroButton1.Text = "metroButton1";
-            this.metroButton1.UseSelectable = true;
-            // 
             // tab_Loans
             // 
             this.tab_Loans.BackColor = System.Drawing.Color.Transparent;
@@ -887,12 +627,16 @@ namespace Library
             // 
             // pnl_Loans
             // 
+            this.pnl_Loans.Controls.Add(this.cbx_Loans_ShowReturnedLoans);
+            this.pnl_Loans.Controls.Add(this.btn_Loans_ReturnLoan);
+            this.pnl_Loans.Controls.Add(this.grd_Loans);
+            this.pnl_Loans.Controls.Add(this.btn_Loans_MakeLoan);
             this.pnl_Loans.HorizontalScrollbarBarColor = true;
             this.pnl_Loans.HorizontalScrollbarHighlightOnWheel = false;
             this.pnl_Loans.HorizontalScrollbarSize = 10;
             this.pnl_Loans.Location = new System.Drawing.Point(0, 0);
             this.pnl_Loans.Name = "pnl_Loans";
-            this.pnl_Loans.Size = new System.Drawing.Size(821, 448);
+            this.pnl_Loans.Size = new System.Drawing.Size(821, 515);
             this.pnl_Loans.TabIndex = 0;
             this.pnl_Loans.VerticalScrollbarBarColor = true;
             this.pnl_Loans.VerticalScrollbarHighlightOnWheel = false;
@@ -918,6 +662,577 @@ namespace Library
             this.dataGridViewImageColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dataGridViewImageColumn3.Width = 60;
             // 
+            // pnl_Members
+            // 
+            this.pnl_Members.Controls.Add(this.metroPanel2);
+            this.pnl_Members.HorizontalScrollbarBarColor = true;
+            this.pnl_Members.HorizontalScrollbarHighlightOnWheel = false;
+            this.pnl_Members.HorizontalScrollbarSize = 10;
+            this.pnl_Members.Location = new System.Drawing.Point(0, 0);
+            this.pnl_Members.Name = "pnl_Members";
+            this.pnl_Members.Size = new System.Drawing.Size(821, 515);
+            this.pnl_Members.TabIndex = 0;
+            this.pnl_Members.VerticalScrollbarBarColor = true;
+            this.pnl_Members.VerticalScrollbarHighlightOnWheel = false;
+            this.pnl_Members.VerticalScrollbarSize = 10;
+            // 
+            // cbx_Loans_ShowReturnedLoans
+            // 
+            this.cbx_Loans_ShowReturnedLoans.AutoSize = true;
+            this.cbx_Loans_ShowReturnedLoans.Location = new System.Drawing.Point(0, 30);
+            this.cbx_Loans_ShowReturnedLoans.Margin = new System.Windows.Forms.Padding(0, 30, 0, 10);
+            this.cbx_Loans_ShowReturnedLoans.Name = "cbx_Loans_ShowReturnedLoans";
+            this.cbx_Loans_ShowReturnedLoans.Size = new System.Drawing.Size(131, 15);
+            this.cbx_Loans_ShowReturnedLoans.TabIndex = 19;
+            this.cbx_Loans_ShowReturnedLoans.Text = "Show returned loans";
+            this.cbx_Loans_ShowReturnedLoans.UseSelectable = true;
+            // 
+            // btn_Loans_ReturnLoan
+            // 
+            this.btn_Loans_ReturnLoan.Enabled = false;
+            this.btn_Loans_ReturnLoan.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btn_Loans_ReturnLoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btn_Loans_ReturnLoan.Location = new System.Drawing.Point(110, 485);
+            this.btn_Loans_ReturnLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
+            this.btn_Loans_ReturnLoan.Name = "btn_Loans_ReturnLoan";
+            this.btn_Loans_ReturnLoan.Size = new System.Drawing.Size(100, 30);
+            this.btn_Loans_ReturnLoan.TabIndex = 18;
+            this.btn_Loans_ReturnLoan.Text = "Return loan";
+            this.btn_Loans_ReturnLoan.UseSelectable = true;
+            // 
+            // grd_Loans
+            // 
+            this.grd_Loans.AllowUserToAddRows = false;
+            this.grd_Loans.AllowUserToDeleteRows = false;
+            this.grd_Loans.AllowUserToResizeColumns = false;
+            this.grd_Loans.AllowUserToResizeRows = false;
+            this.grd_Loans.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.grd_Loans.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grd_Loans.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.grd_Loans.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_Loans.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.grd_Loans.ColumnHeadersHeight = 26;
+            this.grd_Loans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grd_Loans.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.loans_Id,
+            this.loans_memberName,
+            this.loans_title,
+            this.loans_author,
+            this.loans_dueDate,
+            this.loans_dateOfReturn,
+            this.dataGridViewTextBoxColumn18});
+            this.grd_Loans.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grd_Loans.DefaultCellStyle = dataGridViewCellStyle14;
+            this.grd_Loans.EnableHeadersVisualStyles = false;
+            this.grd_Loans.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.grd_Loans.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.grd_Loans.Location = new System.Drawing.Point(2, 60);
+            this.grd_Loans.Margin = new System.Windows.Forms.Padding(0, 5, 20, 0);
+            this.grd_Loans.MultiSelect = false;
+            this.grd_Loans.Name = "grd_Loans";
+            this.grd_Loans.ReadOnly = true;
+            this.grd_Loans.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_Loans.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.grd_Loans.RowHeadersVisible = false;
+            this.grd_Loans.RowHeadersWidth = 10;
+            this.grd_Loans.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.grd_Loans.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grd_Loans.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grd_Loans.Size = new System.Drawing.Size(819, 405);
+            this.grd_Loans.TabIndex = 15;
+            this.grd_Loans.UseCustomBackColor = true;
+            this.grd_Loans.UseCustomForeColor = true;
+            this.grd_Loans.UseStyleColors = true;
+            // 
+            // btn_Loans_MakeLoan
+            // 
+            this.btn_Loans_MakeLoan.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btn_Loans_MakeLoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btn_Loans_MakeLoan.Location = new System.Drawing.Point(0, 485);
+            this.btn_Loans_MakeLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
+            this.btn_Loans_MakeLoan.Name = "btn_Loans_MakeLoan";
+            this.btn_Loans_MakeLoan.Size = new System.Drawing.Size(100, 30);
+            this.btn_Loans_MakeLoan.TabIndex = 17;
+            this.btn_Loans_MakeLoan.Text = "Make loan";
+            this.btn_Loans_MakeLoan.UseSelectable = true;
+            // 
+            // grd_Members
+            // 
+            this.grd_Members.AllowUserToAddRows = false;
+            this.grd_Members.AllowUserToDeleteRows = false;
+            this.grd_Members.AllowUserToResizeColumns = false;
+            this.grd_Members.AllowUserToResizeRows = false;
+            this.grd_Members.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.grd_Members.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grd_Members.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.grd_Members.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_Members.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.grd_Members.ColumnHeadersHeight = 26;
+            this.grd_Members.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grd_Members.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.members_Id,
+            this.members_Name,
+            this.members_pNr,
+            this.members_ActiveLoans,
+            this.dataGridViewTextBoxColumn14});
+            this.grd_Members.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grd_Members.DefaultCellStyle = dataGridViewCellStyle11;
+            this.grd_Members.EnableHeadersVisualStyles = false;
+            this.grd_Members.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.grd_Members.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.grd_Members.Location = new System.Drawing.Point(0, 91);
+            this.grd_Members.Margin = new System.Windows.Forms.Padding(0, 10, 20, 0);
+            this.grd_Members.MultiSelect = false;
+            this.grd_Members.Name = "grd_Members";
+            this.grd_Members.ReadOnly = true;
+            this.grd_Members.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_Members.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.grd_Members.RowHeadersVisible = false;
+            this.grd_Members.RowHeadersWidth = 10;
+            this.grd_Members.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.grd_Members.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grd_Members.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grd_Members.Size = new System.Drawing.Size(388, 374);
+            this.grd_Members.TabIndex = 3;
+            this.grd_Members.UseCustomBackColor = true;
+            this.grd_Members.UseCustomForeColor = true;
+            this.grd_Members.UseStyleColors = true;
+            // 
+            // txt_MemberSearch
+            // 
+            this.txt_MemberSearch.BackColor = System.Drawing.Color.WhiteSmoke;
+            // 
+            // 
+            // 
+            this.txt_MemberSearch.CustomButton.Image = null;
+            this.txt_MemberSearch.CustomButton.Location = new System.Drawing.Point(364, 2);
+            this.txt_MemberSearch.CustomButton.Name = "";
+            this.txt_MemberSearch.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txt_MemberSearch.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txt_MemberSearch.CustomButton.TabIndex = 1;
+            this.txt_MemberSearch.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txt_MemberSearch.CustomButton.UseSelectable = true;
+            this.txt_MemberSearch.CustomButton.Visible = false;
+            this.txt_MemberSearch.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.txt_MemberSearch.Lines = new string[0];
+            this.txt_MemberSearch.Location = new System.Drawing.Point(0, 30);
+            this.txt_MemberSearch.Margin = new System.Windows.Forms.Padding(0, 30, 20, 0);
+            this.txt_MemberSearch.MaxLength = 32767;
+            this.txt_MemberSearch.Name = "txt_MemberSearch";
+            this.txt_MemberSearch.PasswordChar = '\0';
+            this.txt_MemberSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txt_MemberSearch.SelectedText = "";
+            this.txt_MemberSearch.SelectionLength = 0;
+            this.txt_MemberSearch.SelectionStart = 0;
+            this.txt_MemberSearch.Size = new System.Drawing.Size(388, 26);
+            this.txt_MemberSearch.TabIndex = 4;
+            this.txt_MemberSearch.UseSelectable = true;
+            this.txt_MemberSearch.WaterMark = "Search for a member";
+            this.txt_MemberSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txt_MemberSearch.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            // 
+            // metroPanel6
+            // 
+            this.metroPanel6.BackColor = System.Drawing.Color.Transparent;
+            this.metroPanel6.Controls.Add(this.cbx_Members_ShowReturnedLoans);
+            this.metroPanel6.Controls.Add(this.btn_MembersReturnLoan);
+            this.metroPanel6.Controls.Add(this.lbl_MemberLoans);
+            this.metroPanel6.Controls.Add(this.grd_Members_Loans);
+            this.metroPanel6.Controls.Add(this.lbl_pNr);
+            this.metroPanel6.Controls.Add(this.metroLabel19);
+            this.metroPanel6.Controls.Add(this.lbl_MemberID);
+            this.metroPanel6.Controls.Add(this.metroLabel21);
+            this.metroPanel6.Controls.Add(this.btn_MembersMakeLoan);
+            this.metroPanel6.HorizontalScrollbarBarColor = true;
+            this.metroPanel6.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel6.HorizontalScrollbarSize = 10;
+            this.metroPanel6.Location = new System.Drawing.Point(411, 0);
+            this.metroPanel6.Name = "metroPanel6";
+            this.metroPanel6.Size = new System.Drawing.Size(410, 515);
+            this.metroPanel6.TabIndex = 5;
+            this.metroPanel6.UseCustomBackColor = true;
+            this.metroPanel6.VerticalScrollbarBarColor = true;
+            this.metroPanel6.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel6.VerticalScrollbarSize = 10;
+            this.metroPanel6.Visible = false;
+            // 
+            // btn_MembersMakeLoan
+            // 
+            this.btn_MembersMakeLoan.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btn_MembersMakeLoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btn_MembersMakeLoan.Location = new System.Drawing.Point(29, 484);
+            this.btn_MembersMakeLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
+            this.btn_MembersMakeLoan.Name = "btn_MembersMakeLoan";
+            this.btn_MembersMakeLoan.Size = new System.Drawing.Size(100, 30);
+            this.btn_MembersMakeLoan.TabIndex = 11;
+            this.btn_MembersMakeLoan.Text = "Make loan";
+            this.btn_MembersMakeLoan.UseSelectable = true;
+            // 
+            // metroLabel21
+            // 
+            this.metroLabel21.AutoSize = true;
+            this.metroLabel21.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel21.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel21.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.metroLabel21.Location = new System.Drawing.Point(27, 30);
+            this.metroLabel21.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.metroLabel21.Name = "metroLabel21";
+            this.metroLabel21.Size = new System.Drawing.Size(137, 25);
+            this.metroLabel21.TabIndex = 2;
+            this.metroLabel21.Text = "#memberName";
+            this.metroLabel21.UseCustomBackColor = true;
+            this.metroLabel21.UseCustomForeColor = true;
+            // 
+            // lbl_MemberID
+            // 
+            this.lbl_MemberID.AutoSize = true;
+            this.lbl_MemberID.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_MemberID.FontSize = MetroFramework.MetroLabelSize.Small;
+            this.lbl_MemberID.Location = new System.Drawing.Point(27, 55);
+            this.lbl_MemberID.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.lbl_MemberID.Name = "lbl_MemberID";
+            this.lbl_MemberID.Size = new System.Drawing.Size(23, 15);
+            this.lbl_MemberID.TabIndex = 3;
+            this.lbl_MemberID.Text = "#id";
+            this.lbl_MemberID.UseCustomBackColor = true;
+            // 
+            // metroLabel19
+            // 
+            this.metroLabel19.AutoSize = true;
+            this.metroLabel19.BackColor = System.Drawing.Color.Transparent;
+            this.metroLabel19.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel19.Location = new System.Drawing.Point(27, 90);
+            this.metroLabel19.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
+            this.metroLabel19.Name = "metroLabel19";
+            this.metroLabel19.Size = new System.Drawing.Size(113, 19);
+            this.metroLabel19.TabIndex = 4;
+            this.metroLabel19.Text = "Personal number";
+            this.metroLabel19.UseCustomBackColor = true;
+            // 
+            // lbl_pNr
+            // 
+            this.lbl_pNr.AutoSize = true;
+            this.lbl_pNr.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_pNr.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbl_pNr.Location = new System.Drawing.Point(27, 114);
+            this.lbl_pNr.Margin = new System.Windows.Forms.Padding(20, 5, 20, 0);
+            this.lbl_pNr.Name = "lbl_pNr";
+            this.lbl_pNr.Size = new System.Drawing.Size(119, 19);
+            this.lbl_pNr.TabIndex = 5;
+            this.lbl_pNr.Text = "#personalNumber";
+            this.lbl_pNr.UseCustomBackColor = true;
+            // 
+            // grd_Members_Loans
+            // 
+            this.grd_Members_Loans.AllowUserToAddRows = false;
+            this.grd_Members_Loans.AllowUserToDeleteRows = false;
+            this.grd_Members_Loans.AllowUserToResizeColumns = false;
+            this.grd_Members_Loans.AllowUserToResizeRows = false;
+            this.grd_Members_Loans.BackgroundColor = System.Drawing.Color.AliceBlue;
+            this.grd_Members_Loans.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.grd_Members_Loans.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.grd_Members_Loans.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_Members_Loans.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.grd_Members_Loans.ColumnHeadersHeight = 26;
+            this.grd_Members_Loans.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grd_Members_Loans.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn7,
+            this.members_loans_title,
+            this.members_loans_author,
+            this.members_loans_dueDate,
+            this.members_loans_dateOfReturn,
+            this.dataGridViewTextBoxColumn10});
+            this.grd_Members_Loans.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(226)))), ((int)(((byte)(244)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.grd_Members_Loans.DefaultCellStyle = dataGridViewCellStyle8;
+            this.grd_Members_Loans.EnableHeadersVisualStyles = false;
+            this.grd_Members_Loans.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.grd_Members_Loans.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.grd_Members_Loans.Location = new System.Drawing.Point(29, 177);
+            this.grd_Members_Loans.Margin = new System.Windows.Forms.Padding(0, 5, 20, 0);
+            this.grd_Members_Loans.MultiSelect = false;
+            this.grd_Members_Loans.Name = "grd_Members_Loans";
+            this.grd_Members_Loans.ReadOnly = true;
+            this.grd_Members_Loans.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grd_Members_Loans.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.grd_Members_Loans.RowHeadersVisible = false;
+            this.grd_Members_Loans.RowHeadersWidth = 10;
+            this.grd_Members_Loans.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.grd_Members_Loans.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grd_Members_Loans.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grd_Members_Loans.Size = new System.Drawing.Size(381, 287);
+            this.grd_Members_Loans.TabIndex = 9;
+            this.grd_Members_Loans.UseCustomBackColor = true;
+            this.grd_Members_Loans.UseCustomForeColor = true;
+            this.grd_Members_Loans.UseStyleColors = true;
+            // 
+            // lbl_MemberLoans
+            // 
+            this.lbl_MemberLoans.AutoSize = true;
+            this.lbl_MemberLoans.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_MemberLoans.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbl_MemberLoans.Location = new System.Drawing.Point(27, 153);
+            this.lbl_MemberLoans.Margin = new System.Windows.Forms.Padding(20, 20, 20, 0);
+            this.lbl_MemberLoans.Name = "lbl_MemberLoans";
+            this.lbl_MemberLoans.Size = new System.Drawing.Size(53, 19);
+            this.lbl_MemberLoans.TabIndex = 10;
+            this.lbl_MemberLoans.Text = "LOANS";
+            this.lbl_MemberLoans.UseCustomBackColor = true;
+            // 
+            // btn_MembersReturnLoan
+            // 
+            this.btn_MembersReturnLoan.Enabled = false;
+            this.btn_MembersReturnLoan.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btn_MembersReturnLoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btn_MembersReturnLoan.Location = new System.Drawing.Point(139, 484);
+            this.btn_MembersReturnLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
+            this.btn_MembersReturnLoan.Name = "btn_MembersReturnLoan";
+            this.btn_MembersReturnLoan.Size = new System.Drawing.Size(100, 30);
+            this.btn_MembersReturnLoan.TabIndex = 12;
+            this.btn_MembersReturnLoan.Text = "Return loan";
+            this.btn_MembersReturnLoan.UseSelectable = true;
+            // 
+            // cbx_Members_ShowReturnedLoans
+            // 
+            this.cbx_Members_ShowReturnedLoans.AutoSize = true;
+            this.cbx_Members_ShowReturnedLoans.Location = new System.Drawing.Point(279, 157);
+            this.cbx_Members_ShowReturnedLoans.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.cbx_Members_ShowReturnedLoans.Name = "cbx_Members_ShowReturnedLoans";
+            this.cbx_Members_ShowReturnedLoans.Size = new System.Drawing.Size(131, 15);
+            this.cbx_Members_ShowReturnedLoans.TabIndex = 14;
+            this.cbx_Members_ShowReturnedLoans.Text = "Show returned loans";
+            this.cbx_Members_ShowReturnedLoans.UseSelectable = true;
+            // 
+            // btn_NewMember
+            // 
+            this.btn_NewMember.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btn_NewMember.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btn_NewMember.Location = new System.Drawing.Point(0, 485);
+            this.btn_NewMember.Margin = new System.Windows.Forms.Padding(0, 20, 10, 0);
+            this.btn_NewMember.Name = "btn_NewMember";
+            this.btn_NewMember.Size = new System.Drawing.Size(117, 30);
+            this.btn_NewMember.TabIndex = 6;
+            this.btn_NewMember.Text = "Add new book";
+            this.btn_NewMember.UseSelectable = true;
+            // 
+            // cbx_MembersWithActiveLoans
+            // 
+            this.cbx_MembersWithActiveLoans.AutoSize = true;
+            this.cbx_MembersWithActiveLoans.Location = new System.Drawing.Point(0, 66);
+            this.cbx_MembersWithActiveLoans.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.cbx_MembersWithActiveLoans.Name = "cbx_MembersWithActiveLoans";
+            this.cbx_MembersWithActiveLoans.Size = new System.Drawing.Size(222, 15);
+            this.cbx_MembersWithActiveLoans.TabIndex = 9;
+            this.cbx_MembersWithActiveLoans.Text = "Show members with active loans only";
+            this.cbx_MembersWithActiveLoans.UseSelectable = true;
+            // 
+            // metroPanel2
+            // 
+            this.metroPanel2.Controls.Add(this.cbx_MembersWithActiveLoans);
+            this.metroPanel2.Controls.Add(this.btn_NewMember);
+            this.metroPanel2.Controls.Add(this.metroPanel6);
+            this.metroPanel2.Controls.Add(this.txt_MemberSearch);
+            this.metroPanel2.Controls.Add(this.grd_Members);
+            this.metroPanel2.HorizontalScrollbarBarColor = true;
+            this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.HorizontalScrollbarSize = 10;
+            this.metroPanel2.Location = new System.Drawing.Point(0, 0);
+            this.metroPanel2.Name = "metroPanel2";
+            this.metroPanel2.Size = new System.Drawing.Size(821, 515);
+            this.metroPanel2.TabIndex = 2;
+            this.metroPanel2.VerticalScrollbarBarColor = true;
+            this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.VerticalScrollbarSize = 10;
+            // 
+            // members_Id
+            // 
+            this.members_Id.HeaderText = "Id";
+            this.members_Id.Name = "members_Id";
+            this.members_Id.ReadOnly = true;
+            this.members_Id.Width = 30;
+            // 
+            // members_Name
+            // 
+            this.members_Name.HeaderText = "Name";
+            this.members_Name.Name = "members_Name";
+            this.members_Name.ReadOnly = true;
+            this.members_Name.Width = 150;
+            // 
+            // members_pNr
+            // 
+            this.members_pNr.HeaderText = "Personal number";
+            this.members_pNr.Name = "members_pNr";
+            this.members_pNr.ReadOnly = true;
+            // 
+            // members_ActiveLoans
+            // 
+            this.members_ActiveLoans.HeaderText = "Current loans";
+            this.members_ActiveLoans.Image = global::Library.Properties.Resources.icon_check;
+            this.members_ActiveLoans.Name = "members_ActiveLoans";
+            this.members_ActiveLoans.ReadOnly = true;
+            this.members_ActiveLoans.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.members_ActiveLoans.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.members_ActiveLoans.Width = 90;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.HeaderText = "";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            this.dataGridViewTextBoxColumn14.Width = 20;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 30;
+            // 
+            // members_loans_title
+            // 
+            this.members_loans_title.HeaderText = "Title";
+            this.members_loans_title.Name = "members_loans_title";
+            this.members_loans_title.ReadOnly = true;
+            // 
+            // members_loans_author
+            // 
+            this.members_loans_author.HeaderText = "Author";
+            this.members_loans_author.Name = "members_loans_author";
+            this.members_loans_author.ReadOnly = true;
+            this.members_loans_author.Width = 90;
+            // 
+            // members_loans_dueDate
+            // 
+            this.members_loans_dueDate.HeaderText = "Due date";
+            this.members_loans_dueDate.Name = "members_loans_dueDate";
+            this.members_loans_dueDate.ReadOnly = true;
+            this.members_loans_dueDate.Width = 70;
+            // 
+            // members_loans_dateOfReturn
+            // 
+            this.members_loans_dateOfReturn.HeaderText = "Return date";
+            this.members_loans_dateOfReturn.Name = "members_loans_dateOfReturn";
+            this.members_loans_dateOfReturn.ReadOnly = true;
+            this.members_loans_dateOfReturn.Width = 80;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 25;
+            // 
+            // loans_Id
+            // 
+            this.loans_Id.HeaderText = "Id";
+            this.loans_Id.Name = "loans_Id";
+            this.loans_Id.ReadOnly = true;
+            this.loans_Id.Width = 40;
+            // 
+            // loans_memberName
+            // 
+            this.loans_memberName.HeaderText = "Member name";
+            this.loans_memberName.Name = "loans_memberName";
+            this.loans_memberName.ReadOnly = true;
+            this.loans_memberName.Width = 170;
+            // 
+            // loans_title
+            // 
+            this.loans_title.HeaderText = "Title";
+            this.loans_title.Name = "loans_title";
+            this.loans_title.ReadOnly = true;
+            this.loans_title.Width = 210;
+            // 
+            // loans_author
+            // 
+            this.loans_author.HeaderText = "Author";
+            this.loans_author.Name = "loans_author";
+            this.loans_author.ReadOnly = true;
+            this.loans_author.Width = 180;
+            // 
+            // loans_dueDate
+            // 
+            this.loans_dueDate.HeaderText = "Due date";
+            this.loans_dueDate.Name = "loans_dueDate";
+            this.loans_dueDate.ReadOnly = true;
+            this.loans_dueDate.Width = 95;
+            // 
+            // loans_dateOfReturn
+            // 
+            this.loans_dateOfReturn.HeaderText = "Return date";
+            this.loans_dateOfReturn.Name = "loans_dateOfReturn";
+            this.loans_dateOfReturn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.HeaderText = "";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Width = 25;
+            // 
             // LibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -933,16 +1248,22 @@ namespace Library
             this.tab_Books.ResumeLayout(false);
             this.pnl_Books.ResumeLayout(false);
             this.pnl_Books.PerformLayout();
-            this.metroPanel1.ResumeLayout(false);
-            this.metroPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).EndInit();
             this.pnl_SelectedBook.ResumeLayout(false);
             this.pnl_SelectedBook.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grd_BookCopies)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grd_Books)).EndInit();
             this.tab_Members.ResumeLayout(false);
-            this.pnl_Members.ResumeLayout(false);
             this.tab_Loans.ResumeLayout(false);
+            this.pnl_Loans.ResumeLayout(false);
+            this.pnl_Loans.PerformLayout();
+            this.pnl_Members.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grd_Loans)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grd_Members)).EndInit();
+            this.metroPanel6.ResumeLayout(false);
+            this.metroPanel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grd_Members_Loans)).EndInit();
+            this.metroPanel2.ResumeLayout(false);
+            this.metroPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -953,10 +1274,8 @@ namespace Library
         private System.Windows.Forms.TabPage tab_Members;
         private System.Windows.Forms.TabPage tab_Loans;
         private MetroFramework.Controls.MetroPanel pnl_Books;
-        private MetroFramework.Controls.MetroPanel pnl_Members;
         private MetroFramework.Controls.MetroPanel pnl_Loans;
         private MetroFramework.Controls.MetroGrid grd_Books;
-        private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroTextBox txt_BookSearch;
         private MetroFramework.Controls.MetroPanel pnl_SelectedBook;
         private MetroFramework.Controls.MetroLabel lbl_BookId;
@@ -966,29 +1285,12 @@ namespace Library
         private MetroFramework.Controls.MetroLabel lbl_BookISBN;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroButton btn_NewBook;
-        private MetroFramework.Controls.MetroButton btn_ReturnLoan;
+        private MetroFramework.Controls.MetroButton btn_BooksReturnLoan;
         private MetroFramework.Controls.MetroButton btn_AddCopy;
-        private MetroFramework.Controls.MetroButton btn_MakeLoan;
+        private MetroFramework.Controls.MetroButton btn_BooksMakeLoan;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroGrid grd_BookCopies;
         private MetroFramework.Controls.MetroCheckBox cbx_AvailableOnly;
-        private MetroFramework.Controls.MetroPanel metroPanel1;
-        private MetroFramework.Controls.MetroPanel metroPanel4;
-        private MetroFramework.Controls.MetroButton metroButton2;
-        private MetroFramework.Controls.MetroButton metroButton3;
-        private MetroFramework.Controls.MetroButton metroButton4;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroGrid metroGrid1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewImageColumn dataGridViewImageColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private TextBox textBox1;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroLabel metroLabel7;
-        private MetroFramework.Controls.MetroLabel metroLabel8;
-        private MetroFramework.Controls.MetroLabel metroLabel9;
         private DataGridViewTextBoxColumn bookCopies_Id;
         private DataGridViewImageColumn bookCopies_Available;
         private DataGridViewTextBoxColumn bookCopies_Member;
@@ -1001,6 +1303,44 @@ namespace Library
         private DataGridViewTextBoxColumn books_Blank;
         private DataGridViewImageColumn dataGridViewImageColumn2;
         private DataGridViewImageColumn dataGridViewImageColumn3;
+        private MetroFramework.Controls.MetroPanel pnl_Members;
+        private MetroFramework.Controls.MetroCheckBox cbx_Loans_ShowReturnedLoans;
+        private MetroFramework.Controls.MetroButton btn_Loans_ReturnLoan;
+        private MetroFramework.Controls.MetroGrid grd_Loans;
+        private MetroFramework.Controls.MetroButton btn_Loans_MakeLoan;
+        private MetroFramework.Controls.MetroPanel metroPanel2;
+        private MetroFramework.Controls.MetroCheckBox cbx_MembersWithActiveLoans;
+        private MetroFramework.Controls.MetroButton btn_NewMember;
+        private MetroFramework.Controls.MetroPanel metroPanel6;
+        private MetroFramework.Controls.MetroCheckBox cbx_Members_ShowReturnedLoans;
+        private MetroFramework.Controls.MetroButton btn_MembersReturnLoan;
+        private MetroFramework.Controls.MetroLabel lbl_MemberLoans;
+        private MetroFramework.Controls.MetroGrid grd_Members_Loans;
+        private MetroFramework.Controls.MetroLabel lbl_pNr;
+        private MetroFramework.Controls.MetroLabel metroLabel19;
+        private MetroFramework.Controls.MetroLabel lbl_MemberID;
+        private MetroFramework.Controls.MetroLabel metroLabel21;
+        private MetroFramework.Controls.MetroButton btn_MembersMakeLoan;
+        private MetroFramework.Controls.MetroTextBox txt_MemberSearch;
+        private MetroFramework.Controls.MetroGrid grd_Members;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn members_loans_title;
+        private DataGridViewTextBoxColumn members_loans_author;
+        private DataGridViewTextBoxColumn members_loans_dueDate;
+        private DataGridViewTextBoxColumn members_loans_dateOfReturn;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn members_Id;
+        private DataGridViewTextBoxColumn members_Name;
+        private DataGridViewTextBoxColumn members_pNr;
+        private DataGridViewImageColumn members_ActiveLoans;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private DataGridViewTextBoxColumn loans_Id;
+        private DataGridViewTextBoxColumn loans_memberName;
+        private DataGridViewTextBoxColumn loans_title;
+        private DataGridViewTextBoxColumn loans_author;
+        private DataGridViewTextBoxColumn loans_dueDate;
+        private DataGridViewTextBoxColumn loans_dateOfReturn;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
     }
 }
 
