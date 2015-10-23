@@ -32,7 +32,7 @@ namespace Library.Models
                 if (Loans != null)
                 {
                     var activeLoans = Loans.FirstOrDefault(l => l.TimeOfReturn == null);
-                    return activeLoans == null ? true : false;
+                    return activeLoans == null ? false : true;
                 }
                 else
                 {

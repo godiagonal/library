@@ -22,12 +22,12 @@ namespace Library.Services
             return _memberRepository.All();
         }
 
-        public IEnumerable<Member> Search(string keyword, bool cbx_activeLoans)
+        public IEnumerable<Member> Search(string keyword, bool HasActiveLoans)
         {
             var members = _memberRepository.All();
             if (keyword.Length != 0)
                 members = members.Where(m => m.Name.ToLower().Contains(keyword.ToLower()));
-            if (cbx_activeLoans)
+            if (HasActiveLoans)
                 members = members.Where(m => m.HasActiveLoans);
             return members;
         }

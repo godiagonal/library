@@ -18,8 +18,11 @@ namespace Library
     {
         BookService _bookService;
         AuthorService _authorService;
+        MemberService _memberService;
+        LoanService _loanService;
         BookCopyService _bookCopyService;
         Book _selectedBook;
+        Member _selectedMember;
         BookCopy _selectedBookCopy;
 
         public LibraryForm()
@@ -31,11 +34,16 @@ namespace Library
             _bookCopyService = new BookCopyService(repoFactory);
             _bookService = new BookService(repoFactory);
             _authorService = new AuthorService(repoFactory);
+            _memberService = new MemberService(repoFactory);
+            _loanService = new LoanService(repoFactory);
 
             _bookService.Updated += _bookService_Updated;
             _bookCopyService.Updated += _bookService_Updated;
+            _loanService.Updated += _bookService_Updated;
 
             UpdateBooks(_bookService.All());
+            UpdateMembers(_memberService.All());
+            
         }
 
         private void grd_Books_SelectionChanged(object sender, EventArgs e)
@@ -156,6 +164,11 @@ namespace Library
                 DataGridViewTextBoxCell dueDate = new DataGridViewTextBoxCell();
                 dueDate.Value = bookCopy.CurrentLoan == null ? "" : bookCopy.CurrentLoan.DueDate.ToShortDateString();
 
+                // ******* Funkar fortfarande inte när man markerar raden *****
+                // Mark as red if due date has passed and the book is not returned
+                if (dueDate.Value.ToString().Length > 0 && bookCopy.CurrentLoan.DueDate < DateTime.Now)
+                    dueDate.Style.ForeColor = Color.Red;
+
                 row.Cells.AddRange(new DataGridViewCell[] { id, available, member, dueDate });
 
                 grd_BookCopies.Rows.Add(row);
@@ -244,7 +257,12 @@ namespace Library
         {
             if (_selectedBookCopy != null)
             {
+                //var form = new NewLoanForm(_bookService, _bookCopyService, _memberService, _loanService, _selectedBookCopy);
 
+                //if (form.ShowDialog(this) == DialogResult.OK)
+                //{
+                //    MetroMessageBox.Show(this, String.Format("A loan of {0} was successfully made for {1}", form.BookTitle, form.MemberName), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                //}
             }
         }
 
@@ -254,6 +272,115 @@ namespace Library
             {
 
             }
+        }
+
+        private void UpdateMembers(IEnumerable<Member> members)
+        {
+            Member prevSelectedMember = null;
+
+            // Save selected book before clearing the list
+            if (grd_Members.SelectedRows.Count > 0)
+            {
+                DataGridViewRow row = grd_Members.SelectedRows[0];
+                Member member = _memberService.Find((int)row.Cells[0].Value);
+                prevSelectedMember = member;
+            }
+
+            grd_Members.Rows.Clear();
+            foreach (Member member in members)
+            {
+                grd_Members.Rows.Add(
+                member.Id,
+                member.Name,
+                member.PersonalNumber,
+                member.Loans.Where(l => l.TimeOfReturn == null).Count()
+                );
+            }
+
+            // Set selected index to previously selected book
+            if (prevSelectedMember != null)
+            {
+                SetSelectedMember(prevSelectedMember);
+            }
+        }
+
+        private void txt_MemberSearch_TextChanged(object sender, EventArgs e)
+        {
+            IEnumerable<Member> members = _memberService.Search(txt_MemberSearch.Text, cbx_MembersWithActiveLoans.Checked);
+            UpdateMembers(members);
+        }
+
+        private void SetSelectedMember(Member member)
+        {
+            foreach (DataGridViewRow row in grd_Members.Rows)
+            {
+                if ((int)row.Cells[0].Value == member.Id)
+                {
+                    row.Selected = true;
+                    break;
+                }
+            }
+        }
+
+        private void grd_Members_SelectionChanged(object sender, EventArgs e)
+        {
+            if (grd_Members.SelectedRows.Count > 0)
+            {
+                _selectedMember = GetSelectedMember();
+
+                lbl_MemberName.Text = _selectedMember.Name;
+                lbl_MemberID.Text = _selectedMember.Id.ToString();
+                lbl_pNr.Text = _selectedMember.PersonalNumber;
+
+                UpdateMemberLoans(_selectedMember.Loans);
+
+                pnl_SelectedMember.Visible = true;
+            }
+            else
+            {
+                _selectedMember = null;
+                pnl_SelectedMember.Visible = false;
+            }
+
+            txt_MemberSearch.Focus();
+        }
+
+        private Member GetSelectedMember()
+        {
+            DataGridViewRow row = grd_Members.SelectedRows[0];
+            return _memberService.Find((int)row.Cells[0].Value);
+        }
+
+        private void UpdateMemberLoans(IEnumerable<Loan> loans)
+        {
+            grd_Members_Loans.Rows.Clear();
+            foreach (Loan loan in loans)
+            {
+                grd_Members_Loans.Rows.Add(
+                loan.Id,
+                loan.BookCopy.Book.Title,
+                loan.BookCopy.Book.Author,
+                loan.DueDate,
+                loan.TimeOfReturn);
+            }
+        }
+
+        private void cbx_MembersWithActiveLoans_CheckedChanged(object sender, EventArgs e)
+        {
+            IEnumerable<Member> members = _memberService.Search(txt_MemberSearch.Text, cbx_MembersWithActiveLoans.Checked);
+            UpdateMembers(members);
+        }
+
+        private void cbx_Members_ShowReturnedLoans_CheckedChanged(object sender, EventArgs e)
+        {
+            IEnumerable<Loan> loans;
+            Member member = _memberService.Find(Convert.ToInt32(lbl_MemberID.Text));
+            if (cbx_Members_ShowReturnedLoans.Checked)
+                loans = member.Loans.Where(l => l.TimeOfReturn != null);
+            else
+                loans = member.Loans;
+
+            UpdateMemberLoans(loans);
         }
     }
 }
