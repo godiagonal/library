@@ -257,12 +257,12 @@ namespace Library
         {
             if (_selectedBookCopy != null)
             {
-                //var form = new NewLoanForm(_bookService, _bookCopyService, _memberService, _loanService, _selectedBookCopy);
+                var form = new NewLoanForm(_bookService, _bookCopyService, _memberService, _loanService, _selectedBookCopy);
 
-                //if (form.ShowDialog(this) == DialogResult.OK)
-                //{
-                //    MetroMessageBox.Show(this, String.Format("A loan of {0} was successfully made for {1}", form.BookTitle, form.MemberName), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
-                //}
+                if (form.ShowDialog(this) == DialogResult.OK)
+                {
+                    MetroMessageBox.Show(this, String.Format("A loan of {0} was successfully made for {1}", form.BookTitle, form.MemberName), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
             }
         }
 
