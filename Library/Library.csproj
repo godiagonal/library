@@ -75,6 +75,18 @@
     <Compile Include="Forms\DialogForm.Designer.cs">
       <DependentUpon>DialogForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\NewMemberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewMemberForm.Designer.cs">
+      <DependentUpon>NewMemberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\NewLoanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewLoanForm.Designer.cs">
+      <DependentUpon>NewLoanForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\NewBookForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +126,12 @@
     <Compile Include="Services\IService.cs" />
     <EmbeddedResource Include="Forms\DialogForm.resx">
       <DependentUpon>DialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewMemberForm.resx">
+      <DependentUpon>NewMemberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewLoanForm.resx">
+      <DependentUpon>NewLoanForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\NewBookForm.resx">
       <DependentUpon>NewBookForm.cs</DependentUpon>

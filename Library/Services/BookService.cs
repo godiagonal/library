@@ -36,14 +36,15 @@ namespace Library.Services
 
         public void Add(string title, string description, string isbn, Author author, int noOfCopies)
         {
-            if(ContainsTitle(title))
+            if (ContainsTitle(title))
             {
                 throw new ValidationException("The title you are trying to add already exists");
             }
-            else if(ContainsISBN(isbn))
+            else if (ContainsISBN(isbn))
             {
                 throw new ValidationException("The ISBN you are trying to add already exists");
             }
+
             Book book = new Book()
             {
                 Title = title,

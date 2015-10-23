@@ -12,6 +12,7 @@ namespace Library.Models
         [Key]
         public int Id { get; set; }
 
+        [Required]
         public virtual Book Book { get; set; }
 
         public virtual ICollection<Loan> Loans { get; set; }
@@ -40,7 +41,7 @@ namespace Library.Models
 
         public override string ToString()
         {
-            return String.Format("Copy of {0}", this.Book == null ? "null" : this.Book.Title);
+            return String.Format("{0} #{1}", this.Book == null ? "" : this.Book.Title, this.Id.ToString());
         }
     }
 }
