@@ -74,5 +74,27 @@ namespace Library.Services
                 loans = loans.Where(l => l.TimeOfReturn == null);
             return loans;
         }
+
+        public IEnumerable<Loan> ListLoans(bool returnedLoans)
+        {
+            var loans = _loanRepository.All();
+            if (returnedLoans == false)
+                loans = loans.Where(l => l.TimeOfReturn == null);
+            return loans;
+        }
+
+        public void ReturnLoan(int memberId, int bookCopyId)
+        {
+            //Behövs kanske en till constraint. TimeOfLoan typ?
+            var loans = _loanRepository.All();
+            Loan loan = loans.First(l => l.BookCopy.Id == bookCopyId && l.Member.Id == memberId);
+            if (!(loan.TimeOfReturn.HasValue))
+            {
+                loan.TimeOfReturn = DateTime.Now;
+                OnUpdated(new EventArgs());
+            }
+            else
+                throw new InvalidOperationException("The book you are trying to return, has already been returned");
+        }
     }
 }

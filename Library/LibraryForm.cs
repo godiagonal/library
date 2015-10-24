@@ -24,6 +24,8 @@ namespace Library
         Book _selectedBook;
         Member _selectedMember;
         BookCopy _selectedBookCopy;
+        //Loan _selectedLoan;
+        //Loan _selectedMemberLoan;
 
         public LibraryForm()
         {
@@ -39,11 +41,15 @@ namespace Library
 
             _bookService.Updated += _bookService_Updated;
             _bookCopyService.Updated += _bookService_Updated;
+            _memberService.Updated += _memberService_Updated;
             _loanService.Updated += _bookService_Updated;
+            _loanService.Updated += _memberService_Updated;
+            _loanService.Updated += _loanService_Updated;
+
 
             UpdateBooks(_bookService.All());
             UpdateMembers(_memberService.All());
-            
+            UpdateLoans(_loanService.All().Where(l => l.TimeOfReturn == null));           
         }
 
         private void grd_Books_SelectionChanged(object sender, EventArgs e)
@@ -220,30 +226,30 @@ namespace Library
                 // Book on loan
                 if (_selectedBookCopy != null && _selectedBookCopy.CurrentLoan != null)
                 {
-                    btn_BooksMakeLoan.Enabled = false;
-                    btn_BooksReturnLoan.Enabled = true;
+                    btn_Books_MakeLoan.Enabled = false;
+                    btn_Books_ReturnLoan.Enabled = true;
                 }
 
                 // Book available
                 else if (_selectedBookCopy != null)
                 {
-                    btn_BooksMakeLoan.Enabled = true;
-                    btn_BooksReturnLoan.Enabled = false;
+                    btn_Books_MakeLoan.Enabled = true;
+                    btn_Books_ReturnLoan.Enabled = false;
                 }
 
                 // No book
                 else
                 {
-                    btn_BooksMakeLoan.Enabled = false;
-                    btn_BooksReturnLoan.Enabled = false;
+                    btn_Books_MakeLoan.Enabled = false;
+                    btn_Books_ReturnLoan.Enabled = false;
                 }
             }
             else
             {
                 _selectedBookCopy = null;
 
-                btn_BooksMakeLoan.Enabled = false;
-                btn_BooksReturnLoan.Enabled = false;
+                btn_Books_MakeLoan.Enabled = false;
+                btn_Books_ReturnLoan.Enabled = false;
             }
         }
 
@@ -253,7 +259,7 @@ namespace Library
             return _bookCopyService.Find((int)row.Cells[0].Value);
         }
 
-        private void btn_BooksMakeLoan_Click(object sender, EventArgs e)
+        private void btn_Books_MakeLoan_Click(object sender, EventArgs e)
         {
             if (_selectedBookCopy != null)
             {
@@ -266,13 +272,32 @@ namespace Library
             }
         }
 
-        private void btn_BooksReturnLoan_Click(object sender, EventArgs e)
+        private void btn_Books_ReturnLoan_Click(object sender, EventArgs e)
         {
-            if (_selectedBookCopy != null)
+            try
             {
+                if (_selectedBookCopy != null)
+                {
+                    int bookCopyId = Convert.ToInt32(grd_BookCopies.SelectedRows[0].Cells[0].Value); 
+                    string memberName = grd_BookCopies.SelectedRows[0].Cells[2].Value.ToString();
+                    int memberId = _memberService.All().First(m => m.Name == memberName).Id;
 
+                    _loanService.ReturnLoan(memberId, bookCopyId);
+                }
+            }
+            catch (InvalidOperationException error) 
+            {
+                MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+//--------------------------------------BOOKS TAB END------------------------------------------------------------------//
+
+
+
+//--------------------------------------MEMBERS TAB START--------------------------------------------------------------//
+
 
         private void UpdateMembers(IEnumerable<Member> members)
         {
@@ -289,11 +314,16 @@ namespace Library
             grd_Members.Rows.Clear();
             foreach (Member member in members)
             {
+                var m = 0;
+                if (member.Loans != null)
+                {
+                    m = member.Loans.Where(l => l.TimeOfReturn == null).Count();
+                }
                 grd_Members.Rows.Add(
                 member.Id,
                 member.Name,
                 member.PersonalNumber,
-                member.Loans.Where(l => l.TimeOfReturn == null).Count()
+                m
                 );
             }
 
@@ -361,7 +391,8 @@ namespace Library
                 loan.BookCopy.Book.Title,
                 loan.BookCopy.Book.Author,
                 loan.DueDate.ToShortDateString(),
-                loan.TimeOfReturn);
+                (loan.TimeOfReturn.HasValue) ? loan.TimeOfReturn.Value.ToShortDateString() : ""
+                );
             }
         }
 
@@ -375,6 +406,92 @@ namespace Library
         {
             Member member = _memberService.Find(Convert.ToInt32(lbl_MemberID.Text));
             UpdateMemberLoans(_loanService.ListMemberLoans(member, cbx_Members_ShowReturnedLoans.Checked));
+        }
+
+        private void btn_NewMember_Click(object sender, EventArgs e)
+        {
+            var form = new NewMemberForm(_memberService);
+
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                string memberName = form.NewMemberName;
+                MetroMessageBox.Show(this, String.Format("{0} was successfully added to the list of members", form.NewMemberName), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+        }
+
+        private void btn_Members_MakeLoan_Click(object sender, EventArgs e)
+        {
+            if (_selectedMember != null)
+            {
+                var form = new NewLoanForm(_bookService, _bookCopyService, _memberService, _loanService, _selectedMember);
+
+                if (form.ShowDialog(this) == DialogResult.OK)
+                {
+                    MetroMessageBox.Show(this, String.Format("A loan of {0} was successfully made for {1}", form.BookTitle, form.MemberName), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
+            }
+        }
+
+        private void btn_Members_ReturnLoan_Click(object sender, EventArgs e)
+        {
+            int bookCopyId = Convert.ToInt32(grd_Members_Loans.SelectedRows[0].Cells[0].Value);
+            Loan loan = _loanService.Find(bookCopyId);
+            _loanService.ReturnLoan(loan.Id, bookCopyId);
+        }
+
+        private void _memberService_Updated(object sender, EventArgs e)
+        {
+            IEnumerable<Member> members = _memberService.Search(txt_MemberSearch.Text, cbx_MembersWithActiveLoans.Checked);
+            UpdateMembers(members);
+        }
+
+//-------------------------------------------MEMBERS TAB END-----------------------------------------------------//
+
+
+//-------------------------------------------LOANS TAB START-----------------------------------------------------//
+
+        private void UpdateLoans(IEnumerable<Loan> loans)
+        {
+            grd_Loans.Rows.Clear();
+            foreach (Loan loan in loans)
+            {
+                grd_Loans.Rows.Add(
+                loan.Id,
+                loan.BookCopy.Id,
+                loan.Member.Name,
+                loan.BookCopy.Book.Title,
+                loan.BookCopy.Book.Author,
+                loan.DueDate.ToShortDateString(),
+                (loan.TimeOfReturn.HasValue) ? loan.TimeOfReturn.Value.ToShortDateString() : ""
+                );
+            }
+        }
+
+        private void btn_Loans_MakeLoan_Click(object sender, EventArgs e)
+        {
+            var form = new NewLoanForm(_bookService, _bookCopyService, _memberService, _loanService);
+
+            if (form.ShowDialog(this) == DialogResult.OK)
+            {
+                MetroMessageBox.Show(this, String.Format("A loan of {0} was successfully made for {1}", form.BookTitle, form.MemberName), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+        }
+
+        private void btn_Loans_ReturnLoan_Click(object sender, EventArgs e)
+        {
+            int loanId = Convert.ToInt32(grd_Loans.SelectedRows[0].Cells[0].Value);
+            int bookCopyId = Convert.ToInt32(grd_Loans.SelectedRows[0].Cells[1].Value);
+            _loanService.ReturnLoan(loanId, bookCopyId);
+        }
+
+        private void cbx_Loans_ShowReturnedLoans_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateLoans(_loanService.ListLoans(cbx_Loans_ShowReturnedLoans.Checked));
+        }
+
+        private void _loanService_Updated(object sender, EventArgs e)
+        {
+            UpdateLoans(_loanService.ListLoans(cbx_Loans_ShowReturnedLoans.Checked));
         }
     }
 }
