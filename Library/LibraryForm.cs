@@ -47,9 +47,10 @@ namespace Library
             _loanService.Updated += _loanService_Updated;
 
 
-            UpdateBooks(_bookService.All());
+            
             UpdateMembers(_memberService.All());
-            UpdateLoans(_loanService.All().Where(l => l.TimeOfReturn == null));           
+            UpdateLoans(_loanService.All().Where(l => l.TimeOfReturn == null));
+            UpdateBooks(_bookService.All());
         }
 
         private void grd_Books_SelectionChanged(object sender, EventArgs e)
@@ -278,11 +279,13 @@ namespace Library
             {
                 if (_selectedBookCopy != null)
                 {
-                    int bookCopyId = Convert.ToInt32(grd_BookCopies.SelectedRows[0].Cells[0].Value); 
+                    int bookCopyId = Convert.ToInt32(grd_BookCopies.SelectedRows[0].Cells[0].Value);
+                    string bookTitle = grd_Books.SelectedRows[0].Cells[1].Value.ToString();
                     string memberName = grd_BookCopies.SelectedRows[0].Cells[2].Value.ToString();
                     int memberId = _memberService.All().First(m => m.Name == memberName).Id;
 
                     _loanService.ReturnLoan(memberId, bookCopyId);
+                    MetroMessageBox.Show(this, String.Format("{0} was successfully returned by member: {1}", bookTitle, memberName), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
             }
             catch (InvalidOperationException error) 
@@ -435,8 +438,9 @@ namespace Library
         private void btn_Members_ReturnLoan_Click(object sender, EventArgs e)
         {
             int bookCopyId = Convert.ToInt32(grd_Members_Loans.SelectedRows[0].Cells[0].Value);
+            string 
             Loan loan = _loanService.Find(bookCopyId);
-            _loanService.ReturnLoan(loan.Id, bookCopyId);
+            _loanService.ReturnLoan(memberId, bookCopyId, bookId);
         }
 
         private void _memberService_Updated(object sender, EventArgs e)
@@ -481,6 +485,7 @@ namespace Library
         {
             int loanId = Convert.ToInt32(grd_Loans.SelectedRows[0].Cells[0].Value);
             int bookCopyId = Convert.ToInt32(grd_Loans.SelectedRows[0].Cells[1].Value);
+            Member = 
             _loanService.ReturnLoan(loanId, bookCopyId);
         }
 

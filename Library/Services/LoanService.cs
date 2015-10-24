@@ -83,12 +83,11 @@ namespace Library.Services
             return loans;
         }
 
-        public void ReturnLoan(int memberId, int bookCopyId)
+        public void ReturnLoan(int memberId, int bookCopyId, int bookId)
         {
-            //Behövs kanske en till constraint. TimeOfLoan typ?
-            var loans = _loanRepository.All();
-            Loan loan = loans.First(l => l.BookCopy.Id == bookCopyId && l.Member.Id == memberId);
-            if (!(loan.TimeOfReturn.HasValue))
+            Loan loan = _loanRepository.All().FirstOrDefault(l => l.BookCopy.Id == bookCopyId && l.Member.Id == memberId && l.TimeOfReturn == null);
+
+            if (loan != null)
             {
                 loan.TimeOfReturn = DateTime.Now;
                 OnUpdated(new EventArgs());
