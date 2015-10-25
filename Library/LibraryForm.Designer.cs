@@ -111,9 +111,6 @@ namespace Library
             this.cbx_Loans_ShowReturnedLoans = new MetroFramework.Controls.MetroCheckBox();
             this.btn_Loans_ReturnLoan = new MetroFramework.Controls.MetroButton();
             this.grd_Loans = new MetroFramework.Controls.MetroGrid();
-            this.btn_Loans_MakeLoan = new MetroFramework.Controls.MetroButton();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.loans_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loans_CopyId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loans_memberName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -122,6 +119,9 @@ namespace Library
             this.loans_dueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loans_dateOfReturn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_Loans_MakeLoan = new MetroFramework.Controls.MetroButton();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.tbc_Main.SuspendLayout();
             this.tab_Books.SuspendLayout();
             this.pnl_Books.SuspendLayout();
@@ -803,6 +803,7 @@ namespace Library
             this.grd_Members_Loans.UseCustomBackColor = true;
             this.grd_Members_Loans.UseCustomForeColor = true;
             this.grd_Members_Loans.UseStyleColors = true;
+            this.grd_Members_Loans.SelectionChanged += new System.EventHandler(this.grd_Members_Loans_SelectionChanged);
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -1168,39 +1169,7 @@ namespace Library
             this.grd_Loans.UseCustomBackColor = true;
             this.grd_Loans.UseCustomForeColor = true;
             this.grd_Loans.UseStyleColors = true;
-            // 
-            // btn_Loans_MakeLoan
-            // 
-            this.btn_Loans_MakeLoan.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btn_Loans_MakeLoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btn_Loans_MakeLoan.Location = new System.Drawing.Point(0, 485);
-            this.btn_Loans_MakeLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
-            this.btn_Loans_MakeLoan.Name = "btn_Loans_MakeLoan";
-            this.btn_Loans_MakeLoan.Size = new System.Drawing.Size(100, 30);
-            this.btn_Loans_MakeLoan.TabIndex = 17;
-            this.btn_Loans_MakeLoan.Text = "Make loan";
-            this.btn_Loans_MakeLoan.UseSelectable = true;
-            this.btn_Loans_MakeLoan.Click += new System.EventHandler(this.btn_Loans_MakeLoan_Click);
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.HeaderText = "Available";
-            this.dataGridViewImageColumn2.Image = global::Library.Properties.Resources.icon_check;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn2.Width = 65;
-            // 
-            // dataGridViewImageColumn3
-            // 
-            this.dataGridViewImageColumn3.HeaderText = "Available";
-            this.dataGridViewImageColumn3.Image = global::Library.Properties.Resources.icon_check;
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            this.dataGridViewImageColumn3.ReadOnly = true;
-            this.dataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewImageColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewImageColumn3.Width = 60;
+            this.grd_Loans.SelectionChanged += new System.EventHandler(this.grd_Loans_SelectionChanged);
             // 
             // loans_Id
             // 
@@ -1260,6 +1229,39 @@ namespace Library
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
             this.dataGridViewTextBoxColumn18.Width = 25;
+            // 
+            // btn_Loans_MakeLoan
+            // 
+            this.btn_Loans_MakeLoan.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btn_Loans_MakeLoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btn_Loans_MakeLoan.Location = new System.Drawing.Point(0, 485);
+            this.btn_Loans_MakeLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
+            this.btn_Loans_MakeLoan.Name = "btn_Loans_MakeLoan";
+            this.btn_Loans_MakeLoan.Size = new System.Drawing.Size(100, 30);
+            this.btn_Loans_MakeLoan.TabIndex = 17;
+            this.btn_Loans_MakeLoan.Text = "Make loan";
+            this.btn_Loans_MakeLoan.UseSelectable = true;
+            this.btn_Loans_MakeLoan.Click += new System.EventHandler(this.btn_Loans_MakeLoan_Click);
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "Available";
+            this.dataGridViewImageColumn2.Image = global::Library.Properties.Resources.icon_check;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn2.Width = 65;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.HeaderText = "Available";
+            this.dataGridViewImageColumn3.Image = global::Library.Properties.Resources.icon_check;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.ReadOnly = true;
+            this.dataGridViewImageColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewImageColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewImageColumn3.Width = 60;
             // 
             // LibraryForm
             // 

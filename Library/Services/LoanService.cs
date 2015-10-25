@@ -83,10 +83,22 @@ namespace Library.Services
             return loans;
         }
 
-        public void ReturnLoan(int memberId, int bookCopyId, int bookId)
+        public void ReturnLoan(int loanId)
         {
-            Loan loan = _loanRepository.All().FirstOrDefault(l => l.BookCopy.Id == bookCopyId && l.Member.Id == memberId && l.TimeOfReturn == null);
+            //Loan loan = _loanRepository.All().FirstOrDefault(l => l.BookCopy.Id == bookCopyId && l.Member.Id == memberId && l.TimeOfReturn == null);
+            Loan loan = _loanRepository.All().FirstOrDefault(l => l.Id == loanId && l.TimeOfReturn == null);
+            if (loan != null)
+            {
+                loan.TimeOfReturn = DateTime.Now;
+                OnUpdated(new EventArgs());
+            }
+            else
+                throw new InvalidOperationException("The book you are trying to return, has already been returned");
+        }
 
+        public void ReturnLoan(IEnumerable<Loan> loans)
+        {
+            Loan loan = loans.FirstOrDefault(l => l.TimeOfReturn == null);
             if (loan != null)
             {
                 loan.TimeOfReturn = DateTime.Now;

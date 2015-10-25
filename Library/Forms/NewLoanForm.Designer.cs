@@ -96,6 +96,7 @@
             this.cbx_Members.Name = "cbx_Members";
             this.cbx_Members.Size = new System.Drawing.Size(247, 25);
             this.cbx_Members.TabIndex = 15;
+            this.cbx_Members.SelectedIndexChanged += new System.EventHandler(this.cbx_Members_SelectedIndexChanged);
             // 
             // metroPanel1
             // 

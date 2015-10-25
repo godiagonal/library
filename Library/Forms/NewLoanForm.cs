@@ -21,6 +21,7 @@ namespace Library
         BookCopyService _bookCopyService;
         MemberService _memberService;
         LoanService _loanService;
+
         public string BookTitle { get; private set; }
         public string MemberName { get; private set; }
 
@@ -100,6 +101,7 @@ namespace Library
             cbx_BookCopies.Text = "No copies available";
             cbx_BookCopies.Enabled = false;
 
+
             if (book != null && book.Available)
             {
                 List<BookCopy> availableBooks = book.BookCopies.Where(b => b.CurrentLoan == null).ToList();
@@ -110,6 +112,25 @@ namespace Library
                 // Choose first copy by default
                 if (cbx_BookCopies.Items.Count > 0)
                     cbx_BookCopies.SelectedIndex = 0;
+
+                //Update member combobox, with members that have no active loans on this book
+                cbx_Members.Items.Clear();
+                cbx_Members.Enabled = false;
+                cbx_Members.Text = "No members that qualify for loan";
+
+                IEnumerable<Member> membersWithActiveLoans = _loanService.All().Where(l => l.BookCopy.Book == book && l.Member.HasActiveLoans).Select(m => m.Member);
+                IEnumerable<Member> membersToCbx = _memberService.All().Except(membersWithActiveLoans);
+                if(membersToCbx.Count() > 0)
+                {
+                    cbx_Members.Items.AddRange(membersToCbx.ToArray());
+                    cbx_Members.Enabled = true;
+                }
+            }
+            else if (!book.Available)
+            {
+                cbx_Members.Text = "";
+                cbx_Members.Items.AddRange(_memberService.All().ToArray());
+                cbx_Members.Enabled = true;
             }
         }
 
@@ -141,6 +162,30 @@ namespace Library
             catch (ValidationException error)
             {
                 MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cbx_Members_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Member member = (Member)cbx_Members.SelectedItem;
+
+            cbx_Books.Items.Clear();
+            cbx_Books.Text = "No books available for this member";
+            cbx_Books.Enabled = false;
+
+            if (member != null)
+            {
+                IEnumerable<Book> activeBooks = _loanService.All().Where(l => l.Member.Id == member.Id && l.TimeOfReturn == null).Select(l => l.BookCopy.Book);
+                IEnumerable<Book> availableBooksForMember = _bookService.All().Except(activeBooks);
+                if (availableBooksForMember.Count() > 0)
+                {
+                    cbx_Books.Items.AddRange(availableBooksForMember.ToArray());
+                    cbx_Books.Enabled = true;
+                }
+
+                // Choose first copy by default
+                if (cbx_Books.Items.Count > 0)
+                    cbx_Books.SelectedIndex = 0;
             }
         }
     }
