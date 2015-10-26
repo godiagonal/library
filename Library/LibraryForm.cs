@@ -1,4 +1,8 @@
-﻿using Library.Models;
+﻿// The library
+// Samuel Johansson och Lukas Peterson
+// Version 1.0 2015-10-26
+
+using Library.Models;
 using Library.Repositories;
 using Library.Services;
 using System;
@@ -14,6 +18,9 @@ using MetroFramework;
 
 namespace Library
 {
+    /// <summary>
+    /// Main form for library app
+    /// </summary>
     public partial class LibraryForm : MetroFramework.Forms.MetroForm
     {
         BookService _bookService;
@@ -22,6 +29,7 @@ namespace Library
         LoanService _loanService;
         BookCopyService _bookCopyService;
 
+        // Keeps track of selected objects in lists/gridviews
         Book _selectedBook;
         BookCopy _selectedBookCopy;
         Member _selectedMember;
@@ -32,8 +40,10 @@ namespace Library
         {
             InitializeComponent();
 
+            // Start on "Books" tab
             tbc_Main.SelectedIndex = 0;
 
+            // Init services
             RepositoryFactory repoFactory = new RepositoryFactory();
 
             _bookCopyService = new BookCopyService(repoFactory);
@@ -42,6 +52,7 @@ namespace Library
             _memberService = new MemberService(repoFactory);
             _loanService = new LoanService(repoFactory);
 
+            // Subscribe to events
             _bookService.Updated += _bookService_Updated;
             _bookCopyService.Updated += _bookService_Updated;
             _memberService.Updated += _memberService_Updated;
@@ -49,55 +60,20 @@ namespace Library
             _loanService.Updated += _memberService_Updated;
             _loanService.Updated += _loanService_Updated;
 
+            // Fill the three main gridviews on startup
             UpdateMembers(_memberService.All());
             UpdateLoans(_loanService.Search(null, false));
             UpdateBooks(_bookService.All());
         }
 
+
 //--------------------------------------BOOKS TAB START--------------------------------------------------------------//
 
-        private void grd_Books_SelectionChanged(object sender, EventArgs e)
-        {
-            if (grd_Books.SelectedRows.Count > 0)
-            {
-                _selectedBook = GetSelectedBook();
 
-                lbl_BookTitle.Text = _selectedBook.Title;
-                lbl_BookId.Text = _selectedBook.Id.ToString();
-                lbl_BookISBN.Text = _selectedBook.ISBN;
-                txt_BookDescription.Text = _selectedBook.Description;
-
-                UpdateBookCopies(_selectedBook.BookCopies);
-
-                pnl_SelectedBook.Visible = true;
-            }
-            else
-            {
-                _selectedBook = null;
-                pnl_SelectedBook.Visible = false;
-            }
-
-            txt_BookSearch.Focus();
-        }
-
-        private Book GetSelectedBook()
-        {
-            DataGridViewRow row = grd_Books.SelectedRows[0];
-            return _bookService.Find((int)row.Cells[0].Value);
-        }
-
-        private void SetSelectedBook(Book book)
-        {
-            foreach (DataGridViewRow row in grd_Books.Rows)
-            {
-                if ((int)row.Cells[0].Value == book.Id)
-                {
-                    row.Selected = true;
-                    break;
-                }
-            }
-        }
-
+        /// <summary>
+        /// Update books gridview
+        /// </summary>
+        /// <param name="books"></param>
         private void UpdateBooks(IEnumerable<Book> books)
         {
             Book prevSelectedBook = null;
@@ -147,6 +123,52 @@ namespace Library
             }
         }
 
+        private void grd_Books_SelectionChanged(object sender, EventArgs e)
+        {
+            if (grd_Books.SelectedRows.Count > 0)
+            {
+                _selectedBook = GetSelectedBook();
+
+                lbl_BookTitle.Text = _selectedBook.Title;
+                lbl_BookId.Text = _selectedBook.Id.ToString();
+                lbl_BookISBN.Text = _selectedBook.ISBN;
+                txt_BookDescription.Text = _selectedBook.Description;
+
+                UpdateBookCopies(_selectedBook.BookCopies);
+
+                pnl_SelectedBook.Visible = true;
+            }
+            else
+            {
+                _selectedBook = null;
+                pnl_SelectedBook.Visible = false;
+            }
+
+            txt_BookSearch.Focus();
+        }
+
+        private Book GetSelectedBook()
+        {
+            DataGridViewRow row = grd_Books.SelectedRows[0];
+            return _bookService.Find((int)row.Cells[0].Value);
+        }
+
+        private void SetSelectedBook(Book book)
+        {
+            foreach (DataGridViewRow row in grd_Books.Rows)
+            {
+                if ((int)row.Cells[0].Value == book.Id)
+                {
+                    row.Selected = true;
+                    break;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Update book copies gridview
+        /// </summary>
+        /// <param name="bookCopies">List of book copies</param>
         private void UpdateBookCopies(IEnumerable<BookCopy> bookCopies)
         {
             grd_BookCopies.Rows.Clear();
@@ -184,6 +206,11 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Mark due date cell text with red color if the due date has already passed and the book is not returned
+        /// </summary>
+        /// <param name="cell">Cell containing due date</param>
+        /// <param name="dueDate">The due date datetime object</param>
         private void MarkIfPassedDueDate(DataGridViewTextBoxCell cell, DateTime dueDate)
         {
             if (cell.Value.ToString().Length > 0 && dueDate < DateTime.Now)
@@ -231,6 +258,7 @@ namespace Library
 
         private void grd_BookCopies_SelectionChanged(object sender, EventArgs e)
         {
+            // Enable/disable buttons depending on selected row
             if (grd_BookCopies.SelectedRows.Count > 0)
             {
                 _selectedBookCopy = GetSelectedBookCopy();
@@ -316,10 +344,15 @@ namespace Library
 //--------------------------------------MEMBERS TAB START--------------------------------------------------------------//
 
 
+        /// <summary>
+        /// Update members gridview
+        /// </summary>
+        /// <param name="members">List of members</param>
         private void UpdateMembers(IEnumerable<Member> members)
         {
             Member prevSelectedMember = null;
 
+            // Save previously selected member
             if (grd_Members.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = grd_Members.SelectedRows[0];
@@ -328,6 +361,7 @@ namespace Library
             }
 
             grd_Members.Rows.Clear();
+
             foreach (Member member in members)
             {
                 grd_Members.Rows.Add(
@@ -338,7 +372,7 @@ namespace Library
                 );
             }
 
-            // Set selected index to previously selected book
+            // Set selected index to previously selected member
             if (prevSelectedMember != null)
             {
                 SetSelectedMember(prevSelectedMember);
@@ -400,6 +434,7 @@ namespace Library
 
         private void grd_Members_Loans_SelectionChanged(object sender, EventArgs e)
         {
+            // Enable/disable buttons depending on selected row
             if (grd_Members_Loans.SelectedRows.Count > 0)
             {
                 _selectedMemberLoan = GetSelectedMemberLoan();
@@ -424,9 +459,14 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Update member loans gridview
+        /// </summary>
+        /// <param name="loans">List of member loans</param>
         private void UpdateMemberLoans(IEnumerable<Loan> loans)
         {
             grd_Members_Loans.Rows.Clear();
+
             foreach (Loan loan in loans)
             {
                 DataGridViewRow row = new DataGridViewRow();
@@ -522,14 +562,21 @@ namespace Library
             UpdateMembers(members);
         }
 
+
 //-------------------------------------------MEMBERS TAB END-----------------------------------------------------//
 
 
 //-------------------------------------------LOANS TAB START-----------------------------------------------------//
 
+        
+        /// <summary>
+        /// Update loans gridview
+        /// </summary>
+        /// <param name="loans">List of loans</param>
         private void UpdateLoans(IEnumerable<Loan> loans)
         {
             grd_Loans.Rows.Clear();
+
             foreach (Loan loan in loans)
             {
                 DataGridViewRow row = new DataGridViewRow();
@@ -538,7 +585,7 @@ namespace Library
                 id.Value = loan.Id;
 
                 DataGridViewTextBoxCell copyId = new DataGridViewTextBoxCell();
-                id.Value = loan.BookCopy.Id;
+                copyId.Value = loan.BookCopy.Id;
 
                 DataGridViewTextBoxCell member = new DataGridViewTextBoxCell();
                 member.Value = loan.Member.Name;
@@ -581,7 +628,6 @@ namespace Library
             {
                 try
                 {
-
                     double fee;
                     string bookTitle = _selectedLoan.BookCopy.Book.Title;
                     string memberName = _selectedLoan.Member.Name;
@@ -612,6 +658,7 @@ namespace Library
 
         private void grd_Loans_SelectionChanged(object sender, EventArgs e)
         {
+            // Enable/disable buttons depending on selected row
             if (grd_Loans.SelectedRows.Count > 0)
             {
                 _selectedLoan = GetSelectedLoan();

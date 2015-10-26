@@ -1,4 +1,8 @@
-﻿using System;
+﻿// The library
+// Samuel Johansson och Lukas Peterson
+// Version 1.0 2015-10-26
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,6 +11,9 @@ using System.Data.Entity;
 
 namespace Library.Repositories
 {
+    /// <summary>
+    /// CRUD operations for Author repository
+    /// </summary>
     public class AuthorRepository : IRepository<Author, int>
     {
         LibraryContext _context;
