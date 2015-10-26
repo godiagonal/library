@@ -96,6 +96,7 @@
             this.cbx_Members.Name = "cbx_Members";
             this.cbx_Members.Size = new System.Drawing.Size(247, 25);
             this.cbx_Members.TabIndex = 0;
+            this.cbx_Members.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_SaveLoan_KeyDown);
             // 
             // metroPanel1
             // 
@@ -125,7 +126,6 @@
             this.btn_NewMember.TabIndex = 1;
             this.btn_NewMember.Text = "Add new member";
             this.btn_NewMember.UseSelectable = true;
-            this.btn_NewMember.Click += new System.EventHandler(this.btn_NewMember_Click);
             // 
             // btn_SaveLoan
             // 
@@ -139,6 +139,7 @@
             this.btn_SaveLoan.Text = "Save loan";
             this.btn_SaveLoan.UseSelectable = true;
             this.btn_SaveLoan.Click += new System.EventHandler(this.btn_SaveLoan_Click);
+            this.btn_SaveLoan.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_SaveLoan_KeyDown);
             // 
             // metroPanel2
             // 
@@ -170,6 +171,7 @@
             this.cbx_Books.Size = new System.Drawing.Size(247, 25);
             this.cbx_Books.TabIndex = 0;
             this.cbx_Books.SelectedIndexChanged += new System.EventHandler(this.cbx_Books_SelectedIndexChanged);
+            this.cbx_Books.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_SaveLoan_KeyDown);
             // 
             // metroPanel3
             // 
@@ -201,6 +203,7 @@
             this.cbx_BookCopies.Name = "cbx_BookCopies";
             this.cbx_BookCopies.Size = new System.Drawing.Size(247, 25);
             this.cbx_BookCopies.TabIndex = 0;
+            this.cbx_BookCopies.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_SaveLoan_KeyDown);
             // 
             // cbx_SubtractDays
             // 
@@ -212,6 +215,7 @@
             this.cbx_SubtractDays.TabIndex = 4;
             this.cbx_SubtractDays.Text = "Save as already expired loan";
             this.cbx_SubtractDays.UseSelectable = true;
+            this.cbx_SubtractDays.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_SaveLoan_KeyDown);
             // 
             // NewLoanForm
             // 

@@ -27,8 +27,14 @@ namespace Library
             _memberService = memberService;
         }
 
+        /// <summary>
+        /// Save a new member
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_SaveMember_Click(object sender, EventArgs e)
         {
+            //Correct potential wrong formatting
             string name = Formatting.UppercaseWords(txt_MemberName.Text).Trim();
             string personalNumber = txt_MemberPersonalNumber.Text.Trim();
 
@@ -43,6 +49,13 @@ namespace Library
             {
                 MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        //Listen to event key down
+        private void btn_SaveMember_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btn_SaveMember_Click(sender, e);
         }
     }
 }

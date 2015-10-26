@@ -37,13 +37,21 @@ namespace Library
 
             _bookService.Updated += _bookService_Updated;
             _bookCopyService.Updated += _bookService_Updated;
-            //_loanService.Updated += _bookService_Updated;
             _memberService.Updated += _memberService_Updated;
 
             _bookService_Updated(this, new EventArgs());
             _memberService_Updated(this, new EventArgs());
         }
 
+        /// <summary>
+        /// Different ways to enter the NewLoanForm, either from the Member view, with the member as predetermined value or
+        /// with the selected book and bookcopy as predetermined values, from the Books view.
+        /// </summary>
+        /// <param name="bookService"></param>
+        /// <param name="bookCopyService"></param>
+        /// <param name="memberService"></param>
+        /// <param name="loanService"></param>
+        /// <param name="selectedBookCopy"></param>
         public NewLoanForm(BookService bookService, BookCopyService bookCopyService, MemberService memberService, LoanService loanService, BookCopy selectedBookCopy)
             : this(bookService, bookCopyService, memberService, loanService)
         {
@@ -56,6 +64,10 @@ namespace Library
             SetSelectedMember(selectedMember);
         }
 
+        /// <summary>
+        /// Set the predetermined values on book and bookcopy 
+        /// </summary>
+        /// <param name="bookCopy"></param>
         private void SetSelectedBookAndCopy(BookCopy bookCopy)
         {
             if (bookCopy != null)
@@ -65,6 +77,10 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Set the predetermined value on member 
+        /// </summary>
+        /// <param name="member"></param>
         private void SetSelectedMember(Member member)
         {
             if (member != null)
@@ -73,6 +89,11 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Update the content of book combobox and update the selected item  
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void _bookService_Updated(object sender, EventArgs e)
         {
             Book prevSelectedBook = (Book)cbx_Books.SelectedItem;
@@ -84,14 +105,21 @@ namespace Library
                 cbx_Books.SelectedItem = prevSelectedBook;
         }
 
+        /// <summary>
+        /// Update the content of member combobox and update the selected item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void _memberService_Updated(object sender, EventArgs e)
         {
             Member prevSelectedMember = (Member)cbx_Members.SelectedItem;
 
+            //If no members qualify for loan
             cbx_Members.Items.Clear();
             cbx_Members.Text = "No members that qualify for loan";
             cbx_Members.Enabled = false;
 
+            //Calculate the members that qualify for loan
             List<Member> members = MembersThatQualifyForLoan(_selectedBook);
 
             if (members.Count() > 0)
@@ -101,12 +129,18 @@ namespace Library
                 cbx_Members.Enabled = true;
             }
 
+            //Select the member that was chosen before the update
             if (prevSelectedMember != null && cbx_Members.Items.Contains(prevSelectedMember))
                 cbx_Members.SelectedItem = prevSelectedMember;
             else if (prevSelectedMember != null)
                 MetroMessageBox.Show(this, "The previously selected member does not qualify for loan because he or she is already borrowing a copy of this book", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        /// <summary>
+        /// Update the bookCopies combobox with content that match the selected book
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbx_Books_SelectedIndexChanged(object sender, EventArgs e)
         {
             _selectedBook = (Book)cbx_Books.SelectedItem;
@@ -131,12 +165,22 @@ namespace Library
             _memberService_Updated(this, new EventArgs());
         }
 
+        /// <summary>
+        /// Method to list members that are allowed to borrow a specific book
+        /// </summary>
+        /// <param name="book"></param>
+        /// <returns></returns>
         private List<Member> MembersThatQualifyForLoan(Book book)
         {
             IEnumerable<Member> membersWithActiveLoans = _loanService.All().Where(l => l.BookCopy.Book == book && l.Member.ActiveLoans.Count() > 0).Select(m => m.Member);
             return _memberService.All().Except(membersWithActiveLoans).ToList();
         }
 
+        /// <summary>
+        /// Open a new dialog to add a new member
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_NewMember_Click(object sender, EventArgs e)
         {
             var form = new NewMemberForm(_memberService);
@@ -149,6 +193,11 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Save the loan and close the NewLoanForm
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_SaveLoan_Click(object sender, EventArgs e)
         {
             Member member = (Member)cbx_Members.SelectedItem;
@@ -177,6 +226,13 @@ namespace Library
             _bookService.Updated -= _bookService_Updated;
             _bookCopyService.Updated -= _bookService_Updated;
             _memberService.Updated -= _memberService_Updated;
+        }
+
+        //Listen to event key down
+        private void btn_SaveLoan_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btn_SaveLoan_Click(sender, e);
         }
     }
 }

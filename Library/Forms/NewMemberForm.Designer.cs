@@ -66,6 +66,7 @@
             this.txt_MemberName.UseSelectable = true;
             this.txt_MemberName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_MemberName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_MemberName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_SaveMember_KeyDown);
             // 
             // metroLabel3
             // 
@@ -124,6 +125,7 @@
             this.txt_MemberPersonalNumber.UseSelectable = true;
             this.txt_MemberPersonalNumber.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_MemberPersonalNumber.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_MemberPersonalNumber.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_SaveMember_KeyDown);
             // 
             // btn_SaveMember
             // 
@@ -137,6 +139,7 @@
             this.btn_SaveMember.Text = "Save member";
             this.btn_SaveMember.UseSelectable = true;
             this.btn_SaveMember.Click += new System.EventHandler(this.btn_SaveMember_Click);
+            this.btn_SaveMember.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_SaveMember_KeyDown);
             // 
             // NewMemberForm
             // 

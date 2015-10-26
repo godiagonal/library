@@ -77,6 +77,7 @@
             this.txt_BookTitle.UseSelectable = true;
             this.txt_BookTitle.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_BookTitle.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_BookTitle.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_SaveBook_KeyDown);
             // 
             // metroLabel3
             // 
@@ -135,6 +136,7 @@
             this.txt_BookISBN.UseSelectable = true;
             this.txt_BookISBN.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_BookISBN.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_BookISBN.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_SaveBook_KeyDown);
             // 
             // metroLabel2
             // 
@@ -237,6 +239,7 @@
             this.txt_BookDescription.UseSelectable = true;
             this.txt_BookDescription.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_BookDescription.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_BookDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_SaveBook_KeyDown);
             // 
             // btn_SaveBook
             // 
@@ -250,6 +253,7 @@
             this.btn_SaveBook.Text = "Save book";
             this.btn_SaveBook.UseSelectable = true;
             this.btn_SaveBook.Click += new System.EventHandler(this.btn_SaveBook_Click);
+            this.btn_SaveBook.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_SaveBook_KeyDown);
             // 
             // lbl_NoOfCopies
             // 
@@ -275,6 +279,7 @@
             this.cbx_NoOfCopies.Name = "cbx_NoOfCopies";
             this.cbx_NoOfCopies.Size = new System.Drawing.Size(125, 25);
             this.cbx_NoOfCopies.TabIndex = 0;
+            this.cbx_NoOfCopies.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_SaveBook_KeyDown);
             // 
             // metroPanel2
             // 

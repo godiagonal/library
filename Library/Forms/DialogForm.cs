@@ -38,5 +38,16 @@ namespace Library
 
             this.Close();
         }
+     
+        /// <summary>
+        /// Listen to keydown enter key
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void txt_answer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                btn_Accept_Click(sender, e);
+        }
     }
 }

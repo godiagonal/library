@@ -28,6 +28,7 @@ namespace Library
             _authorService = authorService;
             _bookService = bookService;
 
+            //Keep combobox updated
             _authorService.Updated += _authorService_Updated;
             _authorService_Updated(this, new EventArgs());
 
@@ -39,6 +40,11 @@ namespace Library
             cbx_NoOfCopies.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Keep the author combobox updated
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void _authorService_Updated(object sender, EventArgs e)
         {
             Author prevSelectedAuthor = (Author)cbx_BookAuthors.SelectedItem;
@@ -50,12 +56,18 @@ namespace Library
                 cbx_BookAuthors.SelectedItem = prevSelectedAuthor;
         }
 
+        /// <summary>
+        /// Open up a new dialog to add a new author
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_NewAuthor_Click(object sender, EventArgs e)
         {
             DialogForm form = new DialogForm("New author", "What's the name of the author?");
         
             if (form.ShowDialog(this) == DialogResult.OK)
             {
+                //Format input so its comparable
                 string formattedAnswer = Formatting.UppercaseWords(form.Answer).Trim();
 
                 try 
@@ -71,6 +83,11 @@ namespace Library
             }
         }
 
+        /// <summary>
+        /// Save the book and close the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_SaveBook_Click(object sender, EventArgs e)
         {
             Author author = (Author)cbx_BookAuthors.SelectedItem;
@@ -89,6 +106,15 @@ namespace Library
             catch (ValidationException error)
             {
                 MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //Listen to enter key down
+        private void btn_SaveBook_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btn_SaveBook_Click(sender, e);
             }
         }
 
