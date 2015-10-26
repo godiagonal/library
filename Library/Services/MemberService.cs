@@ -27,10 +27,13 @@ namespace Library.Services
         public IEnumerable<Member> Search(string keyword, bool HasActiveLoans)
         {
             var members = _memberRepository.All();
+
             if (keyword.Length != 0)
                 members = members.Where(m => m.Name.ToLower().Contains(keyword.ToLower()));
+
             if (HasActiveLoans)
-                members = members.Where(m => m.HasActiveLoans);
+                members = members.Where(m => m.ActiveLoans.Count > 0);
+
             return members;
         }
 

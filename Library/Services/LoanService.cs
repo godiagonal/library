@@ -65,47 +65,33 @@ namespace Library.Services
                 Updated(this, e);
         }
 
-        public IEnumerable<Loan> ListMemberLoans (Member member, bool returnedLoans)
+        public IEnumerable<Loan> Search(Member member, bool showReturnedLoans)
         {
             var loans = _loanRepository.All();
-            if(member != null)
+
+            if (member != null)
                 loans = loans.Where(l => l.Member.Id == member.Id);
-            if(returnedLoans == false)
+
+            if (!showReturnedLoans)
                 loans = loans.Where(l => l.TimeOfReturn == null);
+
             return loans;
         }
 
-        public IEnumerable<Loan> ListLoans(bool returnedLoans)
+        public void Return(Loan loan, out double fee)
         {
-            var loans = _loanRepository.All();
-            if (returnedLoans == false)
-                loans = loans.Where(l => l.TimeOfReturn == null);
-            return loans;
-        }
+            fee = 0;
 
-        public void ReturnLoan(int loanId)
-        {
-            //Loan loan = _loanRepository.All().FirstOrDefault(l => l.BookCopy.Id == bookCopyId && l.Member.Id == memberId && l.TimeOfReturn == null);
-            Loan loan = _loanRepository.All().FirstOrDefault(l => l.Id == loanId && l.TimeOfReturn == null);
-            if (loan != null)
+            if (loan != null && loan.TimeOfReturn == null)
             {
+                if (DateTime.Now > loan.DueDate)
+                    fee = (DateTime.Now - loan.DueDate).Days * 10; // 10 SEK fee per day after due date
+
                 loan.TimeOfReturn = DateTime.Now;
                 OnUpdated(new EventArgs());
             }
             else
-                throw new InvalidOperationException("The book you are trying to return, has already been returned");
-        }
-
-        public void ReturnLoan(IEnumerable<Loan> loans)
-        {
-            Loan loan = loans.FirstOrDefault(l => l.TimeOfReturn == null);
-            if (loan != null)
-            {
-                loan.TimeOfReturn = DateTime.Now;
-                OnUpdated(new EventArgs());
-            }
-            else
-                throw new InvalidOperationException("The book you are trying to return, has already been returned");
+                throw new InvalidOperationException("The book you are trying to return has already been returned");
         }
     }
 }

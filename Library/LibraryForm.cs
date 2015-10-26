@@ -21,15 +21,18 @@ namespace Library
         MemberService _memberService;
         LoanService _loanService;
         BookCopyService _bookCopyService;
+
         Book _selectedBook;
-        Member _selectedMember;
         BookCopy _selectedBookCopy;
+        Member _selectedMember;
         Loan _selectedLoan;
         Loan _selectedMemberLoan;
 
         public LibraryForm()
         {
             InitializeComponent();
+
+            tbc_Main.SelectedIndex = 0;
 
             RepositoryFactory repoFactory = new RepositoryFactory();
 
@@ -47,9 +50,11 @@ namespace Library
             _loanService.Updated += _loanService_Updated;
 
             UpdateMembers(_memberService.All());
-            UpdateLoans(_loanService.All().Where(l => l.TimeOfReturn == null));
+            UpdateLoans(_loanService.Search(null, false));
             UpdateBooks(_bookService.All());
         }
+
+//--------------------------------------BOOKS TAB START--------------------------------------------------------------//
 
         private void grd_Books_SelectionChanged(object sender, EventArgs e)
         {
@@ -111,7 +116,7 @@ namespace Library
             {
                 Bitmap availableIcon;
 
-                if (book.Available)
+                if (book.AvailableBookCopies.Count() > 0)
                     availableIcon = new Bitmap(global::Library.Properties.Resources.icon_check, 20, 20);
                 else
                     availableIcon = new Bitmap(global::Library.Properties.Resources.icon_cross, 18, 18);
@@ -273,22 +278,25 @@ namespace Library
 
         private void btn_Books_ReturnLoan_Click(object sender, EventArgs e)
         {
-            try
+            if (_selectedBookCopy != null)
             {
-                if (_selectedBookCopy != null)
+                try
                 {
-                    int bookCopyId = Convert.ToInt32(grd_BookCopies.SelectedRows[0].Cells[0].Value);
-                    string bookTitle = grd_Books.SelectedRows[0].Cells[1].Value.ToString();
-                    string memberName = grd_BookCopies.SelectedRows[0].Cells[2].Value.ToString();
-                    int memberId = _memberService.All().First(m => m.Name == memberName).Id;
-                    IEnumerable<Loan> loans = _loanService.All().Where(l => l.Member.Id == memberId && l.BookCopy.Id == bookCopyId);
-                    _loanService.ReturnLoan(loans);
-                    MetroMessageBox.Show(this, String.Format("{0} was successfully returned by member: {1}", bookTitle, memberName), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    double fee;
+                    string bookTitle = _selectedBookCopy.Book.Title;
+                    string memberName = _selectedBookCopy.CurrentLoan.Member.Name;
+
+                    _loanService.Return(_selectedBookCopy.CurrentLoan, out fee);
+
+                    if (fee > 0)
+                        MetroMessageBox.Show(this, String.Format("{0} was returned past its due date and {1} has to pay a {2} SEK fee", bookTitle, memberName, fee.ToString()), "Fee required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    else
+                        MetroMessageBox.Show(this, String.Format("{0} was successfully returned", bookTitle), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
                 }
-            }
-            catch (InvalidOperationException error) 
-            {
-                MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                catch (InvalidOperationException error)
+                {
+                    MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -304,7 +312,6 @@ namespace Library
         {
             Member prevSelectedMember = null;
 
-            // Save selected book before clearing the list
             if (grd_Members.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = grd_Members.SelectedRows[0];
@@ -315,16 +322,11 @@ namespace Library
             grd_Members.Rows.Clear();
             foreach (Member member in members)
             {
-                var m = 0;
-                if (member.Loans != null)
-                {
-                    m = member.Loans.Where(l => l.TimeOfReturn == null).Count();
-                }
                 grd_Members.Rows.Add(
-                member.Id,
-                member.Name,
-                member.PersonalNumber,
-                m
+                    member.Id,
+                    member.Name,
+                    member.PersonalNumber,
+                    member.ActiveLoans.Count()
                 );
             }
 
@@ -335,10 +337,10 @@ namespace Library
             }
         }
 
-        private void txt_MemberSearch_TextChanged(object sender, EventArgs e)
+        private Member GetSelectedMember()
         {
-            IEnumerable<Member> members = _memberService.Search(txt_MemberSearch.Text, cbx_MembersWithActiveLoans.Checked);
-            UpdateMembers(members);
+            DataGridViewRow row = grd_Members.SelectedRows[0];
+            return _memberService.Find((int)row.Cells[0].Value);
         }
 
         private void SetSelectedMember(Member member)
@@ -363,7 +365,7 @@ namespace Library
                 lbl_MemberID.Text = _selectedMember.Id.ToString();
                 lbl_pNr.Text = _selectedMember.PersonalNumber;
 
-                UpdateMemberLoans(_loanService.ListMemberLoans(_selectedMember, cbx_Members_ShowReturnedLoans.Checked));
+                UpdateMemberLoans(_loanService.Search(_selectedMember, cbx_Members_ShowReturnedLoans.Checked));
 
                 pnl_SelectedMember.Visible = true;
             }
@@ -374,6 +376,12 @@ namespace Library
             }
 
             txt_MemberSearch.Focus();
+        }
+
+        private void txt_MemberSearch_TextChanged(object sender, EventArgs e)
+        {
+            IEnumerable<Member> members = _memberService.Search(txt_MemberSearch.Text, cbx_MembersWithActiveLoans.Checked);
+            UpdateMembers(members);
         }
 
         private Loan GetSelectedMemberLoan()
@@ -393,7 +401,7 @@ namespace Library
                     btn_Members_ReturnLoan.Enabled = true;
 
                 // The selected loan is returned - disable return button
-                else if (_selectedMemberLoan.TimeOfReturn != null)
+                else if (_selectedMemberLoan != null && _selectedMemberLoan.TimeOfReturn != null)
                     btn_Members_ReturnLoan.Enabled = false;
 
                 // No loan selected
@@ -408,23 +416,17 @@ namespace Library
             }
         }
 
-        private Member GetSelectedMember()
-        {
-            DataGridViewRow row = grd_Members.SelectedRows[0];
-            return _memberService.Find((int)row.Cells[0].Value);
-        }
-
         private void UpdateMemberLoans(IEnumerable<Loan> loans)
         {
             grd_Members_Loans.Rows.Clear();
             foreach (Loan loan in loans)
             {
                 grd_Members_Loans.Rows.Add(
-                loan.Id,
-                loan.BookCopy.Book.Title,
-                loan.BookCopy.Book.Author,
-                loan.DueDate.ToShortDateString(),
-                (loan.TimeOfReturn.HasValue) ? loan.TimeOfReturn.Value.ToShortDateString() : ""
+                    loan.Id,
+                    loan.BookCopy.Book.Title,
+                    loan.BookCopy.Book.Author,
+                    loan.DueDate.ToShortDateString(),
+                    loan.TimeOfReturn.HasValue ? loan.TimeOfReturn.Value.ToShortDateString() : ""
                 );
             }
         }
@@ -438,7 +440,7 @@ namespace Library
         private void cbx_Members_ShowReturnedLoans_CheckedChanged(object sender, EventArgs e)
         {
             Member member = _memberService.Find(Convert.ToInt32(lbl_MemberID.Text));
-            UpdateMemberLoans(_loanService.ListMemberLoans(member, cbx_Members_ShowReturnedLoans.Checked));
+            UpdateMemberLoans(_loanService.Search(member, cbx_Members_ShowReturnedLoans.Checked));
         }
 
         private void btn_NewMember_Click(object sender, EventArgs e)
@@ -467,23 +469,26 @@ namespace Library
 
         private void btn_Members_ReturnLoan_Click(object sender, EventArgs e)
         {
-            try 
-            { 
-                if(_selectedMemberLoan != null)
+            if (_selectedMemberLoan != null)
+            {
+                try
                 {
-                    string bookTitle = grd_Members_Loans.SelectedRows[0].Cells[1].Value.ToString();
-                    string memberName = grd_Members.SelectedRows[0].Cells[1].Value.ToString();
-                    int loanId = Convert.ToInt32(grd_Members_Loans.SelectedRows[0].Cells[0].Value);
-                    _loanService.ReturnLoan(loanId);
+                    double fee;
+                    string bookTitle = _selectedMemberLoan.BookCopy.Book.Title;
+                    string memberName = _selectedMemberLoan.Member.Name;
 
-                    MetroMessageBox.Show(this, String.Format("{0} was successfully returned by member: {1}", bookTitle, memberName), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    _loanService.Return(_selectedMemberLoan, out fee);
+
+                    if (fee > 0)
+                        MetroMessageBox.Show(this, String.Format("{0} was returned past its due date and {1} has to pay a {2} SEK fee", bookTitle, memberName, fee.ToString()), "Fee required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    else
+                        MetroMessageBox.Show(this, String.Format("{0} was successfully returned", bookTitle), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
+                catch (InvalidOperationException error)
+                {
+                    MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch(InvalidOperationException error)
-            {
-                MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
 
         private void _memberService_Updated(object sender, EventArgs e)
@@ -503,13 +508,13 @@ namespace Library
             foreach (Loan loan in loans)
             {
                 grd_Loans.Rows.Add(
-                loan.Id,
-                loan.BookCopy.Id,
-                loan.Member.Name,
-                loan.BookCopy.Book.Title,
-                loan.BookCopy.Book.Author,
-                loan.DueDate.ToShortDateString(),
-                (loan.TimeOfReturn.HasValue) ? loan.TimeOfReturn.Value.ToShortDateString() : ""
+                    loan.Id,
+                    loan.BookCopy.Id,
+                    loan.Member.Name,
+                    loan.BookCopy.Book.Title,
+                    loan.BookCopy.Book.Author,
+                    loan.DueDate.ToShortDateString(),
+                    loan.TimeOfReturn.HasValue ? loan.TimeOfReturn.Value.ToShortDateString() : ""
                 );
             }
         }
@@ -526,32 +531,37 @@ namespace Library
 
         private void btn_Loans_ReturnLoan_Click(object sender, EventArgs e)
         {
-            try
+            if (_selectedLoan != null)
             {
-                if (_selectedLoan != null)
+                try
                 {
-                    string memberName = grd_Loans.SelectedRows[0].Cells[2].Value.ToString();
-                    string bookTitle = grd_Loans.SelectedRows[0].Cells[3].Value.ToString();
-                    int loanId = Convert.ToInt32(grd_Loans.SelectedRows[0].Cells[0].Value);
-                    _loanService.ReturnLoan(loanId);
-                    MetroMessageBox.Show(this, String.Format("{0} was successfully returned by member: {1}", bookTitle, memberName), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
+
+                    double fee;
+                    string bookTitle = _selectedLoan.BookCopy.Book.Title;
+                    string memberName = _selectedLoan.Member.Name;
+
+                    _loanService.Return(_selectedLoan, out fee);
+
+                    if (fee > 0)
+                        MetroMessageBox.Show(this, String.Format("{0} was returned past its due date and {1} has to pay a {2} SEK fee", bookTitle, memberName, fee.ToString()), "Fee required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    else
+                        MetroMessageBox.Show(this, String.Format("{0} was successfully returned", bookTitle), "Success", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                }
+                catch (InvalidOperationException error)
+                {
+                    MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            catch (InvalidOperationException error)
-            {
-                MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
         }
 
         private void cbx_Loans_ShowReturnedLoans_CheckedChanged(object sender, EventArgs e)
         {
-            UpdateLoans(_loanService.ListLoans(cbx_Loans_ShowReturnedLoans.Checked));
+            UpdateLoans(_loanService.Search(null, cbx_Loans_ShowReturnedLoans.Checked));
         }
 
         private void _loanService_Updated(object sender, EventArgs e)
         {
-            UpdateLoans(_loanService.ListLoans(cbx_Loans_ShowReturnedLoans.Checked));
+            UpdateLoans(_loanService.Search(null, cbx_Loans_ShowReturnedLoans.Checked));
         }
 
         private void grd_Loans_SelectionChanged(object sender, EventArgs e)
@@ -565,7 +575,7 @@ namespace Library
                     btn_Loans_ReturnLoan.Enabled = true;
 
                 // The selected loan is returned - disable return button
-                else if (_selectedLoan.TimeOfReturn != null)
+                else if (_selectedLoan != null && _selectedLoan.TimeOfReturn != null)
                     btn_Loans_ReturnLoan.Enabled = false;
 
                 // No loan selected

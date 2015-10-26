@@ -21,13 +21,13 @@ namespace Library
         BookCopyService _bookCopyService;
         MemberService _memberService;
         LoanService _loanService;
+        Book _selectedBook;
 
         public string BookTitle { get; private set; }
         public string MemberName { get; private set; }
 
         public NewLoanForm(BookService bookService, BookCopyService bookCopyService, MemberService memberService, LoanService loanService)
         {
-            // Borde lägga till prevSelectedBook osv för att hantera återval efter uppdatering av listor!!!!
             InitializeComponent();
 
             _bookService = bookService;
@@ -75,36 +75,47 @@ namespace Library
 
         private void _bookService_Updated(object sender, EventArgs e)
         {
-            cbx_Books.Items.Clear();
+            Book prevSelectedBook = (Book)cbx_Books.SelectedItem;
 
-            foreach (Book b in _bookService.All())
-            {
-                cbx_Books.Items.Add(b);
-            }
+            cbx_Books.Items.Clear();
+            cbx_Books.Items.AddRange(_bookService.All().ToArray());
+
+            if (prevSelectedBook != null && cbx_Books.Items.Contains(prevSelectedBook))
+                cbx_Books.SelectedItem = prevSelectedBook;
         }
 
         void _memberService_Updated(object sender, EventArgs e)
         {
-            cbx_Members.Items.Clear();
+            Member prevSelectedMember = (Member)cbx_Members.SelectedItem;
 
-            foreach (Member m in _memberService.All())
+            cbx_Members.Items.Clear();
+            cbx_Members.Text = "No members that qualify for loan";
+            cbx_Members.Enabled = false;
+
+            List<Member> members = MembersThatQualifyForLoan(_selectedBook);
+
+            if (members.Count() > 0)
             {
-                cbx_Members.Items.Add(m);
+                cbx_Members.Items.AddRange(members.ToArray());
+                cbx_Members.Text = "";
+                cbx_Members.Enabled = true;
+
+                if (prevSelectedMember != null && cbx_Members.Items.Contains(prevSelectedMember))
+                    cbx_Members.SelectedItem = prevSelectedMember;
             }
         }
 
         private void cbx_Books_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Book book = (Book)cbx_Books.SelectedItem;
+            _selectedBook = (Book)cbx_Books.SelectedItem;
 
             cbx_BookCopies.Items.Clear();
             cbx_BookCopies.Text = "No copies available";
             cbx_BookCopies.Enabled = false;
 
-
-            if (book != null && book.Available)
+            if (_selectedBook != null && _selectedBook.AvailableBookCopies.Count() > 0)
             {
-                List<BookCopy> availableBooks = book.BookCopies.Where(b => b.CurrentLoan == null).ToList();
+                List<BookCopy> availableBooks = _selectedBook.AvailableBookCopies;
 
                 cbx_BookCopies.Items.AddRange(availableBooks.ToArray());
                 cbx_BookCopies.Enabled = true;
@@ -112,26 +123,16 @@ namespace Library
                 // Choose first copy by default
                 if (cbx_BookCopies.Items.Count > 0)
                     cbx_BookCopies.SelectedIndex = 0;
-
-                //Update member combobox, with members that have no active loans on this book
-                cbx_Members.Items.Clear();
-                cbx_Members.Enabled = false;
-                cbx_Members.Text = "No members that qualify for loan";
-
-                IEnumerable<Member> membersWithActiveLoans = _loanService.All().Where(l => l.BookCopy.Book == book && l.Member.HasActiveLoans).Select(m => m.Member);
-                IEnumerable<Member> membersToCbx = _memberService.All().Except(membersWithActiveLoans);
-                if(membersToCbx.Count() > 0)
-                {
-                    cbx_Members.Items.AddRange(membersToCbx.ToArray());
-                    cbx_Members.Enabled = true;
-                }
             }
-            else if (!book.Available)
-            {
-                cbx_Members.Text = "";
-                cbx_Members.Items.AddRange(_memberService.All().ToArray());
-                cbx_Members.Enabled = true;
-            }
+
+            //Update member combobox, with members that have no active loans on this book
+            _memberService_Updated(this, new EventArgs());
+        }
+
+        private List<Member> MembersThatQualifyForLoan(Book book)
+        {
+            IEnumerable<Member> membersWithActiveLoans = _loanService.All().Where(l => l.BookCopy.Book == book && l.Member.ActiveLoans.Count() > 0).Select(m => m.Member);
+            return _memberService.All().Except(membersWithActiveLoans).ToList();
         }
 
         private void btn_NewMember_Click(object sender, EventArgs e)
@@ -162,30 +163,6 @@ namespace Library
             catch (ValidationException error)
             {
                 MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void cbx_Members_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Member member = (Member)cbx_Members.SelectedItem;
-
-            cbx_Books.Items.Clear();
-            cbx_Books.Text = "No books available for this member";
-            cbx_Books.Enabled = false;
-
-            if (member != null)
-            {
-                IEnumerable<Book> activeBooks = _loanService.All().Where(l => l.Member.Id == member.Id && l.TimeOfReturn == null).Select(l => l.BookCopy.Book);
-                IEnumerable<Book> availableBooksForMember = _bookService.All().Except(activeBooks);
-                if (availableBooksForMember.Count() > 0)
-                {
-                    cbx_Books.Items.AddRange(availableBooksForMember.ToArray());
-                    cbx_Books.Enabled = true;
-                }
-
-                // Choose first copy by default
-                if (cbx_Books.Items.Count > 0)
-                    cbx_Books.SelectedIndex = 0;
             }
         }
     }

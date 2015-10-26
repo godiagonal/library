@@ -24,13 +24,16 @@ namespace Library.Services
             return _bookRepository.All();
         }
 
-        public IEnumerable<Book> Search(string keyword, bool available)
+        public IEnumerable<Book> Search(string keyword, bool availableOnly)
         {
             var books = _bookRepository.All();
+
             if (keyword.Length != 0)
                 books = books.Where(b => b.Title.ToLower().Contains(keyword.ToLower()) || b.Author.Name.ToLower().Contains(keyword.ToLower()));
-            if (available == true)
-                books = books.Where(b => b.Available);
+
+            if (availableOnly)
+                books = books.Where(b => b.AvailableBookCopies.Count() > 0);
+
             return books;
         }
 

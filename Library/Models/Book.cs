@@ -30,18 +30,17 @@ namespace Library.Models
         public virtual ICollection<BookCopy> BookCopies { get; set; }
 
         [NotMapped]
-        public bool Available
+        public List<BookCopy> AvailableBookCopies
         {
             get
             {
                 if (BookCopies != null)
                 {
-                    var availableCopies = BookCopies.FirstOrDefault(b => b.CurrentLoan == null);
-                    return availableCopies == null ? false : true;
+                    return BookCopies.Where(b => b.CurrentLoan == null).ToList();
                 }
                 else
                 {
-                    return false;
+                    return new List<BookCopy>();
                 }
             }
             private set

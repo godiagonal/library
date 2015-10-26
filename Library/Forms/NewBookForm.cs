@@ -41,12 +41,13 @@ namespace Library
 
         void _authorService_Updated(object sender, EventArgs e)
         {
-            cbx_BookAuthors.Items.Clear();
+            Author prevSelectedAuthor = (Author)cbx_BookAuthors.SelectedItem;
 
-            foreach (Author a in _authorService.All())
-            {
-                cbx_BookAuthors.Items.Add(a);
-            }
+            cbx_BookAuthors.Items.Clear();
+            cbx_BookAuthors.Items.AddRange(_authorService.All().ToArray());
+
+            if (prevSelectedAuthor != null && cbx_BookAuthors.Items.Contains(prevSelectedAuthor))
+                cbx_BookAuthors.SelectedItem = prevSelectedAuthor;
         }
 
         private void btn_NewAuthor_Click(object sender, EventArgs e)
@@ -87,50 +88,5 @@ namespace Library
             }
 
         }
-
-        //private void cbx_BookAuthor_TextChanged(object sender, EventArgs e)
-        //{
-        //    var a = _authorService.Search(cbx_BookAuthor.Text).ToArray();
-        //    cbx_BookAuthor.Items.Clear();
-        //    cbx_BookAuthor.Items.AddRange(a);
-
-        //    if (cbx_BookAuthor.Text.Length == 0) overrideSuggestAndAppend();
-        //}
-        //
-        //private void cbx_BookAuthor_KeyUp(object sender, KeyEventArgs e)
-        //{
-
-        //}
-        //Override suggest append so it's searching, using contains instead och startsWith
-        //private void overridesuggestandappend()
-        //{
-        //    cbx_bookauthor.droppeddown = true;
-
-        //    object[] originallist = (object[])cbx_bookauthor.tag;
-        //    if (originallist == null)
-        //    {
-        //        // backup original list
-        //        originallist = new object[cbx_bookauthor.items.count];
-        //        cbx_bookauthor.items.copyto(originallist, 0);
-        //        cbx_bookauthor.tag = originallist;
-        //    }
-
-        //    // prepare list of matching items
-        //    string s = cbx_bookauthor.text.tolower();
-        //    ienumerable<object> newlist = originallist;
-        //    if (s.length > 0)
-        //    {
-        //        newlist = originallist.where(item => item.tostring().tolower().contains(s));
-        //    }
-
-        //    // clear list (loop through it, otherwise the cursor would move to the beginning of the textbox...)
-        //    while (cbx_bookauthor.items.count > 0)
-        //    {
-        //        cbx_bookauthor.items.removeat(0);
-        //    }
-
-        //    // re-set list
-        //    cbx_bookauthor.items.addrange(newlist.toarray());
-        //}
     }
 }

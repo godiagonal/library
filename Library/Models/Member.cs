@@ -22,31 +22,30 @@ namespace Library.Models
 
         public virtual ICollection<Loan> Loans { get; set; }
 
-        public override string ToString()
-        {
-            return this.Name;
-        }
-
         [NotMapped]
-        public bool HasActiveLoans
+        public List<Loan> ActiveLoans
         {
             get
             {
                 if (Loans != null)
                 {
-                    var activeLoans = Loans.FirstOrDefault(l => l.TimeOfReturn == null);
-                    return activeLoans == null ? false : true;
+                    return Loans.Where(l => l.TimeOfReturn == null).ToList();
                 }
                 else
                 {
-                    return false;
+                    return new List<Loan>();
                 }
-                
+
             }
             private set
             {
 
             }
+        }
+
+        public override string ToString()
+        {
+            return this.Name;
         }
     }
 }
