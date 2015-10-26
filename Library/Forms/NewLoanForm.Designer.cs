@@ -95,7 +95,7 @@
             this.cbx_Members.Margin = new System.Windows.Forms.Padding(0);
             this.cbx_Members.Name = "cbx_Members";
             this.cbx_Members.Size = new System.Drawing.Size(247, 25);
-            this.cbx_Members.TabIndex = 15;
+            this.cbx_Members.TabIndex = 0;
             // 
             // metroPanel1
             // 
@@ -108,7 +108,7 @@
             this.metroPanel1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 15);
             this.metroPanel1.Name = "metroPanel1";
             this.metroPanel1.Size = new System.Drawing.Size(249, 27);
-            this.metroPanel1.TabIndex = 16;
+            this.metroPanel1.TabIndex = 0;
             this.metroPanel1.UseCustomBackColor = true;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
@@ -122,7 +122,7 @@
             this.btn_NewMember.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.btn_NewMember.Name = "btn_NewMember";
             this.btn_NewMember.Size = new System.Drawing.Size(126, 30);
-            this.btn_NewMember.TabIndex = 18;
+            this.btn_NewMember.TabIndex = 1;
             this.btn_NewMember.Text = "Add new member";
             this.btn_NewMember.UseSelectable = true;
             this.btn_NewMember.Click += new System.EventHandler(this.btn_NewMember_Click);
@@ -135,7 +135,7 @@
             this.btn_SaveLoan.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.btn_SaveLoan.Name = "btn_SaveLoan";
             this.btn_SaveLoan.Size = new System.Drawing.Size(249, 30);
-            this.btn_SaveLoan.TabIndex = 21;
+            this.btn_SaveLoan.TabIndex = 5;
             this.btn_SaveLoan.Text = "Save loan";
             this.btn_SaveLoan.UseSelectable = true;
             this.btn_SaveLoan.Click += new System.EventHandler(this.btn_SaveLoan_Click);
@@ -151,7 +151,7 @@
             this.metroPanel2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 15);
             this.metroPanel2.Name = "metroPanel2";
             this.metroPanel2.Size = new System.Drawing.Size(249, 27);
-            this.metroPanel2.TabIndex = 17;
+            this.metroPanel2.TabIndex = 2;
             this.metroPanel2.UseCustomBackColor = true;
             this.metroPanel2.VerticalScrollbarBarColor = true;
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
@@ -168,7 +168,7 @@
             this.cbx_Books.Margin = new System.Windows.Forms.Padding(0);
             this.cbx_Books.Name = "cbx_Books";
             this.cbx_Books.Size = new System.Drawing.Size(247, 25);
-            this.cbx_Books.TabIndex = 15;
+            this.cbx_Books.TabIndex = 0;
             this.cbx_Books.SelectedIndexChanged += new System.EventHandler(this.cbx_Books_SelectedIndexChanged);
             // 
             // metroPanel3
@@ -182,7 +182,7 @@
             this.metroPanel3.Margin = new System.Windows.Forms.Padding(0, 5, 0, 20);
             this.metroPanel3.Name = "metroPanel3";
             this.metroPanel3.Size = new System.Drawing.Size(249, 27);
-            this.metroPanel3.TabIndex = 17;
+            this.metroPanel3.TabIndex = 3;
             this.metroPanel3.UseCustomBackColor = true;
             this.metroPanel3.VerticalScrollbarBarColor = true;
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
@@ -200,7 +200,7 @@
             this.cbx_BookCopies.Margin = new System.Windows.Forms.Padding(0);
             this.cbx_BookCopies.Name = "cbx_BookCopies";
             this.cbx_BookCopies.Size = new System.Drawing.Size(247, 25);
-            this.cbx_BookCopies.TabIndex = 15;
+            this.cbx_BookCopies.TabIndex = 0;
             // 
             // cbx_SubtractDays
             // 
@@ -209,7 +209,7 @@
             this.cbx_SubtractDays.Margin = new System.Windows.Forms.Padding(0, 0, 0, 20);
             this.cbx_SubtractDays.Name = "cbx_SubtractDays";
             this.cbx_SubtractDays.Size = new System.Drawing.Size(169, 15);
-            this.cbx_SubtractDays.TabIndex = 22;
+            this.cbx_SubtractDays.TabIndex = 4;
             this.cbx_SubtractDays.Text = "Save as already expired loan";
             this.cbx_SubtractDays.UseSelectable = true;
             // 

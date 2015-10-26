@@ -74,7 +74,7 @@
             this.txt_answer.SelectionLength = 0;
             this.txt_answer.SelectionStart = 0;
             this.txt_answer.Size = new System.Drawing.Size(250, 26);
-            this.txt_answer.TabIndex = 7;
+            this.txt_answer.TabIndex = 0;
             this.txt_answer.UseSelectable = true;
             this.txt_answer.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_answer.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -87,7 +87,7 @@
             this.btn_Accept.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Accept.Name = "btn_Accept";
             this.btn_Accept.Size = new System.Drawing.Size(120, 30);
-            this.btn_Accept.TabIndex = 19;
+            this.btn_Accept.TabIndex = 1;
             this.btn_Accept.Text = "OK";
             this.btn_Accept.UseSelectable = true;
             this.btn_Accept.Click += new System.EventHandler(this.btn_Accept_Click);
@@ -101,7 +101,7 @@
             this.btn_Cancel.Margin = new System.Windows.Forms.Padding(0);
             this.btn_Cancel.Name = "btn_Cancel";
             this.btn_Cancel.Size = new System.Drawing.Size(120, 30);
-            this.btn_Cancel.TabIndex = 20;
+            this.btn_Cancel.TabIndex = 2;
             this.btn_Cancel.Text = "Cancel";
             this.btn_Cancel.UseSelectable = true;
             // 

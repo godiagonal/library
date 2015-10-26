@@ -73,7 +73,7 @@
             this.txt_BookTitle.SelectionLength = 0;
             this.txt_BookTitle.SelectionStart = 0;
             this.txt_BookTitle.Size = new System.Drawing.Size(250, 26);
-            this.txt_BookTitle.TabIndex = 5;
+            this.txt_BookTitle.TabIndex = 0;
             this.txt_BookTitle.UseSelectable = true;
             this.txt_BookTitle.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_BookTitle.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -131,7 +131,7 @@
             this.txt_BookISBN.SelectionLength = 0;
             this.txt_BookISBN.SelectionStart = 0;
             this.txt_BookISBN.Size = new System.Drawing.Size(250, 26);
-            this.txt_BookISBN.TabIndex = 7;
+            this.txt_BookISBN.TabIndex = 1;
             this.txt_BookISBN.UseSelectable = true;
             this.txt_BookISBN.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_BookISBN.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -160,7 +160,7 @@
             this.cbx_BookAuthors.Margin = new System.Windows.Forms.Padding(0);
             this.cbx_BookAuthors.Name = "cbx_BookAuthors";
             this.cbx_BookAuthors.Size = new System.Drawing.Size(247, 25);
-            this.cbx_BookAuthors.TabIndex = 15;
+            this.cbx_BookAuthors.TabIndex = 0;
             // 
             // metroPanel1
             // 
@@ -173,7 +173,7 @@
             this.metroPanel1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 15);
             this.metroPanel1.Name = "metroPanel1";
             this.metroPanel1.Size = new System.Drawing.Size(249, 27);
-            this.metroPanel1.TabIndex = 16;
+            this.metroPanel1.TabIndex = 2;
             this.metroPanel1.UseCustomBackColor = true;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
@@ -187,7 +187,7 @@
             this.btn_NewAuthor.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.btn_NewAuthor.Name = "btn_NewAuthor";
             this.btn_NewAuthor.Size = new System.Drawing.Size(126, 30);
-            this.btn_NewAuthor.TabIndex = 18;
+            this.btn_NewAuthor.TabIndex = 3;
             this.btn_NewAuthor.Text = "Add new author";
             this.btn_NewAuthor.UseSelectable = true;
             this.btn_NewAuthor.Click += new System.EventHandler(this.btn_NewAuthor_Click);
@@ -233,7 +233,7 @@
             this.txt_BookDescription.SelectionLength = 0;
             this.txt_BookDescription.SelectionStart = 0;
             this.txt_BookDescription.Size = new System.Drawing.Size(250, 118);
-            this.txt_BookDescription.TabIndex = 19;
+            this.txt_BookDescription.TabIndex = 4;
             this.txt_BookDescription.UseSelectable = true;
             this.txt_BookDescription.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_BookDescription.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -246,7 +246,7 @@
             this.btn_SaveBook.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.btn_SaveBook.Name = "btn_SaveBook";
             this.btn_SaveBook.Size = new System.Drawing.Size(249, 30);
-            this.btn_SaveBook.TabIndex = 21;
+            this.btn_SaveBook.TabIndex = 6;
             this.btn_SaveBook.Text = "Save book";
             this.btn_SaveBook.UseSelectable = true;
             this.btn_SaveBook.Click += new System.EventHandler(this.btn_SaveBook_Click);
@@ -274,7 +274,7 @@
             this.cbx_NoOfCopies.Margin = new System.Windows.Forms.Padding(0);
             this.cbx_NoOfCopies.Name = "cbx_NoOfCopies";
             this.cbx_NoOfCopies.Size = new System.Drawing.Size(125, 25);
-            this.cbx_NoOfCopies.TabIndex = 15;
+            this.cbx_NoOfCopies.TabIndex = 0;
             // 
             // metroPanel2
             // 
@@ -287,7 +287,7 @@
             this.metroPanel2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 20);
             this.metroPanel2.Name = "metroPanel2";
             this.metroPanel2.Size = new System.Drawing.Size(127, 27);
-            this.metroPanel2.TabIndex = 24;
+            this.metroPanel2.TabIndex = 5;
             this.metroPanel2.UseCustomBackColor = true;
             this.metroPanel2.VerticalScrollbarBarColor = true;
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;

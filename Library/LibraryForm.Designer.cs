@@ -148,9 +148,9 @@ namespace Library
             this.tbc_Main.ItemSize = new System.Drawing.Size(100, 34);
             this.tbc_Main.Location = new System.Drawing.Point(23, 63);
             this.tbc_Main.Name = "tbc_Main";
-            this.tbc_Main.SelectedIndex = 1;
+            this.tbc_Main.SelectedIndex = 2;
             this.tbc_Main.Size = new System.Drawing.Size(829, 557);
-            this.tbc_Main.TabIndex = 2;
+            this.tbc_Main.TabIndex = 0;
             this.tbc_Main.UseSelectable = true;
             // 
             // tab_Books
@@ -189,7 +189,7 @@ namespace Library
             this.cbx_AvailableOnly.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.cbx_AvailableOnly.Name = "cbx_AvailableOnly";
             this.cbx_AvailableOnly.Size = new System.Drawing.Size(162, 15);
-            this.cbx_AvailableOnly.TabIndex = 9;
+            this.cbx_AvailableOnly.TabIndex = 1;
             this.cbx_AvailableOnly.Text = "Show available books only";
             this.cbx_AvailableOnly.UseSelectable = true;
             this.cbx_AvailableOnly.CheckedChanged += new System.EventHandler(this.cbx_AvailableOnly_CheckedChanged);
@@ -202,7 +202,7 @@ namespace Library
             this.btn_NewBook.Margin = new System.Windows.Forms.Padding(0, 20, 10, 0);
             this.btn_NewBook.Name = "btn_NewBook";
             this.btn_NewBook.Size = new System.Drawing.Size(117, 30);
-            this.btn_NewBook.TabIndex = 6;
+            this.btn_NewBook.TabIndex = 3;
             this.btn_NewBook.Text = "Add new book";
             this.btn_NewBook.UseSelectable = true;
             this.btn_NewBook.Click += new System.EventHandler(this.btn_NewBook_Click);
@@ -243,7 +243,7 @@ namespace Library
             this.btn_Books_ReturnLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
             this.btn_Books_ReturnLoan.Name = "btn_Books_ReturnLoan";
             this.btn_Books_ReturnLoan.Size = new System.Drawing.Size(100, 30);
-            this.btn_Books_ReturnLoan.TabIndex = 12;
+            this.btn_Books_ReturnLoan.TabIndex = 3;
             this.btn_Books_ReturnLoan.Text = "Return loan";
             this.btn_Books_ReturnLoan.UseSelectable = true;
             this.btn_Books_ReturnLoan.Click += new System.EventHandler(this.btn_Books_ReturnLoan_Click);
@@ -256,7 +256,7 @@ namespace Library
             this.btn_AddCopy.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
             this.btn_AddCopy.Name = "btn_AddCopy";
             this.btn_AddCopy.Size = new System.Drawing.Size(100, 30);
-            this.btn_AddCopy.TabIndex = 11;
+            this.btn_AddCopy.TabIndex = 0;
             this.btn_AddCopy.Text = "Add copy";
             this.btn_AddCopy.UseSelectable = true;
             this.btn_AddCopy.Click += new System.EventHandler(this.btn_AddCopy_Click);
@@ -270,7 +270,7 @@ namespace Library
             this.btn_Books_MakeLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
             this.btn_Books_MakeLoan.Name = "btn_Books_MakeLoan";
             this.btn_Books_MakeLoan.Size = new System.Drawing.Size(100, 30);
-            this.btn_Books_MakeLoan.TabIndex = 9;
+            this.btn_Books_MakeLoan.TabIndex = 2;
             this.btn_Books_MakeLoan.Text = "Make loan";
             this.btn_Books_MakeLoan.UseSelectable = true;
             this.btn_Books_MakeLoan.Click += new System.EventHandler(this.btn_Books_MakeLoan_Click);
@@ -346,7 +346,7 @@ namespace Library
             this.grd_BookCopies.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grd_BookCopies.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_BookCopies.Size = new System.Drawing.Size(381, 139);
-            this.grd_BookCopies.TabIndex = 9;
+            this.grd_BookCopies.TabIndex = 1;
             this.grd_BookCopies.UseCustomBackColor = true;
             this.grd_BookCopies.UseCustomForeColor = true;
             this.grd_BookCopies.UseStyleColors = true;
@@ -499,7 +499,7 @@ namespace Library
             this.txt_BookSearch.SelectionLength = 0;
             this.txt_BookSearch.SelectionStart = 0;
             this.txt_BookSearch.Size = new System.Drawing.Size(388, 26);
-            this.txt_BookSearch.TabIndex = 4;
+            this.txt_BookSearch.TabIndex = 0;
             this.txt_BookSearch.UseSelectable = true;
             this.txt_BookSearch.WaterMark = "Search for a book or author";
             this.txt_BookSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -564,7 +564,7 @@ namespace Library
             this.grd_Books.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grd_Books.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_Books.Size = new System.Drawing.Size(388, 374);
-            this.grd_Books.TabIndex = 3;
+            this.grd_Books.TabIndex = 2;
             this.grd_Books.UseCustomBackColor = true;
             this.grd_Books.UseCustomForeColor = true;
             this.grd_Books.UseStyleColors = true;
@@ -658,7 +658,7 @@ namespace Library
             this.cbx_MembersWithActiveLoans.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.cbx_MembersWithActiveLoans.Name = "cbx_MembersWithActiveLoans";
             this.cbx_MembersWithActiveLoans.Size = new System.Drawing.Size(222, 15);
-            this.cbx_MembersWithActiveLoans.TabIndex = 9;
+            this.cbx_MembersWithActiveLoans.TabIndex = 1;
             this.cbx_MembersWithActiveLoans.Text = "Show members with active loans only";
             this.cbx_MembersWithActiveLoans.UseSelectable = true;
             this.cbx_MembersWithActiveLoans.CheckedChanged += new System.EventHandler(this.cbx_MembersWithActiveLoans_CheckedChanged);
@@ -671,7 +671,7 @@ namespace Library
             this.btn_NewMember.Margin = new System.Windows.Forms.Padding(0, 20, 10, 0);
             this.btn_NewMember.Name = "btn_NewMember";
             this.btn_NewMember.Size = new System.Drawing.Size(141, 30);
-            this.btn_NewMember.TabIndex = 6;
+            this.btn_NewMember.TabIndex = 3;
             this.btn_NewMember.Text = "Add new member";
             this.btn_NewMember.UseSelectable = true;
             this.btn_NewMember.Click += new System.EventHandler(this.btn_NewMember_Click);
@@ -708,7 +708,7 @@ namespace Library
             this.cbx_Members_ShowReturnedLoans.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.cbx_Members_ShowReturnedLoans.Name = "cbx_Members_ShowReturnedLoans";
             this.cbx_Members_ShowReturnedLoans.Size = new System.Drawing.Size(141, 15);
-            this.cbx_Members_ShowReturnedLoans.TabIndex = 14;
+            this.cbx_Members_ShowReturnedLoans.TabIndex = 0;
             this.cbx_Members_ShowReturnedLoans.Text = "Include returned loans";
             this.cbx_Members_ShowReturnedLoans.UseSelectable = true;
             this.cbx_Members_ShowReturnedLoans.CheckedChanged += new System.EventHandler(this.cbx_Members_ShowReturnedLoans_CheckedChanged);
@@ -722,7 +722,7 @@ namespace Library
             this.btn_Members_ReturnLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
             this.btn_Members_ReturnLoan.Name = "btn_Members_ReturnLoan";
             this.btn_Members_ReturnLoan.Size = new System.Drawing.Size(100, 30);
-            this.btn_Members_ReturnLoan.TabIndex = 12;
+            this.btn_Members_ReturnLoan.TabIndex = 3;
             this.btn_Members_ReturnLoan.Text = "Return loan";
             this.btn_Members_ReturnLoan.UseSelectable = true;
             this.btn_Members_ReturnLoan.Click += new System.EventHandler(this.btn_Members_ReturnLoan_Click);
@@ -799,7 +799,7 @@ namespace Library
             this.grd_Members_Loans.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grd_Members_Loans.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_Members_Loans.Size = new System.Drawing.Size(381, 282);
-            this.grd_Members_Loans.TabIndex = 9;
+            this.grd_Members_Loans.TabIndex = 1;
             this.grd_Members_Loans.UseCustomBackColor = true;
             this.grd_Members_Loans.UseCustomForeColor = true;
             this.grd_Members_Loans.UseStyleColors = true;
@@ -909,7 +909,7 @@ namespace Library
             this.btn_Members_MakeLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
             this.btn_Members_MakeLoan.Name = "btn_Members_MakeLoan";
             this.btn_Members_MakeLoan.Size = new System.Drawing.Size(100, 30);
-            this.btn_Members_MakeLoan.TabIndex = 11;
+            this.btn_Members_MakeLoan.TabIndex = 2;
             this.btn_Members_MakeLoan.Text = "Make loan";
             this.btn_Members_MakeLoan.UseSelectable = true;
             this.btn_Members_MakeLoan.Click += new System.EventHandler(this.btn_Members_MakeLoan_Click);
@@ -941,7 +941,7 @@ namespace Library
             this.txt_MemberSearch.SelectionLength = 0;
             this.txt_MemberSearch.SelectionStart = 0;
             this.txt_MemberSearch.Size = new System.Drawing.Size(388, 26);
-            this.txt_MemberSearch.TabIndex = 4;
+            this.txt_MemberSearch.TabIndex = 0;
             this.txt_MemberSearch.UseSelectable = true;
             this.txt_MemberSearch.WaterMark = "Search for a member";
             this.txt_MemberSearch.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -1006,7 +1006,7 @@ namespace Library
             this.grd_Members.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grd_Members.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_Members.Size = new System.Drawing.Size(388, 374);
-            this.grd_Members.TabIndex = 3;
+            this.grd_Members.TabIndex = 2;
             this.grd_Members.UseCustomBackColor = true;
             this.grd_Members.UseCustomForeColor = true;
             this.grd_Members.UseStyleColors = true;
@@ -1086,7 +1086,7 @@ namespace Library
             this.cbx_Loans_ShowReturnedLoans.Margin = new System.Windows.Forms.Padding(0, 30, 0, 10);
             this.cbx_Loans_ShowReturnedLoans.Name = "cbx_Loans_ShowReturnedLoans";
             this.cbx_Loans_ShowReturnedLoans.Size = new System.Drawing.Size(141, 15);
-            this.cbx_Loans_ShowReturnedLoans.TabIndex = 19;
+            this.cbx_Loans_ShowReturnedLoans.TabIndex = 0;
             this.cbx_Loans_ShowReturnedLoans.Text = "Include returned loans";
             this.cbx_Loans_ShowReturnedLoans.UseSelectable = true;
             this.cbx_Loans_ShowReturnedLoans.CheckedChanged += new System.EventHandler(this.cbx_Loans_ShowReturnedLoans_CheckedChanged);
@@ -1100,7 +1100,7 @@ namespace Library
             this.btn_Loans_ReturnLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
             this.btn_Loans_ReturnLoan.Name = "btn_Loans_ReturnLoan";
             this.btn_Loans_ReturnLoan.Size = new System.Drawing.Size(100, 30);
-            this.btn_Loans_ReturnLoan.TabIndex = 18;
+            this.btn_Loans_ReturnLoan.TabIndex = 3;
             this.btn_Loans_ReturnLoan.Text = "Return loan";
             this.btn_Loans_ReturnLoan.UseSelectable = true;
             this.btn_Loans_ReturnLoan.Click += new System.EventHandler(this.btn_Loans_ReturnLoan_Click);
@@ -1166,7 +1166,7 @@ namespace Library
             this.grd_Loans.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.grd_Loans.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grd_Loans.Size = new System.Drawing.Size(821, 405);
-            this.grd_Loans.TabIndex = 15;
+            this.grd_Loans.TabIndex = 1;
             this.grd_Loans.UseCustomBackColor = true;
             this.grd_Loans.UseCustomForeColor = true;
             this.grd_Loans.UseStyleColors = true;
@@ -1239,7 +1239,7 @@ namespace Library
             this.btn_Loans_MakeLoan.Margin = new System.Windows.Forms.Padding(0, 20, 10, 20);
             this.btn_Loans_MakeLoan.Name = "btn_Loans_MakeLoan";
             this.btn_Loans_MakeLoan.Size = new System.Drawing.Size(100, 30);
-            this.btn_Loans_MakeLoan.TabIndex = 17;
+            this.btn_Loans_MakeLoan.TabIndex = 2;
             this.btn_Loans_MakeLoan.Text = "Make loan";
             this.btn_Loans_MakeLoan.UseSelectable = true;
             this.btn_Loans_MakeLoan.Click += new System.EventHandler(this.btn_Loans_MakeLoan_Click);

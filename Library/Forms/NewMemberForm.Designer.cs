@@ -62,7 +62,7 @@
             this.txt_MemberName.SelectionLength = 0;
             this.txt_MemberName.SelectionStart = 0;
             this.txt_MemberName.Size = new System.Drawing.Size(250, 26);
-            this.txt_MemberName.TabIndex = 5;
+            this.txt_MemberName.TabIndex = 0;
             this.txt_MemberName.UseSelectable = true;
             this.txt_MemberName.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_MemberName.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,7 +120,7 @@
             this.txt_MemberPersonalNumber.SelectionLength = 0;
             this.txt_MemberPersonalNumber.SelectionStart = 0;
             this.txt_MemberPersonalNumber.Size = new System.Drawing.Size(250, 26);
-            this.txt_MemberPersonalNumber.TabIndex = 7;
+            this.txt_MemberPersonalNumber.TabIndex = 1;
             this.txt_MemberPersonalNumber.UseSelectable = true;
             this.txt_MemberPersonalNumber.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_MemberPersonalNumber.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -133,7 +133,7 @@
             this.btn_SaveMember.Margin = new System.Windows.Forms.Padding(0, 0, 0, 15);
             this.btn_SaveMember.Name = "btn_SaveMember";
             this.btn_SaveMember.Size = new System.Drawing.Size(249, 30);
-            this.btn_SaveMember.TabIndex = 21;
+            this.btn_SaveMember.TabIndex = 2;
             this.btn_SaveMember.Text = "Save member";
             this.btn_SaveMember.UseSelectable = true;
             this.btn_SaveMember.Click += new System.EventHandler(this.btn_SaveMember_Click);
