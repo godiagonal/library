@@ -239,7 +239,6 @@
             this.txt_BookDescription.UseSelectable = true;
             this.txt_BookDescription.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txt_BookDescription.WaterMarkFont = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_BookDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.btn_SaveBook_KeyDown);
             // 
             // btn_SaveBook
             // 
