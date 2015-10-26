@@ -174,14 +174,22 @@ namespace Library
                 DataGridViewTextBoxCell dueDate = new DataGridViewTextBoxCell();
                 dueDate.Value = bookCopy.CurrentLoan == null ? "" : bookCopy.CurrentLoan.DueDate.ToShortDateString();
 
-                // ******* Funkar fortfarande inte när man markerar raden *****
                 // Mark as red if due date has passed and the book is not returned
-                if (dueDate.Value.ToString().Length > 0 && bookCopy.CurrentLoan.DueDate < DateTime.Now)
-                    dueDate.Style.ForeColor = Color.Red;
+                if (bookCopy.CurrentLoan != null)
+                    MarkIfPassedDueDate(dueDate, bookCopy.CurrentLoan.DueDate);
 
                 row.Cells.AddRange(new DataGridViewCell[] { id, available, member, dueDate });
 
                 grd_BookCopies.Rows.Add(row);
+            }
+        }
+
+        private void MarkIfPassedDueDate(DataGridViewTextBoxCell cell, DateTime dueDate)
+        {
+            if (cell.Value.ToString().Length > 0 && dueDate < DateTime.Now)
+            {
+                cell.Style.ForeColor = Color.Red;
+                cell.Style.SelectionForeColor = Color.Red;
             }
         }
 
@@ -421,13 +429,30 @@ namespace Library
             grd_Members_Loans.Rows.Clear();
             foreach (Loan loan in loans)
             {
-                grd_Members_Loans.Rows.Add(
-                    loan.Id,
-                    loan.BookCopy.Book.Title,
-                    loan.BookCopy.Book.Author,
-                    loan.DueDate.ToShortDateString(),
-                    loan.TimeOfReturn.HasValue ? loan.TimeOfReturn.Value.ToShortDateString() : ""
-                );
+                DataGridViewRow row = new DataGridViewRow();
+
+                DataGridViewTextBoxCell id = new DataGridViewTextBoxCell();
+                id.Value = loan.Id;
+
+                DataGridViewTextBoxCell title = new DataGridViewTextBoxCell();
+                title.Value = loan.BookCopy.Book.Title;
+
+                DataGridViewTextBoxCell author = new DataGridViewTextBoxCell();
+                author.Value = loan.BookCopy.Book.Author.Name;
+
+                DataGridViewTextBoxCell dueDate = new DataGridViewTextBoxCell();
+                dueDate.Value = loan.DueDate.ToShortDateString();
+
+                // Mark as red if due date has passed and the book is not returned
+                if (!loan.TimeOfReturn.HasValue)
+                    MarkIfPassedDueDate(dueDate, loan.DueDate);
+
+                DataGridViewTextBoxCell timeOfReturn = new DataGridViewTextBoxCell();
+                timeOfReturn.Value = loan.TimeOfReturn.HasValue ? loan.TimeOfReturn.Value.ToShortDateString() : "";
+
+                row.Cells.AddRange(new DataGridViewCell[] { id, title, author, dueDate, timeOfReturn });
+
+                grd_Members_Loans.Rows.Add(row);
             }
         }
 

@@ -37,7 +37,7 @@ namespace Library
 
             _bookService.Updated += _bookService_Updated;
             _bookCopyService.Updated += _bookService_Updated;
-            _loanService.Updated += _bookService_Updated;
+            //_loanService.Updated += _bookService_Updated;
             _memberService.Updated += _memberService_Updated;
 
             _bookService_Updated(this, new EventArgs());
@@ -99,10 +99,12 @@ namespace Library
                 cbx_Members.Items.AddRange(members.ToArray());
                 cbx_Members.Text = "";
                 cbx_Members.Enabled = true;
-
-                if (prevSelectedMember != null && cbx_Members.Items.Contains(prevSelectedMember))
-                    cbx_Members.SelectedItem = prevSelectedMember;
             }
+
+            if (prevSelectedMember != null && cbx_Members.Items.Contains(prevSelectedMember))
+                cbx_Members.SelectedItem = prevSelectedMember;
+            else if (prevSelectedMember != null)
+                MetroMessageBox.Show(this, "The previously selected member does not qualify for loan because he or she is already borrowing a copy of this book", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void cbx_Books_SelectedIndexChanged(object sender, EventArgs e)
@@ -158,12 +160,23 @@ namespace Library
                 this.BookTitle = bookCopy.ToString();
                 this.MemberName = member.Name;
                 this.DialogResult = DialogResult.OK;
+
+                // Remove event handlers to avoid event execution after the form is closed
+                UnsubscribeEvents();
+
                 this.Close();
             }
             catch (ValidationException error)
             {
                 MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void UnsubscribeEvents()
+        {
+            _bookService.Updated -= _bookService_Updated;
+            _bookCopyService.Updated -= _bookService_Updated;
+            _memberService.Updated -= _memberService_Updated;
         }
     }
 }

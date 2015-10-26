@@ -80,13 +80,21 @@ namespace Library
                 _bookService.Add(txt_BookTitle.Text.Trim(), txt_BookDescription.Text.Trim(), txt_BookISBN.Text.Trim(), author, (int)cbx_NoOfCopies.SelectedItem);
                 this.NewBookTitle = txt_BookTitle.Text;
                 this.DialogResult = DialogResult.OK;
+
+                // Remove event handlers to avoid event execution after the form is closed
+                UnsubscribeEvents();
+
                 this.Close();
             }
             catch (ValidationException error)
             {
                 MetroMessageBox.Show(this, error.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
 
+        private void UnsubscribeEvents()
+        {
+            _authorService.Updated -= _authorService_Updated;
         }
     }
 }
