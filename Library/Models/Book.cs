@@ -1,4 +1,8 @@
-﻿using System;
+﻿// The library
+// Samuel Johansson och Lukas Peterson
+// Version 1.0 2015-10-26
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -29,6 +33,9 @@ namespace Library.Models
 
         public virtual ICollection<BookCopy> BookCopies { get; set; }
 
+        /// <summary>
+        /// Copies of the book that are not currently on loan
+        /// </summary>
         [NotMapped]
         public List<BookCopy> AvailableBookCopies
         {

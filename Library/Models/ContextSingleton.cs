@@ -1,4 +1,8 @@
-﻿using Library.Models;
+﻿// The library
+// Samuel Johansson och Lukas Peterson
+// Version 1.0 2015-10-26
+
+using Library.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

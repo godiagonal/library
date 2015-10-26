@@ -1,4 +1,8 @@
-﻿using System;
+﻿// The library
+// Samuel Johansson och Lukas Peterson
+// Version 1.0 2015-10-26
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;

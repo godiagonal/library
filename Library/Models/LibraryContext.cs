@@ -1,4 +1,8 @@
-﻿using System;
+﻿// The library
+// Samuel Johansson och Lukas Peterson
+// Version 1.0 2015-10-26
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,7 +13,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Library.Models
 {
     /// <summary>
-    /// Derived context.
+    /// Derived context
     /// </summary>
     public class LibraryContext : DbContext
     {
@@ -26,7 +30,7 @@ namespace Library.Models
         }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
-        // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
+        // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109
         public DbSet<Book> Books { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Member> Members { get; set; }
