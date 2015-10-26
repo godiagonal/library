@@ -126,6 +126,7 @@
             this.btn_NewMember.TabIndex = 1;
             this.btn_NewMember.Text = "Add new member";
             this.btn_NewMember.UseSelectable = true;
+            this.btn_NewMember.Click += new System.EventHandler(this.btn_NewMember_Click);
             // 
             // btn_SaveLoan
             // 
