@@ -35,6 +35,7 @@ namespace Library
             _memberService = memberService;
             _loanService = loanService;
 
+            // Keep comboboxes updated
             _bookService.Updated += _bookService_Updated;
             _bookCopyService.Updated += _bookService_Updated;
             _memberService.Updated += _memberService_Updated;
@@ -47,11 +48,6 @@ namespace Library
         /// Different ways to enter the NewLoanForm, either from the Member view, with the member as predetermined value or
         /// with the selected book and bookcopy as predetermined values, from the Books view.
         /// </summary>
-        /// <param name="bookService"></param>
-        /// <param name="bookCopyService"></param>
-        /// <param name="memberService"></param>
-        /// <param name="loanService"></param>
-        /// <param name="selectedBookCopy"></param>
         public NewLoanForm(BookService bookService, BookCopyService bookCopyService, MemberService memberService, LoanService loanService, BookCopy selectedBookCopy)
             : this(bookService, bookCopyService, memberService, loanService)
         {
@@ -228,7 +224,11 @@ namespace Library
             _memberService.Updated -= _memberService_Updated;
         }
 
-        //Listen to event key down
+        /// <summary>
+        /// Listen to enter key down
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_SaveLoan_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)

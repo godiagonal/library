@@ -51,7 +51,11 @@ namespace Library
             }
         }
 
-        //Listen to event key down
+        /// <summary>
+        /// Listen to enter key down
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_SaveMember_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
