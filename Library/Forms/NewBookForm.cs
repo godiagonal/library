@@ -28,7 +28,7 @@ namespace Library
             _authorService = authorService;
             _bookService = bookService;
 
-            //Keep combobox updated
+            // Keep combobox updated
             _authorService.Updated += _authorService_Updated;
             _authorService_Updated(this, new EventArgs());
 
@@ -109,7 +109,11 @@ namespace Library
             }
         }
 
-        //Listen to enter key down
+        /// <summary>
+        /// Listen to enter key down
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_SaveBook_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
