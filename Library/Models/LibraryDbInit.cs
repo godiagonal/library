@@ -39,6 +39,12 @@ namespace Library.Models
                 PersonalNumber = "19500721"
             };
 
+            Member stackis = new Member()
+            {
+                Name = "Stack Overflow",
+                PersonalNumber = "11670723"
+            };
+
             // Authors
             Author alexDumas = new Author()
             {
@@ -200,10 +206,20 @@ namespace Library.Models
                 TimeOfReturn = DateTime.Now.AddDays(-5)
             };
 
+            Loan lostSymbolLoan2 = new Loan()
+            {
+                Member = stackis,
+                TimeOfLoan = DateTime.Now.AddDays(-25),
+                BookCopy = lostSymbol1,
+                DueDate = DateTime.Now,
+                TimeOfReturn = DateTime.Now.AddDays(-16)
+            };
+
             // Add the objects to the DbSet
             context.Members.Add(samuel);
             context.Members.Add(lukas);
             context.Members.Add(sven);
+            context.Members.Add(stackis);
             context.Books.Add(monteCristo);
             context.Books.Add(musketeers);
             context.Books.Add(daVinciCode);
