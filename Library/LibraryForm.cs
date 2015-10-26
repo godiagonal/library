@@ -532,15 +532,36 @@ namespace Library
             grd_Loans.Rows.Clear();
             foreach (Loan loan in loans)
             {
-                grd_Loans.Rows.Add(
-                    loan.Id,
-                    loan.BookCopy.Id,
-                    loan.Member.Name,
-                    loan.BookCopy.Book.Title,
-                    loan.BookCopy.Book.Author,
-                    loan.DueDate.ToShortDateString(),
-                    loan.TimeOfReturn.HasValue ? loan.TimeOfReturn.Value.ToShortDateString() : ""
-                );
+                DataGridViewRow row = new DataGridViewRow();
+
+                DataGridViewTextBoxCell id = new DataGridViewTextBoxCell();
+                id.Value = loan.Id;
+
+                DataGridViewTextBoxCell copyId = new DataGridViewTextBoxCell();
+                id.Value = loan.BookCopy.Id;
+
+                DataGridViewTextBoxCell member = new DataGridViewTextBoxCell();
+                member.Value = loan.Member.Name;
+
+                DataGridViewTextBoxCell title = new DataGridViewTextBoxCell();
+                title.Value = loan.BookCopy.Book.Title;
+
+                DataGridViewTextBoxCell author = new DataGridViewTextBoxCell();
+                author.Value = loan.BookCopy.Book.Author.Name;
+
+                DataGridViewTextBoxCell dueDate = new DataGridViewTextBoxCell();
+                dueDate.Value = loan.DueDate.ToShortDateString();
+
+                // Mark as red if due date has passed and the book is not returned
+                if (!loan.TimeOfReturn.HasValue)
+                    MarkIfPassedDueDate(dueDate, loan.DueDate);
+
+                DataGridViewTextBoxCell timeOfReturn = new DataGridViewTextBoxCell();
+                timeOfReturn.Value = loan.TimeOfReturn.HasValue ? loan.TimeOfReturn.Value.ToShortDateString() : "";
+
+                row.Cells.AddRange(new DataGridViewCell[] { id, copyId, member, title, author, dueDate, timeOfReturn });
+
+                grd_Loans.Rows.Add(row);
             }
         }
 
